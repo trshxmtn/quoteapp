@@ -1,20 +1,20 @@
-<!--<div class="container">-->
+<div class="container">
 
-<!--  <div class="row">-->
-
-
-    <%# @rhetorics.each do |rhetoric| %>
-
-<!--      <div class="col-sm-4">-->
-
-<!--        <div class="img"><%#= link_to image_tag(image_rhetoric_path(rhetoric)),rhetoric %></div>-->
-
-<!--      </div>-->
+  <div class="row">
 
 
-    <%# end %>
+    <% @rhetorics.each do |rhetoric| %>
 
-<!--  </div>-->
+      <div class="col-sm-4">
+
+        <div class="img"><%= link_to image_tag(image_rhetoric_path(rhetoric)),rhetoric %></div>
+
+      </div>
 
 
-<!--</div>-->
+    <% end %>
+
+  </div>
+
+
+</div>
