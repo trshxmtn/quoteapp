@@ -1,15 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Rhetori</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Rhetori</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+
+<header>
+
+  <nav class="navbar navbar-default">
+
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to 'rhetoric', root_path, class: "navbar-brand" %>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <%# if user_signed_in? %>
+          <li><%= link_to "New rhetoric", new_rhetoric_path %></li>
+<!--          <li><%#= link_to 'プロフィール変更', edit_user_registration_path %></li>-->
+<!--          <li> <%#= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>-->
+        <%# else %>
+<!--          <li><%#= link_to 'サインアップ', new_user_registration_path %></li>-->
+<!--          <li><%#= link_to 'ログイン', new_user_session_path %></li>-->
+        <%# end %>
+      </ul>
+
+    </div>
+
+  </nav>
+
+</header>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+
+<%= yield %>
+
+</body>
 </html>

@@ -1,2 +1,8 @@
-<h1>Rhetorics#edit</h1>
-<p>Find me in app/views/rhetorics/edit.html.erb</p>
+<%= @rhetoric.title %>
+
+<%= @rhetoric.meigen %>
+
+<p><%= @rhetoric.description %></p>
+
+<%= link_to "Back", root_path %>
+<%= link_to "Delete", rhetoric_path, method: :delete, data: {confirm: "Are you sure??"} %>
