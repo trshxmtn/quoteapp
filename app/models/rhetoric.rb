@@ -1,0 +1,2 @@
+class Rhetoric < ApplicationRecord
+end
