@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   get 'rhetorics/edit'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'rhetorics#index'
-  resources :rhetorics
+  resources :rhetorics do
+    member do
+      get :image
+    end
+  end
 end

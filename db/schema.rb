@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_26_181132) do
+ActiveRecord::Schema.define(version: 2019_05_26_192534) do
 
   create_table "rhetorics", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 2019_05_26_181132) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "ctype"
+    t.binary "image"
+    t.index ["user_id"], name: "index_rhetorics_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

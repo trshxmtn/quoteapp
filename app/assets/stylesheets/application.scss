@@ -16,3 +16,15 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body{
+  background-color: #404040;
+  color: white;
+}
+
+.img{
+  width: 300px;
+  max-width :100%;
+  height: auto;
+  margin: 10px;
+}
