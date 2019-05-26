@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   get 'rhetorics/index'
   get 'rhetorics/new'
@@ -10,4 +11,6 @@ Rails.application.routes.draw do
       get :image
     end
   end
+
+  resources :users, only: [:show]
 end

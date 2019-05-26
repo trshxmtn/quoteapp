@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_26_192534) do
+ActiveRecord::Schema.define(version: 2019_05_26_220500) do
 
   create_table "rhetorics", force: :cascade do |t|
     t.string "title"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2019_05_26_192534) do
     t.integer "user_id"
     t.string "ctype"
     t.binary "image"
+    t.string "username"
+    t.text "profile"
     t.index ["user_id"], name: "index_rhetorics_on_user_id"
   end
 
@@ -34,6 +36,8 @@ ActiveRecord::Schema.define(version: 2019_05_26_192534) do
     t.datetime "updated_at", null: false
     t.string "uid"
     t.string "provider"
+    t.string "username"
+    t.text "profile"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
