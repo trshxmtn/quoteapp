@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_26_220500) do
+ActiveRecord::Schema.define(version: 2019_06_16_202501) do
+
+  create_table "picks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "rhetoric_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rhetoric_id"], name: "index_picks_on_rhetoric_id"
+    t.index ["user_id", "rhetoric_id"], name: "index_picks_on_user_id_and_rhetoric_id", unique: true
+    t.index ["user_id"], name: "index_picks_on_user_id"
+  end
 
   create_table "rhetorics", force: :cascade do |t|
     t.string "title"

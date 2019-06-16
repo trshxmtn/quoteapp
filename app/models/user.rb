@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
   has_many :rhetorics
+  has_many :picks, dependent: :destroy
 
 
   def self.find_for_oauth(auth)
