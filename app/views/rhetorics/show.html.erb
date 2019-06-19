@@ -6,3 +6,9 @@
 
 <%= link_to "Back", root_path %>
 <%= link_to "Delete", rhetoric_path, method: :delete, data: {confirm: "Are you sure??"} %>
+
+<% if Pick.find_by(user_id: current_user.id, rhetoric_id: @rhetoric.id) %>
+  <%= link_to("Unpick", "/picks/#{@rhetoric.id}/destroy", {method: "post"}) %>
+<% else %>
+  <%= link_to("Pick！", "/picks/#{@rhetoric.id}/create", {method: "post"}) %>
+<% end %>

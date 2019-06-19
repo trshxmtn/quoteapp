@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_16_202501) do
+ActiveRecord::Schema.define(version: 2019_06_18_231336) do
 
   create_table "picks", force: :cascade do |t|
     t.integer "user_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_06_16_202501) do
     t.binary "image"
     t.string "username"
     t.text "profile"
+    t.integer "picks_count", default: 0, null: false
     t.index ["user_id"], name: "index_rhetorics_on_user_id"
   end
 
