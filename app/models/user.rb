@@ -3,7 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
-  has_many :rhetorics
+  has_many :rhetorics, dependent: :destroy
+  has_many :picks, dependent: :destroy
+  # has_many :pick_rhetorics, through: :picks, source: :rhetoric
 
 
   def self.find_for_oauth(auth)
@@ -23,6 +25,7 @@ class User < ApplicationRecord
 
     user
   end
+
 
   private
 

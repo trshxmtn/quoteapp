@@ -1,5 +1,5 @@
 class RhetoricsController < ApplicationController
-  before_action :find_rhetoric, only: [:show,:destroy, :image]
+  before_action :find_rhetoric, only: [:show, :destroy, :image]
   include RhetoricsHelper
 
   def index
