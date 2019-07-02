@@ -7,6 +7,9 @@ class RhetoricsController < ApplicationController
   end
 
   def show
+    @rhetoric = Rhetoric.find(params[:id])
+    @comment = Comment.new
+    @comments = @rhetoric.comments
   end
 
   def new

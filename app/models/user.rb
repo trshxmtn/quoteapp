@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :rhetorics, dependent: :destroy
   has_many :picks, dependent: :destroy
   # has_many :pick_rhetorics, through: :picks, source: :rhetoric
+  has_many :comments,dependent: :destroy
 
 
   def self.find_for_oauth(auth)
