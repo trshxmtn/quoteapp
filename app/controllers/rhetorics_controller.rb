@@ -19,7 +19,9 @@ class RhetoricsController < ApplicationController
   def create
     @rhetoric = current_user.rhetorics.build(rhetoric_params)
     prepare_rhetoric_image
+    speaker_list = params[:tag_name].split(",")
     if @rhetoric.save
+      @rhetoric.save_speakers(speaker_list)
       flash[:success] = "rhetoricが作成されました！"
       redirect_to @rhetoric
     else
