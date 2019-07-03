@@ -1,0 +1,29 @@
+<%= @rhetoric.title %>
+
+<%= @rhetoric.meigen %>
+
+<p><%= @rhetoric.description %></p>
+
+<div>
+  <h4>コメント</h4>
+  <div id="comments_area"><!-- #① -->
+    <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+    <%= render partial: 'comments/index', locals: { comments: @comments } %>
+  </div>
+  <% if user_signed_in? %>
+    <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+    <%= render partial: 'comments/form', locals: { comment: @comment, rhetoric: @rhetoric } %>
+  <% end %>
+</div>
+
+
+
+<%= link_to "Back", root_path %>
+<%= link_to "Delete", rhetoric_path, method: :delete, data: {confirm: "Are you sure??"} %>
+
+<% if Pick.find_by(user_id: current_user.id, rhetoric_id: @rhetoric.id) %>
+  <%= link_to("Unpick", "/picks/#{@rhetoric.id}/destroy", {method: "post"}) %>
+<% else %>
+  <%= link_to("Pick！", "/picks/#{@rhetoric.id}/create", {method: "post"}) %>
+<% end %>
+
