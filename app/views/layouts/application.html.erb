@@ -12,26 +12,35 @@
 <body>
 
 <header>
-
-  <div class="navbar">
-      <div class="navbar-logo">
-        <%= link_to 'Quote', root_path, class: "navbar-brand" %>
+  <div class="header">
+      <div class="header-logo">
+        <%= link_to 'Quote', root_path %>
       </div>
 
-      <ul class="navbar-right" style="list-style: none; padding-left: 0;">
-
-        <% if user_signed_in? %>
-          <li><%= link_to "New rhetoric", new_rhetoric_path %></li>
-          <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
-          <li> <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to 'アカウント作成', new_user_registration_path %></li>
-          <li><%= link_to 'ログイン', new_user_session_path %></li>
-        <% end %>
+      <ul class="header-right">
+        <div class="navToggle">
+          <span></span><span></span><span></span>
+        </div>
+        <nav class="globalMenuSp">
+          <ul>
+            <% if user_signed_in? %>
+              <li>Quoteとは</li>
+              <li><%= link_to 'アカウント設定', edit_user_registration_path %></li>
+              <li>お問い合わせ</li>
+              <li>利用規約・プライバシー</li>
+              <li><%= link_to "New rhetoric", new_rhetoric_path %></li>
+              <li> <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li>Quoteとは</li>
+              <li>お問い合わせ</li>
+              <li>利用規約</li>
+              <li><%= link_to 'アカウント作成', new_user_registration_path %></li>
+              <li><%= link_to 'ログイン', new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </nav>
       </ul>
-
-  </dav>
-
+  </div>
 </header>
 
 <p class="notice"><%= notice %></p>

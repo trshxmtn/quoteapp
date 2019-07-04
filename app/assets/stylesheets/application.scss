@@ -62,9 +62,9 @@ body{
 
 // navbar
 
-.navbar{
+.header{
   position: fixed;
-  z-index: 999;
+  z-index: 1;
   width: 100%;
   height: 50px;
   padding-right: 20px;
@@ -74,10 +74,121 @@ body{
   font-weight: bold;
 }
 
-.navbar-right li{
+.header-logo{
+  float: left;
+  padding-left: 20px;
+  font-size: 22px;
+  line-height: 50px;
+}
+
+.header-right{
+  float: right;
+  padding-right: 20px;
+}
+
+.header-right li{
+  float: left;
   text-align: center;
   float: left;
   padding: 15px 30px 15px 0px;
+}
+
+
+
+// nav-menu
+
+nav.globalMenuSp {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  background: #fff;
+  color: #2b2b2b;
+  transform: translateY(-100%);
+  transition: all 0s;
+  width: 250px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  padding: 70px 20px 20px 20px;
+}
+
+nav.globalMenuSp ul {
+  background: #ffffff;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+nav.globalMenuSp ul li {
+  font-size: 1.1em;
+  padding: 0px 20px 0px 0px;
+  width: 100%;
+  padding: 1em 0 1em 1em;
+  text-align: left;
+}
+
+nav.globalMenuSp ul li a {
+  display: block;
+  color: #2b2b2b;
+
+}
+
+/* このクラスを、jQueryで付与・削除する */
+nav.globalMenuSp.active {
+  transform: translateY(0%);
+}
+
+.navToggle {
+  display: block;
+  position: fixed;
+  right: 12px;
+  top: 12px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 3;
+  background: #ffffff;
+  text-align: center;
+}
+
+.navToggle span {
+  display: block;
+  position: absolute;    /* .navToggleに対して */
+  width: 20px;
+  border-bottom: solid 2px #2b2b2b;
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+  left: 6px;
+}
+
+.navToggle span:nth-child(1) {
+  top: 9px;
+}
+
+.navToggle span:nth-child(2) {
+  top: 18px;
+}
+
+.navToggle span:nth-child(3) {
+  top: 27px;
+}
+
+.navToggle.active span:nth-child(1) {
+  top: 18px;
+  left: 6px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+/* 2番目と3番目のspanを45度に */
+.navToggle.active span:nth-child(2),
+.navToggle.active span:nth-child(3) {
+  top: 18px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 
