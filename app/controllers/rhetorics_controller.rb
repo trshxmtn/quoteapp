@@ -41,11 +41,6 @@ class RhetoricsController < ApplicationController
 
     private
 
-  #テーブル設計を考え直す
-  #テーブル命
-  #テーブル卍
-  #もっち
-  # ユーザーとrhetoricをきりはなせば良い問題
 
   def rhetoric_params
     params.require(:rhetoric).permit(:title, :description, :meigen)
