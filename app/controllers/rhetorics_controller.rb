@@ -19,8 +19,12 @@ class RhetoricsController < ApplicationController
   def create
     @rhetoric = current_user.rhetorics.build(rhetoric_params)
     prepare_rhetoric_image
+<<<<<<< HEAD
     speaker_list = params[:speaker_name].split(",")
     debugger
+=======
+    speaker_list = params[:tag_name].split(",")
+>>>>>>> develop
     if @rhetoric.save
       @rhetoric.save_speakers(speaker_list)
       flash[:success] = "rhetoricが作成されました！"
@@ -41,7 +45,10 @@ class RhetoricsController < ApplicationController
 
     private
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
   def rhetoric_params
     params.require(:rhetoric).permit(:title, :description, :meigen)
   end
