@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_08_080622) do
+ActiveRecord::Schema.define(version: 2019_07_08_081758) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -28,16 +28,6 @@ ActiveRecord::Schema.define(version: 2019_07_08_080622) do
     t.index ["rhetoric_id"], name: "index_picks_on_rhetoric_id"
     t.index ["user_id", "rhetoric_id"], name: "index_picks_on_user_id_and_rhetoric_id", unique: true
     t.index ["user_id"], name: "index_picks_on_user_id"
-  end
-
-  create_table "rhetoric_speakers", force: :cascade do |t|
-    t.integer "speaker_id"
-    t.integer "rhetoric_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["rhetoric_id", "speaker_id"], name: "index_rhetoric_speakers_on_rhetoric_id_and_speaker_id", unique: true
-    t.index ["rhetoric_id"], name: "index_rhetoric_speakers_on_rhetoric_id"
-    t.index ["speaker_id"], name: "index_rhetoric_speakers_on_speaker_id"
   end
 
   create_table "rhetorics", force: :cascade do |t|
