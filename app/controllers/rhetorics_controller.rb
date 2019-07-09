@@ -39,7 +39,7 @@ class RhetoricsController < ApplicationController
     private
 
   def rhetoric_params
-    params.require(:rhetoric).permit(:title, :description, :meigen)
+    params.require(:rhetoric).permit(:title, :description, :meigen, :tag_list, :speaker_list )
   end
 
   def find_rhetoric
@@ -52,5 +52,6 @@ class RhetoricsController < ApplicationController
     @rhetoric.image = rhetoric_image.tempfile.open.read
     @rhetoric.ctype = rhetoric_image.mime_type
   end
+
 
 end
