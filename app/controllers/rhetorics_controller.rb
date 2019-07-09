@@ -3,7 +3,7 @@ class RhetoricsController < ApplicationController
   include RhetoricsHelper
 
   def index
-    @rhetorics = Rhetoric.all.order("created_at DESC")
+    @rhetorics = Rhetoric.all.order("created_at DESC").search(params[:search])
   end
 
   def show

@@ -17,6 +17,14 @@
         <%= link_to 'Quote', root_path %>
       </div>
 
+      <div class="header-search">
+        <%= form_tag(rhetorics_path, :method => 'get') do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search" , :name => nil %>
+        <% end %>
+
+      </div>
+
       <ul class="header-right">
         <div class="navToggle">
           <span></span><span></span><span></span>
