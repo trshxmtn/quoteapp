@@ -20,7 +20,6 @@
 
 // all
 .img{
-  width: 300px;
   max-width :100%;
   height: auto;
   margin: 10px;
@@ -35,6 +34,7 @@ ul, li {
 a {
   text-decoration: none;
   color: #2b2b2b;
+  width: 100px
 }
 
 p {
@@ -55,7 +55,7 @@ body{
 }
 
 .container {
-  max-width: 600px;
+  max-width: 80%;
   margin: 60px auto;
   padding: 0px 15px;
   clear: both;
@@ -96,6 +96,10 @@ body{
   padding: 15px 30px 15px 0px;
 }
 
+.header-search{
+  text-align: center;
+  margin-top: 10px;
+}
 
 
 // nav-menu
@@ -233,4 +237,27 @@ nav.globalMenuSp.active {
 
 .signup-signin-message h1, h4{
   font-weight: bold;
+}
+
+
+
+// rhetoric
+
+.row{
+  padding: 0% 15%;
+}
+
+.col-xs-5{
+  margin: 1% 4%;
+  padding: 1%;
+}
+
+.rhetoric-index-img{
+  background-color: #2b2b2b;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  border-radius: 3%;
+}
+
+.col-xs-5 a img{
+  width: 100%;
 }
