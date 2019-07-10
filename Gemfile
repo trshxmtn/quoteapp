@@ -16,9 +16,13 @@ gem 'mini_magick'
 gem 'simple_form'
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-twitter'
+gem 'omniauth-twitter' #Twitter認証
 gem 'counter_culture', '~> 1.8'
-gem 'acts-as-taggable-on', '~> 6.0'
+gem 'acts-as-taggable-on', '~> 6.0' #タグ付け
+gem 'carrierwave' #画像アップロード
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -47,6 +51,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'fog'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
