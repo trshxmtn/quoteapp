@@ -1,7 +1,10 @@
 
-<%= @rhetoric.meigen %>
+<%= image_tag(image_rhetoric_path(@rhetoric)) %>
 
 <p><%= @rhetoric.description %></p>
+
+<td><%= render 'rhetorics/tag_list', tag_list: @rhetoric.speaker_list %></td>
+<td><%= render 'rhetorics/tag_list', tag_list: @rhetoric.tag_list %></td>
 
 <div>
   <h4>コメント</h4>

@@ -17,6 +17,14 @@
         <%= link_to 'Quote', root_path %>
       </div>
 
+      <div class="header-search">
+        <%= form_tag(rhetorics_path, :method => 'get') do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search" , :name => nil %>
+        <% end %>
+
+      </div>
+
       <ul class="header-right">
         <div class="navToggle">
           <span></span><span></span><span></span>
@@ -25,7 +33,7 @@
           <ul>
             <% if user_signed_in? %>
               <li>Quoteとは</li>
-              <li><%= link_to 'アカウント設定', edit_user_registration_path %></li>
+              <li><%= link_to 'アカウント設定', profile_path(current_user) %></li>
               <li>お問い合わせ</li>
               <li>利用規約・プライバシー</li>
               <li><%= link_to "新しい言葉を追加", new_rhetoric_path %></li>

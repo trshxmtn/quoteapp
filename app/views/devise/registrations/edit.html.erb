@@ -24,7 +24,10 @@
                 input_html: { autocomplete: "current-password" } %>
   </div>
 
-  <%= f.input :profile,autofocus: true %>
+  <span class="picture">
+    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
+
 
   <div class="form-actions">
     <%= f.button :submit, "Update" %>
