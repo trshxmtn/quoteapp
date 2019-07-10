@@ -1,0 +1,15 @@
+<h1>Your Account</h1>
+
+<%= image_tag @user.picture.url if @user.picture? %>
+
+<p>名前 : <%= @user.username %></p>
+<p>メールアドレス : <%= @user.email %></p>
+
+<section class="stats">
+  <%= render 'devise/shared/stats' %>
+</section>
+<section>
+  <%= render 'devise/shared/follow_form' if user_signed_in? %>
+</section>
+
+<%= link_to "編集", edit_user_registration_path %>

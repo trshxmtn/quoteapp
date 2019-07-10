@@ -1,9 +1,9 @@
 class RhetoricsController < ApplicationController
-  before_action :find_rhetoric, only: [:show, :destroy, :image]
+  before_action :find_rhetoric, only: [:show, :destroy, :image, :edit, :update]
   include RhetoricsHelper
 
   def index
-    @rhetorics = Rhetoric.all.order("created_at DESC")
+    @rhetorics = Rhetoric.all.order("created_at DESC").search(params[:search])
   end
 
   def show
@@ -30,6 +30,19 @@ class RhetoricsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    prepare_rhetoric_image
+    if @rhetoric.update(rhetoric_params)
+      flash[:success] = "rhetoricが編集されました！"
+      redirect_to @rhetoric
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     @rhetoric.destroy
     redirect_to root_path
@@ -43,7 +56,7 @@ class RhetoricsController < ApplicationController
 
 
   def rhetoric_params
-    params.require(:rhetoric).permit(:title, :description, :meigen)
+    params.require(:rhetoric).permit(:title, :description, :meigen, :tag_list, :speaker_list )
   end
 
   def find_rhetoric
@@ -56,5 +69,6 @@ class RhetoricsController < ApplicationController
     @rhetoric.image = rhetoric_image.tempfile.open.read
     @rhetoric.ctype = rhetoric_image.mime_type
   end
+
 
 end
