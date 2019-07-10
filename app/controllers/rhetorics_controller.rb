@@ -1,5 +1,5 @@
 class RhetoricsController < ApplicationController
-  before_action :find_rhetoric, only: [:show, :destroy, :image]
+  before_action :find_rhetoric, only: [:show, :destroy, :image, :edit, :update]
   include RhetoricsHelper
 
   def index
@@ -24,6 +24,19 @@ class RhetoricsController < ApplicationController
       redirect_to @rhetoric
     else
       render 'new'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    prepare_rhetoric_image
+    if @rhetoric.update(rhetoric_params)
+      flash[:success] = "rhetoricが編集されました！"
+      redirect_to @rhetoric
+    else
+      render 'edit'
     end
   end
 
