@@ -6,10 +6,12 @@
   <div class="form-inputs">
     <%= f.input :username,
                 autofocus: true,
-                :placeholder => "ユーザー名" %>
+                :placeholder => "ユーザー名",
+                label: false %>
     <%= f.input :email, 
                 required: true, 
                 :placeholder => "メールアドレス",
+                label: false,
                 autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -20,15 +22,18 @@
                 hint: "leave it blank if you don't want to change it",
                 required: false,
                 :placeholder => "パスワード",
+                label: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
                 :placeholder => "確認用パスワード",
+                label: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 :placeholder => "現在のパスワード",
+                label: false,
                 input_html: { autocomplete: "current-password" } %>
   </div>
 
