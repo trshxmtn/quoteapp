@@ -1,0 +1,27 @@
+
+<h1>Quote編集</h1>
+
+<%= form_for(@rhetoric) do |f| %>
+  <div class="form-group">
+    <%= f.label :meigen %>
+    <%= f.text_field :meigen, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :speaker_list,:speaker_list %>
+    <%= f.text_field :speaker_list, value: @rhetoric.speaker_list.join(','),class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tag_list %>
+    <%= f.text_field :tag_list , value: @rhetoric.tag_list.join(','),class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
+<%= link_to 'Back', root_path %>
