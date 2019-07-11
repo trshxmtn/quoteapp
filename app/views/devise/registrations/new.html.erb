@@ -11,17 +11,22 @@
     <div class="form-body">
       <div class="form-inputs">
         <div class="form-inputs-text">
-        <%= f.input :username, autofocus: true %>
+        <%= f.input :username, 
+                    autofocus: true,  
+                    :placeholder => "ユーザー名" %>
         <%= f.input :email,
                     required: true,
+                    :placeholder => "メールアドレス",
                     autofocus: true,
                     input_html: { autocomplete: "email" }%>
         <%= f.input :password,
                     required: true,
+                    :placeholder => "パスワード",
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :password_confirmation,
                     required: true,
+                    :placeholder => "確認用パスワード",
                     input_html: { autocomplete: "new-password" } %>
         </div>
       </div>

@@ -11,9 +11,13 @@
                 label: "New password",
                 required: true,
                 autofocus: true,
+                :placeholder => "パスワード",
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation, label: "Confirm your new password", required: true %>
+    <%= f.input :password_confirmation, 
+                label: "Confirm your new password", 
+                :placeholder => "確認用パスワード",
+                required: true %>
   </div>
 
   <div class="form-actions">
