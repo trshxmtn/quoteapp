@@ -23,7 +23,7 @@
         </div>
         <div class="search-input">
         <%= form_tag(rhetorics_path, :method => 'get') do %>
-          <%= text_field_tag :search, params[:search] %>
+          <%= text_field_tag :search, params[:search], placeholder: '検索' %>
           <%= submit_tag "検索" , :name => nil %>
         <% end %>
         </div>
