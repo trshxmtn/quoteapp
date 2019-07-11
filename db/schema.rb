@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_07_10_064144) do
 
   create_table "comments", force: :cascade do |t|
@@ -42,7 +41,6 @@ ActiveRecord::Schema.define(version: 2019_07_10_064144) do
   end
 
   create_table "rhetorics", force: :cascade do |t|
-    t.string "title"
     t.text "meigen"
     t.text "description"
     t.datetime "created_at", null: false
@@ -50,8 +48,6 @@ ActiveRecord::Schema.define(version: 2019_07_10_064144) do
     t.integer "user_id"
     t.string "ctype"
     t.binary "image"
-    t.string "username"
-    t.text "profile"
     t.integer "picks_count", default: 0, null: false
     t.index ["user_id"], name: "index_rhetorics_on_user_id"
   end
