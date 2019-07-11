@@ -37,19 +37,9 @@ a {
   width: 100px
 }
 
-a:hover{
-  text-decoration: none;
-}
-
 p {
   margin: 0px;
 }
-
-input{
-  outline: 0;
-}
-
-
 
 
 // layout
@@ -73,7 +63,7 @@ body{
 
 
 
-// header
+// navbar
 
 .header{
   position: fixed;
@@ -94,40 +84,6 @@ body{
   line-height: 50px;
 }
 
-.header-search{
-  float: left;
-  margin-left: 20px;
-  width: 60%;
-  height: 30px;
-  border-radius: 15px;
-  background-color: #EFEFEF;
-}
-
-.search-input form{
-  height: 30px;
-}
-
-.search-input input[type="text"]{
-  float: left;
-  height: 100%;
-  width: 90%;
-  margin-left: 20px;
-  background-color: transparent;
-  border: 0px;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 0;
-}
-
-.search-input input[type="submit"]{
-  height: 30px;
-  padding-right: 20px;
-  float: right;
-  background-color: transparent;
-  color: #2b2b2b;
-  border: 0;
-}
-
 .header-right{
   float: right;
   padding-right: 20px;
@@ -144,8 +100,6 @@ body{
   text-align: center;
   margin-top: 10px;
 }
-
-
 
 
 // nav-menu
@@ -186,6 +140,7 @@ nav.globalMenuSp ul li a {
 
 }
 
+/* このクラスを、jQueryで付与・削除する */
 nav.globalMenuSp.active {
   transform: translateY(0%);
 }
@@ -200,13 +155,17 @@ nav.globalMenuSp.active {
   cursor: pointer;
   z-index: 3;
   background: #ffffff;
+  text-align: center;
 }
 
 .navToggle span {
   display: block;
-  position: absolute;  
+  position: absolute;    /* .navToggleに対して */
   width: 20px;
   border-bottom: solid 2px #2b2b2b;
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
   left: 15px;
 }
 
@@ -230,6 +189,7 @@ nav.globalMenuSp.active {
   transform: rotate(-45deg);
 }
 
+/* 2番目と3番目のspanを45度に */
 .navToggle.active span:nth-child(2),
 .navToggle.active span:nth-child(3) {
   top: 25px;
@@ -237,7 +197,6 @@ nav.globalMenuSp.active {
   -moz-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-
 
 
 
