@@ -98,19 +98,16 @@ body{
 
 .search-icon{
   float: left;
-  display: block;
   height: 30px;
   width: 30px;
   margin: 0 6px;
-  vertical-align: middle;
-  display: inline-block;
   text-align: center;
 }
 
 .my-search {
-  height: 30px;
-  width: 30px;
   color: #8e8e8e;
+  display: table-cell;
+  padding-top: 7.5px;
 }
 
 .search-input form{
@@ -262,13 +259,49 @@ nav.globalMenuSp.active {
   margin: 40px auto;
 }
 
-.form-group{
+.form-outline{
   background-color: #ffffff;
   box-shadow: 0 3px 10px rgba(0,0,0,0.2);
   margin-bottom: 20px;
   height: 40px;
   width: 400px;
   border-radius: 20px;
+}
+
+.form-group {
+  float: left;
+  width: 320px;
+  margin: 0;
+}
+
+.form-icon {
+  height: 40px;
+  width: 40px;
+  float: left;
+  margin: 0 6px;
+  text-align: center;
+}
+
+.my-email {
+  color: #8e8e8e;
+  display: table-cell;
+  padding-top: 12px;
+}
+
+.my-password {
+  color: #8e8e8e;
+  display: table-cell;
+  padding-top: 12px;
+}
+
+.my-user {
+  color: #8e8e8e;
+  display: table-cell;
+  padding-top: 12px;
+}
+
+.form-control {
+  padding: 6px 12px 6px 0px;
 }
 
 .form-group.boolean {
@@ -281,9 +314,7 @@ nav.globalMenuSp.active {
   font-size: 16px;
   font-weight: 400;
   height: 40px;
-  width: 80%;
   border: 0;
-  margin-left: 20px;
   outline: 0;
 }
 
