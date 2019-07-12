@@ -13,21 +13,22 @@
 
 <header>
   <div class="header">
-      <div class="header-logo">
-        <%= link_to 'Quote', root_path %>
-      </div>
-
+    <div class="header-logo">
+      <%= link_to 'Quote', root_path %>
+    </div>
+    <% if user_signed_in? %>
       <div class="header-search">
-        <%= form_tag(rhetorics_path, :method => 'get') do %>
-
-          <%= text_field_tag :search, params[:search], placeholder: '検索' %>
-          <%= submit_tag "検索" , :name => nil %>
-
-        <% end %>
-
+        <div class="search-icon">
+        </div>
+        <div class="search-input">
+          <%= form_tag(rhetorics_path, :method => 'get') do %>
+            <%= text_field_tag :search, params[:search], placeholder: '検索' %>
+            <%= submit_tag "検索" , :name => nil %>
+          <% end %>
+        </div>
       </div>
-
-      <ul class="header-right">
+    <% end %>
+    <ul class="header-right">
         <div class="navToggle">
           <span></span><span></span><span></span>
         </div>
