@@ -22,8 +22,10 @@
 
       <div class="header-search">
         <%= form_tag(rhetorics_path, :method => 'get') do %>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search" , :name => nil %>
+
+          <%= text_field_tag :search, params[:search], placeholder: '検索' %>
+          <%= submit_tag "検索" , :name => nil %>
+
         <% end %>
 
       </div>
