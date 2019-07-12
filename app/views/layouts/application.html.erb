@@ -7,6 +7,7 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://kit.fontawesome.com/1471aca7cc.js"></script>
 </head>
 
 <body>
@@ -19,6 +20,7 @@
     <% if user_signed_in? %>
       <div class="header-search">
         <div class="search-icon">
+          <i class="fa fa-search fa-lg my-search"></i>
         </div>
         <div class="search-input">
           <%= form_tag(rhetorics_path, :method => 'get') do %>

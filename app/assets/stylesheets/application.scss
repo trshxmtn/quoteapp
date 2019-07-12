@@ -42,6 +42,8 @@ p {
 }
 
 
+
+
 // layout
 
 body{
@@ -94,6 +96,23 @@ body{
   background-color: #EFEFEF;
 }
 
+.search-icon{
+  float: left;
+  display: block;
+  height: 30px;
+  width: 30px;
+  margin: 0 6px;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+}
+
+.my-search {
+  height: 30px;
+  width: 30px;
+  color: #8e8e8e;
+}
+
 .search-input form{
   height: 30px;
 }
@@ -102,7 +121,6 @@ body{
   float: left;
   height: 100%;
   width: 80%;
-  margin-left: 20px;
   background-color: transparent;
   border: 0px;
   font-size: 16px;
