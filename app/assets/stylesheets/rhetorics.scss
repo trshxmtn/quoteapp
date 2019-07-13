@@ -143,10 +143,24 @@
 }
 
 .detail p {
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 300;
   color: #8b8b8b;
   margin-bottom: 10px;
+}
+
+.tag {
+  display: inline;
+  background-color: #efefef;
+  color: #8b8b8b;
+  padding: 4px 8px;
+  margin: 3px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 500;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .edit-and-delete-rhetoric {

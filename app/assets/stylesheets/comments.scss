@@ -50,11 +50,17 @@
     padding: 10px;
     color: #2b2b2b;
     font-size: 8px;
+    word-wrap: break-word;
 }
 
 .comment-delete {
     float: right;
     margin: 0 15px 0px 0;
+}
+
+.comment-delete a {
+    font-size: 8px;
+    color: #8b8b8b;
 }
 
 .my-comment-delete {

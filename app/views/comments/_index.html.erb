@@ -23,7 +23,7 @@
 
       <% if comment.user == current_user %>
         <div class="comment-delete">
-          <%= link_to rhetoric_comment_path(comment.rhetoric_id, comment.id), method: :delete, remote: true %>
+          <%= link_to 'コメントを削除する', rhetoric_comment_path(comment.rhetoric_id, comment.id), method: :delete, remote: true %>
             <i class="fas fa-trash-alt my-comment-delete"></i>
           <% end %>
         </div>
