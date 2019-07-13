@@ -42,6 +42,8 @@ p {
 }
 
 
+
+
 // layout
 
 body{
@@ -63,7 +65,10 @@ body{
 
 
 
-// navbar
+
+
+
+// header
 
 .header{
   position: fixed;
@@ -94,6 +99,20 @@ body{
   background-color: #EFEFEF;
 }
 
+.search-icon{
+  float: left;
+  height: 30px;
+  width: 30px;
+  margin: 0 6px;
+  text-align: center;
+}
+
+.my-search {
+  color: #8e8e8e;
+  display: table-cell;
+  padding-top: 7.5px;
+}
+
 .search-input form{
   height: 30px;
 }
@@ -101,8 +120,7 @@ body{
 .search-input input[type="search"]{
   float: left;
   height: 100%;
-  width: 80%;
-  margin-left: 20px;
+  width: 90%;
   background-color: transparent;
   border: 0px;
   font-size: 16px;
@@ -111,14 +129,7 @@ body{
 }
 
 .search-input input[type="submit"]{
-  height: 30px;
-  width: 10%;
-  padding: 0;
-  margin-right: 5px;
-  float: right;
-  background-color: transparent;
-  color: #2b2b2b;
-  border: 0;
+  display: none;
 }
 
 .header-right{
@@ -137,6 +148,9 @@ body{
   text-align: center;
   margin-top: 10px;
 }
+
+
+
 
 
 // nav-menu
@@ -237,6 +251,8 @@ nav.globalMenuSp.active {
 
 
 
+
+
 // devise
 
 .form-body{
@@ -244,13 +260,49 @@ nav.globalMenuSp.active {
   margin: 40px auto;
 }
 
-.form-group{
+.form-outline{
   background-color: #ffffff;
   box-shadow: 0 3px 10px rgba(0,0,0,0.2);
   margin-bottom: 20px;
   height: 40px;
   width: 400px;
   border-radius: 20px;
+}
+
+.form-group {
+  float: left;
+  width: 320px;
+  margin: 0;
+}
+
+.form-icon {
+  height: 40px;
+  width: 40px;
+  float: left;
+  margin: 0 6px;
+  text-align: center;
+}
+
+.my-email {
+  color: #8e8e8e;
+  display: table-cell;
+  padding-top: 12px;
+}
+
+.my-password {
+  color: #8e8e8e;
+  display: table-cell;
+  padding-top: 12px;
+}
+
+.my-user {
+  color: #8e8e8e;
+  display: table-cell;
+  padding-top: 12px;
+}
+
+.form-control {
+  padding: 6px 12px 6px 0px;
 }
 
 .form-group.boolean {
@@ -263,9 +315,7 @@ nav.globalMenuSp.active {
   font-size: 16px;
   font-weight: 400;
   height: 40px;
-  width: 80%;
   border: 0;
-  margin-left: 20px;
   outline: 0;
 }
 
@@ -286,27 +336,4 @@ nav.globalMenuSp.active {
 
 .signup-signin-message h1, h4{
   font-weight: bold;
-}
-
-
-
-// rhetoric
-
-.row{
-  padding: 0% 15%;
-}
-
-.col-xs-5{
-  margin: 1% 4%;
-  padding: 1%;
-}
-
-.rhetoric-index-img{
-  background-color: #2b2b2b;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-  border-radius: 3%;
-}
-
-.col-xs-5 a img{
-  width: 100%;
 }
