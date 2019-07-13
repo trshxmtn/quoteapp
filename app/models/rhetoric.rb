@@ -9,13 +9,13 @@ class Rhetoric < ApplicationRecord
   # has_many :rhetoric_speakers,dependent: :destroy
   acts_as_taggable
   acts_as_taggable_on :speakers
-
-  def self.search(search)
-    if search
-      where(['meigen LIKE ?', "%#{search}%"])
-    else
-      all
-    end
-  end
+  #
+  # def self.search(search)
+  #   if search
+  #     where(['meigen LIKE ?', "%#{search}%"])
+  #   else
+  #     all
+  #   end
+  # end
 
 end
