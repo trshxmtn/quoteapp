@@ -3,8 +3,6 @@ class RhetoricsController < ApplicationController
   include RhetoricsHelper
 
   def index
-    @search = Rhetoric.ransack(params[:q])
-    @search_rhetorics = @search.result
   end
 
   def show
