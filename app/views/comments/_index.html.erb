@@ -3,6 +3,13 @@
     <% unless comment.id.nil? %>
     <div class="comment-left">
       <div class="comment-user-image">
+        <%= link_to profile_path(comment.user.id) do %>
+          <% if comment.user.picture? %>
+	          <%= image_tag comment.user.picture.url %>
+          <% else %>
+	          <%= image_tag("/images/default") %>
+          <% end %>
+        <% end %>
       </div>
     </div>
     
@@ -16,8 +23,8 @@
 
       <% if comment.user == current_user %>
         <div class="comment-delete">
-          <%= link_to rhetoric_comment_path(comment.rhetoric_id, comment.id),method: :delete, remote: true %>
-            <i class="fas fa-trash-alt"></i>
+          <%= link_to rhetoric_comment_path(comment.rhetoric_id, comment.id), method: :delete, remote: true %>
+            <i class="fas fa-trash-alt my-comment-delete"></i>
           <% end %>
         </div>
       <% end %>

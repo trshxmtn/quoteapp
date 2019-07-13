@@ -1,4 +1,10 @@
 <div class="main-rhetorics-show">
+  <div class="btn-back">
+    <%= link_to :back do %>
+      <i class="fas fa-angle-left my-back fa-lg"></i>
+    <% end %>
+  </div>
+
   <div class="container">
     <div class="row show">
 
@@ -9,18 +15,64 @@
       <div class="rhetoric-contents">
       
         <div class="share-like-area">
-          <div class="share">
-          </div>
-          <div class="like">
+          <div class="btn-area">
+            
+            <div class="btn-area-share">
+              <div class="count-share">
+              </div>
+              <div class="btn-share">
+                <i class="fas fa-share my-share fa-lg"></i>
+              </div>
+              <div class="message-share">
+                <h6>共有する</h6>
+              </div>
+            </div>
+            
+            <div class="btn-area-like">
+              <div class="count-like">
+              </div>
+              <% if Pick.find_by(user_id: current_user.id, rhetoric_id: @rhetoric.id) %>
+                <%= link_to("/picks/#{@rhetoric.id}/destroy", {method: "post"}) do %>
+                <div class="btn-liked">
+                  <i class="fas fa-heart my-liked fa-lg"></i>
+                </div>
+                <% end %>
+                <div class="message-like">
+                  <h6>いいねしました</h6>
+                </div>
+              <% else %>
+                <%= link_to("/picks/#{@rhetoric.id}/create", {method: "post"}) do %>
+                <div class="btn-like">
+                  <i class="far fa-heart my-like fa-lg"></i>
+                </div>
+                <% end %>
+                <div class="message-like">
+                  <h6>いいね</h6>
+                </div>
+              <% end %>
+              
+            </div>
+
           </div>
         </div>
 
         <div class="detail">
-          <p><%= @rhetoric.description %></p>
-
-          <td><%= render 'rhetorics/tag_list', tag_list: @rhetoric.speaker_list %></td>
-          <td><%= render 'rhetorics/tag_list', tag_list: @rhetoric.tag_list %></td>
+          <div class="rhetoric-discription">
+            <p><%= @rhetoric.description %></p>
+          </div>
+          <div class="rhetoric-tag">
+            <td><%= render 'rhetorics/tag_list', tag_list: @rhetoric.speaker_list %></td>
+            <td><%= render 'rhetorics/tag_list', tag_list: @rhetoric.tag_list %></td>
+          </div>
+          <% if @rhetoric.user == current_user %>
+          <div class="edit-and-delete-rhetoric">
+            <%= link_to "編集する", edit_rhetoric_path %>
+            <%= link_to "削除する", rhetoric_path, method: :delete, data: {confirm: "Are you sure??"} %>
+          </div>
+          <% end %>
         </div>
+
+        
 
         <h5>コメント</h5>
         <div class="comments">
@@ -35,17 +87,6 @@
             </div>
           <% end %>
         </div>
-
-
-        <%= link_to "Edit", edit_rhetoric_path %>
-        <%= link_to "Back", root_path %>
-        <%= link_to "Delete", rhetoric_path, method: :delete, data: {confirm: "Are you sure??"} %>
-
-        <% if Pick.find_by(user_id: current_user.id, rhetoric_id: @rhetoric.id) %>
-          <%= link_to("Unpick", "/picks/#{@rhetoric.id}/destroy", {method: "post"}) %>
-        <% else %>
-          <%= link_to("Pick！", "/picks/#{@rhetoric.id}/create", {method: "post"}) %>
-        <% end %>
 
       </div>
     </div>
