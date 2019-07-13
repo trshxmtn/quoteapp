@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+
   def create
     @rhetoric = Rhetoric.find(params[:rhetoric_id])
     @comment = @rhetoric.comments.build(comment_params)
