@@ -11,7 +11,7 @@ CarrierWave.configure do |config|
         path_style: true
     }
   else
-    config.storage :clear_log_file
+    config.storage :file
     config.enable_processing = false if Rails.env.test?
   end
 end
