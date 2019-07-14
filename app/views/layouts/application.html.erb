@@ -23,8 +23,8 @@
           <i class="fa fa-search fa-lg my-search"></i>
         </div>
 
-        <div class="search-input">
-          <%= search_form_for @q do |f| %>
+        <div class="search-input" id="#search-form">
+          <%= search_form_for @q, url: rhetorics_path  do |f| %>
             <%= f.search_field :meigen_or_tags_name_or_speakers_name_cont, placeholder: '検索' %>
             <%= f.submit '検索' %>
             <% end %>
@@ -60,6 +60,7 @@
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+
 
 <%= yield %>
 

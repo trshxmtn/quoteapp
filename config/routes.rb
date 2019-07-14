@@ -18,10 +18,11 @@ Rails.application.routes.draw do
     member do
       get :image
     end
+    collection do
+      get  :search
+    end
     resources :comments
   end
-
-  get 'search', to: 'rhetorics#search'
 
   get 'comments/create'
   get 'comments/destroy'
