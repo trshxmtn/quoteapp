@@ -6,7 +6,6 @@
 
 CarrierWave.configure do |config|
   if Rails.env.production?
-    config.storage :fog
     config.fog_provider = 'fog/aws'
     config.fog_directory = 's3-quote'
     config.fog_credentials = {
@@ -16,6 +15,7 @@ CarrierWave.configure do |config|
         region: ENV['AWS_REGION'],
         path_style: true
     }
+    config.storage :fog
   else
     config.storage :file
     config.enable_processing = false if Rails.env.test?
