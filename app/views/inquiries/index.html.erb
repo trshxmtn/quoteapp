@@ -1,0 +1,79 @@
+<%= form_for(@inquiry, url: { action: :confirm }) do |f| %>
+    <div>
+      <h2>メッセージフォーム</h2>
+   
+        <% if @inquiry.errors.present? %>
+          <div>
+            <strong>入力内容にエラーがあります</strong>
+            <ul>
+              <% @inquiry.errors.each do |attr, error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      
+      <div>
+        <strong>名前</strong>
+        <p><%= f.text_field :name, placeholder: '20文字以内' %></p>
+      </div>
+      <div>
+        <strong>メールアドレス</strong>
+        <p><%= f.text_field :email, placeholder: '30文字以内' %></p>
+      </div>
+      <div>
+        <strong>内容</strong>
+        <p><%= f.text_area :content, placeholder: '200文字以内' %></p>
+      </div>
+        <%= f.submit '確認画面へ' %>
+    </div>
+  <% end %>
+
+#
+#<div class="main-contact">
+#    <div class="container">
+#        <div class="row">
+#            <div class="col-xs-12">
+#                <div class="contact-message">
+#                    <h1>お問い合わせ</h1>
+#                    <h5>Quoteをご利用いただきありがとうございます。<br>お問い合わせには48時間以内に返信させていただきます。</h5>
+#                </div>
+#
+#                <div class="form-body">
+#                    <div class="form-inputs name">
+#                        <h5>お名前</h5>
+#                        <div class="form-outline">
+#                            <input class="contact-form name">
+#                        </div>
+#                    </div>
+#
+#                    <div class="form-inputs email">
+#                        <h5>メールアドレス</h5>
+#                        <div class="form-outline">
+#                            <input class="contact-form email">
+#                        </div>
+#                    </div>
+#
+#                    <div class="form-inputs title">
+#                        <h5>件名</h5>
+#                        <div class="form-outline">
+#                            <input class="contact-form title">
+#                        </div>
+#                    </div>
+#
+#                    <div class="form-inputs contact">
+#                        <h5>お問い合わせ内容</h5>
+#                        <div class="textarea-outline">
+#                            <textarea rows="6"></textarea>
+#                        </div>
+#                    </div>
+#
+#                    <div class="form-actions">
+#                        <input type="submit" value="送信">
+#                    </div>
+#                </div>
+#                
+#            </div>
+#        </div>
+#    </div>
+# </div>

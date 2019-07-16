@@ -26,5 +26,11 @@ Rails.application.routes.draw do
 
   post "picks/:rhetoric_id/create" => "picks#create"
   post "picks/:rhetoric_id/destroy" => "picks#destroy"
+
+  get  'inquiry' =>'inquiries#index'
+  get 'inquiry/confirm' => redirect("/inquiry")
+  get 'inquiry/done' => redirect("/inquiry")
+  post 'inquiry/confirm' => 'inquiries#confirm'
+  post 'inquiry/done' => 'inquiries#done'
 end
 
