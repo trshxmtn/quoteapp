@@ -62,14 +62,14 @@
         <nav class="globalMenuSp">
           <ul>
             <% if user_signed_in? %>
-              <li>Quoteとは</li>
+              <li><%= link_to 'Quoteとは', about_path %></li>
               <li><%= link_to 'アカウント設定', edit_user_registration_path %></li>
               <li><%= link_to 'お問い合わせ', inquiry_path %></li>
-              <li>利用規約・プライバシー</li>
+              <li><%= link_to '利用規約・プライバシー', '/privacy-policy' %></li>
               <li><%= link_to "新しい言葉を追加", new_rhetoric_path %></li>
               <li> <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <% else %>
-              <li>Quoteとは</li>
+              <li><%= link_to 'Quoteとは', about_path %></li>
               <li><%= link_to 'お問い合わせ', inquiry_path %></li>
               <li>利用規約</li>
               <li><%= link_to 'アカウント作成', new_user_registration_path %></li>

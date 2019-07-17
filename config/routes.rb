@@ -32,5 +32,8 @@ Rails.application.routes.draw do
   get 'inquiry/done' => redirect("/inquiry")
   post 'inquiry/confirm' => 'inquiries#confirm'
   post 'inquiry/done' => 'inquiries#done'
+
+  get 'about' => 'pages#about'
+  get 'privacy-policy' => 'pages#privacy'
 end
 
