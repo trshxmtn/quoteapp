@@ -1,0 +1,64 @@
+<div class="main-contact">
+    <div class="container inquiry">
+        <div class="row inquiry">
+            <div class="col-xs-4">
+                <div class="inquiry-message">
+                    <h2>お問い合わせ</h2>
+                    <h5>Quoteをご利用いただきありがとうございます。<br>お問い合わせには48時間以内に返信いたします。</h5>
+                </div>
+            </div>
+
+            <div class="col-xs-8">
+                <%= form_for @inquiry, :url => inquiry_done_path do |f| %>
+
+                    <div class="form-body">                
+                        <% if @inquiry.errors.present? %>
+                        <div>
+                            <strong>入力内容にエラーがあります</strong>
+                            <ul>
+                            <% @inquiry.errors.each do |attr, error| %>
+                                <li><%= error %></li>
+                            <% end %>
+                            </ul>
+                        </div>
+                        <% end %>
+      
+                        <div class="form-inputs name">
+                            <strong>名前</strong>
+                            <div class="form-outline">
+                                <%= f.hidden_field :name %>
+                                <div class="filled-out-text">
+                                <%= @inquiry.name %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-inputs email">
+                            <strong>メールアドレス</strong>
+                            <div class="form-outline">
+                                <%= f.hidden_field :email %>
+                                <div class="filled-out-text">
+                                <%= @inquiry.email %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-inputs contact">
+                            <strong>お問い合わせ内容</strong>
+                            <div class="textarea-outline">
+                                <%= f.hidden_field :content %>
+                                <div class="filled-out-text">
+                                <%= simple_format(@inquiry.content) %>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions-inquiry-confirm">
+                            <%= f.submit '戻る', name: 'back', class: 'inquiry-back' %>
+                        </div>
+                        <div class="form-actions-inquiry-confirm">
+                            <%= f.submit '送信する', class: 'inquiry-submit' %>
+                        </div>
+                    </div>
+                    <% end %>
+
+
+
