@@ -42,6 +42,8 @@ p {
 }
 
 
+
+
 // layout
 
 body{
@@ -56,14 +58,17 @@ body{
 
 .container {
   max-width: 80%;
-  margin: 60px auto;
+  margin: 18px auto;
   padding: 0px 15px;
   clear: both;
 }
 
 
 
-// navbar
+
+
+
+// header
 
 .header{
   position: fixed;
@@ -84,6 +89,21 @@ body{
   line-height: 50px;
 }
 
+.header-right{
+  float: right;
+  padding-right: 20px;
+}
+
+.header-right li {
+  float: left;
+}
+
+
+
+
+
+
+// header-search
 
 .header-search{
   float: left;
@@ -92,6 +112,22 @@ body{
   height: 30px;
   border-radius: 15px;
   background-color: #EFEFEF;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.search-icon{
+  float: left;
+  height: 30px;
+  width: 30px;
+  margin: 0 6px;
+  text-align: center;
+}
+
+.my-search {
+  color: #8e8e8e;
+  display: table-cell;
+  padding-top: 7.5px;
 }
 
 .search-input form{
@@ -101,8 +137,7 @@ body{
 .search-input input[type="search"]{
   float: left;
   height: 100%;
-  width: 80%;
-  margin-left: 20px;
+  width: 90%;
   background-color: transparent;
   border: 0px;
   font-size: 16px;
@@ -111,32 +146,32 @@ body{
 }
 
 .search-input input[type="submit"]{
+  display: none;
+}
+
+
+
+
+
+// header-userProfile
+
+.userProfileImage {
+  margin: 10px 10px 0 0;
+}
+
+.userProfileImage img {
+  width: 30px;
   height: 30px;
-  width: 10%;
-  padding: 0;
-  margin-right: 5px;
-  float: right;
-  background-color: transparent;
-  color: #2b2b2b;
-  border: 0;
+  border-radius: 15px;
 }
 
-.header-right{
-  float: right;
-  padding-right: 20px;
+.userProfileName {
+  margin: 10px 50px 0 0;
+  line-height: 30px;
 }
 
-.header-right li{
-  float: left;
-  text-align: center;
-  float: left;
-  padding: 15px 30px 15px 0px;
-}
 
-.header-search{
-  text-align: center;
-  margin-top: 10px;
-}
+
 
 
 // nav-menu
@@ -165,7 +200,7 @@ nav.globalMenuSp ul {
 
 nav.globalMenuSp ul li {
   font-size: 1.1em;
-  padding: 0px 20px 0px 0px;
+  padding: 15px 30px 15px 0px;
   width: 100%;
   padding: 1em 0 1em 1em;
   text-align: left;
@@ -237,20 +272,58 @@ nav.globalMenuSp.active {
 
 
 
+
+
 // devise
 
 .form-body{
   max-width: 400px;
-  margin: 40px auto;
+  margin: 0 auto;
 }
 
-.form-group{
+.form-outline{
   background-color: #ffffff;
   box-shadow: 0 3px 10px rgba(0,0,0,0.2);
   margin-bottom: 20px;
   height: 40px;
   width: 400px;
   border-radius: 20px;
+}
+
+.form-group {
+  float: left;
+  width: 320px;
+  margin: 0;
+}
+
+.form-icon {
+  height: 40px;
+  width: 40px;
+  float: left;
+  margin: 0 6px;
+  text-align: center;
+}
+
+.my-email {
+  color: #8e8e8e;
+  display: table-cell;
+  padding-top: 12px;
+}
+
+.my-password {
+  color: #8e8e8e;
+  display: table-cell;
+  padding-top: 12px;
+}
+
+.my-user {
+  color: #8e8e8e;
+  display: table-cell;
+  padding-top: 12px;
+}
+
+.form-control {
+  padding: 6px 12px 6px 0px;
 }
 
 .form-group.boolean {
@@ -263,9 +336,7 @@ nav.globalMenuSp.active {
   font-size: 16px;
   font-weight: 400;
   height: 40px;
-  width: 80%;
   border: 0;
-  margin-left: 20px;
   outline: 0;
 }
 
@@ -286,27 +357,4 @@ nav.globalMenuSp.active {
 
 .signup-signin-message h1, h4{
   font-weight: bold;
-}
-
-
-
-// rhetoric
-
-.row{
-  padding: 0% 15%;
-}
-
-.col-xs-5{
-  margin: 1% 4%;
-  padding: 1%;
-}
-
-.rhetoric-index-img{
-  background-color: #2b2b2b;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-  border-radius: 3%;
-}
-
-.col-xs-5 a img{
-  width: 100%;
 }
