@@ -58,7 +58,7 @@ body{
 
 .container {
   max-width: 80%;
-  margin: 60px auto;
+  margin: 18px auto;
   padding: 0px 15px;
   clear: both;
 }
@@ -89,6 +89,21 @@ body{
   line-height: 50px;
 }
 
+.header-right{
+  float: right;
+  padding-right: 20px;
+}
+
+.header-right li {
+  float: left;
+}
+
+
+
+
+
+
+// header-search
 
 .header-search{
   float: left;
@@ -97,6 +112,8 @@ body{
   height: 30px;
   border-radius: 15px;
   background-color: #EFEFEF;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .search-icon{
@@ -132,21 +149,25 @@ body{
   display: none;
 }
 
-.header-right{
-  float: right;
-  padding-right: 20px;
+
+
+
+
+// header-userProfile
+
+.userProfileImage {
+  margin: 10px 10px 0 0;
 }
 
-.header-right li{
-  float: left;
-  text-align: center;
-  float: left;
-  padding: 15px 30px 15px 0px;
+.userProfileImage img {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
 }
 
-.header-search{
-  text-align: center;
-  margin-top: 10px;
+.userProfileName {
+  margin: 10px 50px 0 0;
+  line-height: 30px;
 }
 
 
@@ -179,7 +200,7 @@ nav.globalMenuSp ul {
 
 nav.globalMenuSp ul li {
   font-size: 1.1em;
-  padding: 0px 20px 0px 0px;
+  padding: 15px 30px 15px 0px;
   width: 100%;
   padding: 1em 0 1em 1em;
   text-align: left;

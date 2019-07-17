@@ -12,21 +12,42 @@
 
 // rhetorics index
 
-.row{
-  padding: 0% 15%;
+.container.rhetorics-index {
+  min-width: 100%;
+  margin: 0;
+  padding: 0 40px;
+}
+
+.row.rhetorics-index{
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
   
-.col-xs-5{
-  margin: 1% 4%;
-  padding: 1%;
+.col-xs-3{
+}
+
+.padding-margin-for-col {
+  margin: 10px 0 0 0;
+  padding: 0 0 0 0;
+}
+
+.rhetoric-index-content {
+  width: 100%;
+  padding: 5%;
+  border-radius: 2%;
+}
+
+.rhetoric-index-content:hover {
+  background-color: #f9f9f9;
 }
   
 .rhetoric-index-img{
   border-radius: 3%;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
   
-.col-xs-5 a img{
+.col-xs-3 a img{
   width: 100%;
   border-radius: 3%;
 }
