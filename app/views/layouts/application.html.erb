@@ -71,7 +71,7 @@
             <% else %>
               <li><%= link_to 'Quoteとは', about_path %></li>
               <li><%= link_to 'お問い合わせ', inquiry_path %></li>
-              <li>利用規約</li>
+              <li><%= link_to '利用規約・プライバシー', '/privacy-policy' %></li>
               <li><%= link_to 'アカウント作成', new_user_registration_path %></li>
               <li><%= link_to 'ログイン', new_user_session_path %></li>
             <% end %>
