@@ -5,7 +5,7 @@
     <% end %>
   </div>
 
-  <div class="container">
+  <div class="container rhetorics-index">
     <div class="row show">
 
       <div class="rhetoric-image">
@@ -28,8 +28,11 @@
               </div>
             </div>
 
+            <div class="btn-area-like">
+              <div class="count-like">
+              </div>
             <%= render "picks/pick", rhetoric: @rhetoric %>
-
+            </div>
           </div>
         </div>
 
@@ -67,13 +70,27 @@
       </div>
     </div>
 
-    <div class="row index">
-      <div class="related-index">
-        <% @related_rhetorics.each do |rhetoric| %>
-          <%= link_to image_tag(image_rhetoric_path(rhetoric)),rhetoric %>
-        <% end %>
+    <div class="row rhetorics-index">
+      <div class="related-index-message">
+        <h4>関連する言葉</h4>
       </div>
+      <% @related_rhetorics.each do |rhetoric| %>
+        <div class="col-xs-3 padding-margin-for-col">
+          <div class="rhetoric-index-content">
+            <div class="rhetoric-index-img" id="result">
+              <%= link_to image_tag(image_rhetoric_path(rhetoric)),rhetoric %>
+            </div>
+
+            <div class="rhetoric-index-like">
+              
+            </div>
+            
+          </div>
+        </div>
+      <% end %>
     </div>
 
+
+    
   </div>
 </div>
