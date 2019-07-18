@@ -1,7 +1,6 @@
 $(document).on('turbolinks:load', function (){
-    $(document).on('keyup', '#rhetoric_search', function(e){
-        e.preventDefault();
-        var input = $.trim($(this).val());
+    $(document).on('keyup', '#rhetoric_search', function(){
+        $("#rhetoric_search").find("input[type='submit']").click()
         $.ajax({
             url: '/',
             type: 'GET',
