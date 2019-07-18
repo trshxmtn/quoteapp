@@ -21,7 +21,7 @@
 .row.rhetorics-index{
   width: 100%;
   padding: 0;
-  margin: 0;
+  margin: 0 0 30px 0;
 }
   
 .col-xs-3{
@@ -75,12 +75,13 @@
 }
 
 .row.show {
-  padding: 0 25%;
+  padding: 0 30%;
 }
 
 .rhetoric-image {
   width: 100%;
   height: 300px;
+  margin-top: 40px;
   text-align: center;
 }
 
@@ -112,14 +113,24 @@
   margin-top: 20px;
 }
 
-.btn-share, .btn-like {
+.btn-share {
   height: 40px;
   width: 40px;
   margin: auto;
+  border: none;
   border-radius: 20px;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
-  vertical-align: middle;
   padding-top: 10px;
+}
+
+.btn-like {
+  height: 40px;
+  width: 40px;
+  margin: auto;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+  padding-top: 6px;
 }
 
 .btn-liked {
@@ -129,7 +140,7 @@
   border-radius: 20px;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
   vertical-align: middle;
-  padding-top: 10px;
+  padding-top: 6px;
   background-color: #dd5555;
 }
 
@@ -194,3 +205,7 @@
   color: #8b8b8b;
 }
 
+.related-index-message h4{
+  font-weight: 700;
+  margin: 30px 0 10px 20px;
+}
