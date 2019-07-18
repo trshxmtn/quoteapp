@@ -27,31 +27,8 @@
                 <h6>共有する</h6>
               </div>
             </div>
-            
-            <div class="btn-area-like">
-              <div class="count-like">
-              </div>
-              <% if Pick.find_by(user_id: current_user.id, rhetoric_id: @rhetoric.id) %>
-                <%= link_to("/picks/#{@rhetoric.id}/destroy", {method: "post"}) do %>
-                <div class="btn-liked">
-                  <i class="fas fa-heart my-liked fa-lg"></i>
-                </div>
-                <% end %>
-                <div class="message-like">
-                  <h6>いいねしました</h6>
-                </div>
-              <% else %>
-                <%= link_to("/picks/#{@rhetoric.id}/create", {method: "post"}) do %>
-                <div class="btn-like">
-                  <i class="far fa-heart my-like fa-lg"></i>
-                </div>
-                <% end %>
-                <div class="message-like">
-                  <h6>いいね</h6>
-                </div>
-              <% end %>
-              
-            </div>
+
+            <%= render "picks/pick", rhetoric: @rhetoric %>
 
           </div>
         </div>
@@ -72,7 +49,6 @@
           <% end %>
         </div>
 
-        
 
         <h5>コメント</h5>
         <div class="comments">

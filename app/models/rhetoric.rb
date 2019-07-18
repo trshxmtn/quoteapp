@@ -16,4 +16,16 @@ class Rhetoric < ApplicationRecord
   #   end
   # end
 
+  def pick(user)
+    picks.create(user_id: user.id)
+  end
+
+  def unpick(user)
+    picks.find_by(user_id: user.id).destroy
+  end
+
+  def pick?(user)
+    pick_users.include?(user)
+  end
+
 end
