@@ -8,6 +8,7 @@
     border-bottom-color: #2b2b2b;
     border: 2px;
     padding: 2px;
+    margin: 0 0 30px 0;
 }
 
 .comment-body {
@@ -58,13 +59,18 @@
     margin: 0 15px 0px 0;
 }
 
-.comment-delete a {
+.comment-delete h6 {
+    float: left;
     font-size: 8px;
     color: #8b8b8b;
+    margin-bottom: 0;
 }
 
 .my-comment-delete {
+    font-size: 10px;
+    float: right;
     color: #8b8b8b;
+    margin: 9px 0 0 3px;
 }
 
 .comment-textarea textarea{
@@ -73,7 +79,7 @@
     background-color: #efefef;
     border-radius: 20px;
     padding: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
     color: #2b2b2b;
     font-size: 10px;
     border: none;
@@ -82,4 +88,17 @@
 }
 
 .comment-submit {
+    height: 30px;
+    margin-top: 5px;
+}
+
+.comment-submit input {
+    background-color: #2b2b2b;
+    height: 30px;
+    width: 90px;
+    float: right;
+    margin: 0;
+    color: #ffffff;
+    font-size: 10px;
+    border-radius: 15px;
 }
