@@ -37,11 +37,7 @@
         <li>
           <%= link_to profile_path(current_user) do %>
             <div class="userProfileImage">
-              <% if current_user.picture? %>
                 <%= image_tag current_user.picture.url %>
-              <% else %>
-                <%= image_tag("/images/default.png") %>
-              <% end %>
             </div>
           <% end %>
         </li>
