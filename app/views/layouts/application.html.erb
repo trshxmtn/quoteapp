@@ -33,25 +33,37 @@
       </div>
     <% end %>
     <ul class="header-right">
-      <li>
-        <%= link_to profile_path(current_user) do %>
-          <div class="userProfileImage">
-            <% if current_user.picture? %>
-              <%= image_tag current_user.picture.url %>
-            <% else %>
-              <%= image_tag("/images/default") %>
-            <% end %>
-          </div>
-        <% end %>
-      </li>
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to profile_path(current_user) do %>
+            <div class="userProfileImage">
+              <% if current_user.picture? %>
+                <%= image_tag current_user.picture.url %>
+              <% else %>
+                <%= image_tag("/images/default") %>
+              <% end %>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
 
-      <li>
-        <%= link_to profile_path(current_user) do %>
-          <div class="userProfileName">
-            <%= current_user.username %>
-          </div>
-        <% end %>
-      </li>
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to profile_path(current_user) do %>
+            <div class="userProfileName">
+              <%= current_user.username %>
+            </div>
+          <% end %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to new_user_session_path do %>
+            <div class="loginbtn">
+              <h6>ログイン</h6>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
 
       <li>
         <div class="navToggle">
