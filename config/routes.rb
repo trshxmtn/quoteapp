@@ -24,8 +24,7 @@ Rails.application.routes.draw do
   get 'comments/create'
   get 'comments/destroy'
 
-  post "picks/:rhetoric_id/create" => "picks#create"
-  post "picks/:rhetoric_id/destroy" => "picks#destroy"
+  resources :picks, only: [:create, :destroy]
 
   get  'inquiry' =>'inquiries#index'
   get 'inquiry/confirm' => redirect("/inquiry")

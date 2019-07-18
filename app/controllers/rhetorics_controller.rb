@@ -15,7 +15,9 @@ class RhetoricsController < ApplicationController
     @rhetoric = Rhetoric.find(params[:id])
     @comment = Comment.new
     @comments = @rhetoric.comments
+    @related_rhetorics = @rhetorics.tagged_with("#{@rhetoric.tag_list}") #同じタグが付いているquoteの表示
   end
+
 
   def new
     @rhetoric = current_user.rhetorics.build
