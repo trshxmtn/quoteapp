@@ -14,7 +14,11 @@
  *= require_self
  */
 
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
 
+
+ 
 
 // all
 .img{
@@ -47,8 +51,9 @@ p {
   margin: 0px;
 }
 
-.input_outline {
+:focus {
   outline: none;
+  border: none;
 }
 
 
