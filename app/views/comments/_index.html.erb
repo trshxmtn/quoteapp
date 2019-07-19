@@ -4,11 +4,7 @@
     <div class="comment-left">
       <div class="comment-user-image">
         <%= link_to profile_path(comment.user.id) do %>
-          <% if comment.user.picture? %>
-	          <%= image_tag comment.user.picture.url %>
-          <% else %>
-	          <%= image_tag("/images/default") %>
-          <% end %>
+	        <%= image_tag comment.user.picture.url %>
         <% end %>
       </div>
     </div>
