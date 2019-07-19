@@ -37,14 +37,16 @@
   padding: 5%;
   border-radius: 2%;
 }
-
-.rhetoric-index-content:hover {
-  background-color: #f9f9f9;
-}
   
-.rhetoric-index-img{
+.rhetoric-index-img img{
   border-radius: 3%;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 40px rgba(0,0,0,0.06);
+  transition-duration: 0.3s;
+}
+
+.rhetoric-index-img img:hover {
+  transform: translate3d(0, 3px, 0);
+  box-shadow: 0 5px 30px rgba(0,0,0,0.1);
 }
   
 .col-xs-3 a img{
