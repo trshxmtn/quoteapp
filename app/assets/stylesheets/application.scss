@@ -18,6 +18,8 @@
  @import "bootstrap";
 
 
+ 
+
 // all
 .img{
   max-width :100%;
@@ -32,14 +34,29 @@ ul, li {
 }
 
 a {
-  text-decoration: none;
   color: #2b2b2b;
   width: 100px
+}
+
+a, a:hover, a:visited, a:focus {
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #4c4c4c;
+  color: #ffffff;
 }
 
 p {
   margin: 0px;
 }
+
+:focus {
+  outline: none;
+  border: none;
+}
+
+
 
 
 
@@ -352,8 +369,23 @@ nav.globalMenuSp.active {
   font-size: 16px;
   font-weight: 400;
   height: 40px;
+  width: 330px;
+  margin-left: 0;
   border: 0;
   outline: 0;
+}
+
+.remember_me {
+  height: 20px;
+}
+
+.input[type="checkbox"] {
+
+}
+
+.form-check-label {
+  font-size: 11px;
+  margin-left: 4px;
 }
 
 .form-actions input{
@@ -369,6 +401,10 @@ nav.globalMenuSp.active {
 
 .form-actions input a:hover {
   opacity: 0.7;
+}
+
+.signup-signin-message {
+  margin-bottom: 40px;
 }
 
 .signup-signin-message h1, h4{
