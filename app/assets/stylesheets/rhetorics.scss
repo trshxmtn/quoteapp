@@ -90,7 +90,7 @@
 .rhetoric-image img {
   height: 300px;
   border-radius: 3%;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 40px rgba(0,0,0,0.06);
 }
 
 .rhetoric-contents {
@@ -121,8 +121,13 @@
   margin: auto;
   border: none;
   border-radius: 20px;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
   padding-top: 10px;
+  transition-duration: 0.3s;
+}
+
+.btn-share:hover {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
 
 .btn-like {
@@ -131,24 +136,43 @@
   margin: auto;
   border: none;
   border-radius: 20px;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
   padding-top: 6px;
+  transition-duration: 0.3s;
+}
+
+.btn-like:hover {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
 
 .btn-liked {
   height: 40px;
   width: 40px;
   margin: auto;
+  border: none;
   border-radius: 20px;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
   vertical-align: middle;
   padding-top: 6px;
   background-color: #dd5555;
+  transition-duration: 0.3s;
+}
+
+.btn-liked:hover {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+.liked-message {
+  color: #dd5555;
+}
+
+.like-message, .message-share {
+  color: #8b8b8b;
 }
 
 .message-share h6, .message-like h6 {
-  font-size: 4px;
-  color: #2b2b2b;
+  font-size: 3px;
+  font-weight: 500;
 }
 
 .my-share {
@@ -183,18 +207,22 @@
   margin-bottom: 10px;
 }
 
-.tag {
+.tag-body {
   display: inline;
   background-color: #efefef;
-  color: #8b8b8b;
   padding: 4px 8px;
   margin: 3px;
   border-radius: 10px;
-  font-size: 8px;
-  font-weight: 500;
+  font-size: 7px;
+  color: #5d6266;
+  font-weight: 550;
   vertical-align: baseline;
   white-space: nowrap;
   text-align: center;
+}
+
+.tag-body:hover {
+  background-color: #dddddd;
 }
 
 .edit-and-delete-rhetoric {
