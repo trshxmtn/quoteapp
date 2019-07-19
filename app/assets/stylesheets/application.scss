@@ -99,20 +99,60 @@ body{
   font-weight: bold;
 }
 
-.header-logo{
+.header-left {
   float: left;
   padding-left: 20px;
   font-size: 22px;
   line-height: 50px;
 }
 
-.header-right{
+.header-logo {
+  height: 40px;
+  padding: 0 10px;
+  margin: 5px 0;
+  border-radius: 20px;
+}
+
+.header-logo:hover {
+  background-color: #efefef;
+}
+
+.header-logo h4 {
+  font-size: 20px;
+  line-height: 38px;
+  margin: 0;
+}
+
+.header-profile {
   float: right;
-  padding-right: 20px;
+}
+
+.header-right {
+  float: right;
+  height: 40px;
+  width: auto;
+  display: inline;
+  padding: 0 10px;
+  margin: 5px 50px 0 0;
+  border-radius: 20px;
+}
+
+.header-right:hover {
+  background-color: #efefef;
 }
 
 .header-right li {
   float: left;
+}
+
+.header-right-notlogin {
+  float: right;
+  height: 40px;
+  width: auto;
+  display: inline;
+  padding: 0 10px;
+  margin: 5px 50px 0 0;
+  border-radius: 20px;
 }
 
 
@@ -173,7 +213,7 @@ body{
 // header-userProfile
 
 .userProfileImage {
-  margin: 10px 10px 0 0;
+  margin: 5px 10px 0 0;
 }
 
 .userProfileImage img {
@@ -183,12 +223,12 @@ body{
 }
 
 .userProfileName {
-  margin: 10px 50px 0 0;
+  margin: 5px 5px 0 0;
   line-height: 30px;
 }
 
 .loginbtn {
-  margin: 10px 40px 10px 0;
+  margin: 5px 10px 10px 0;
   height: 30px;
   width: 90px;
   background-color: #2b2b2b;
@@ -221,7 +261,7 @@ nav.globalMenuSp {
   width: 250px;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
   border-radius: 4px;
-  padding: 70px 20px 20px 20px;
+  padding: 60px 20px 20px 20px;
 }
 
 nav.globalMenuSp ul {
@@ -231,18 +271,28 @@ nav.globalMenuSp ul {
   width: 100%;
 }
 
-nav.globalMenuSp ul li {
+nav.globalMenuSp li {
   font-size: 1.1em;
-  padding: 15px 30px 15px 0px;
+  padding: 10px 0px 0px 10px;
   width: 100%;
-  padding: 1em 0 1em 1em;
   text-align: left;
 }
 
-nav.globalMenuSp ul li a {
-  display: block;
-  color: #2b2b2b;
+.globalMenuList {
+  display: inline-block;
+  height: 40px;
+  padding: 0 10px;
+  line-height: 40px;
+  border-radius: 20px;
+}
 
+.globalMenuList:hover {
+  background-color: #efefef;
+}
+
+nav.globalMenuSp ul li a {
+  color: #2b2b2b;
+  margin: none;
 }
 
 /* このクラスを、jQueryで付与・削除する */
@@ -252,43 +302,49 @@ nav.globalMenuSp.active {
 
 .navToggle {
   display: block;
+  width: 40px;
+  height: 40px;
+  margin: 5px 5px 5px 0;
   position: fixed;
   right: 12px;
   top: 0px;
-  width: 50px;
-  height: 50px;
   cursor: pointer;
   z-index: 3;
   background: #ffffff;
   text-align: center;
+  border-radius: 20px;
+}
+
+.navToggle:hover {
+  background: #efefef;
 }
 
 .navToggle span {
   display: block;
   position: absolute;    /* .navToggleに対して */
-  width: 20px;
+  width: 15px;
   border-bottom: solid 2px #2b2b2b;
   -webkit-transition: .1s ease-in-out;
   -moz-transition: .1s ease-in-out;
   transition: .1s ease-in-out;
-  left: 15px;
+  left: 12.5px;
 }
 
 .navToggle span:nth-child(1) {
-  top: 16px;
+  top: 13px;
 }
 
 .navToggle span:nth-child(2) {
-  top: 25px;
+  top: 20px;
 }
 
 .navToggle span:nth-child(3) {
-  top: 34px;
+  top: 27px;
 }
 
 .navToggle.active span:nth-child(1) {
-  top: 25px;
-  left: 15px;
+  top: 20px;
+  left: 12.5px;
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   transform: rotate(-45deg);
@@ -297,7 +353,7 @@ nav.globalMenuSp.active {
 /* 2番目と3番目のspanを45度に */
 .navToggle.active span:nth-child(2),
 .navToggle.active span:nth-child(3) {
-  top: 25px;
+  top: 20px;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   transform: rotate(45deg);
