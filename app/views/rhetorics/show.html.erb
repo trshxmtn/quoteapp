@@ -31,7 +31,9 @@
             <div class="btn-area-like">
               <div class="count-like">
               </div>
-            <%= render "picks/pick", rhetoric: @rhetoric %>
+              <div class="picks_buttons_<%= @rhetoric.id %>">
+                <%= render "picks/pick", rhetoric: @rhetoric %>
+              </div>
             </div>
           </div>
         </div>

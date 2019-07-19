@@ -1,1 +1,1 @@
-$(".pick").html("<%= escape_javascript(render "picks/pick", rhetoric: @rhetoric) %>");
+$(".picks_buttons_<%= @rhetoric.id %> .pick").html("<%= escape_javascript(render "picks/pick", rhetoric: @rhetoric) %>");
