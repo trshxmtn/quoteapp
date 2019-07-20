@@ -10,7 +10,7 @@
 
             <div class="btn-area-like">
               <div class="count-like">
-                <div class="picks_buttons_<%= rhetoric.id %>">
+                <div class="picks_buttons_index_<%= rhetoric.id %>">
                   <span class="pick">
                     <% if rhetoric.pick?(current_user) %>
                       <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
