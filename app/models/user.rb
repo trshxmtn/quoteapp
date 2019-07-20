@@ -16,8 +16,8 @@ class User < ApplicationRecord
   has_many :following,through: :active_relationships,source: :followed
   has_many :followers,through: :passive_relationships,source: :follower
 
+  # アップローダー紐づけ
   mount_uploader :picture, PictureUploader
-
 
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
