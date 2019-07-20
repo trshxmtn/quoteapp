@@ -7,9 +7,10 @@ module RhetoricsHelper
   GRAVITY = 'center'.freeze
   TEXT_POSITION = '0,0'.freeze
   FONT = './app/assets/fonts/幻ノにじみ明朝.otf'.freeze
-  FONT_SIZE = 20
+  FONT_SIZE = 22
   FONT_COLOR = "white"
-  INDENTION_COUNT = 11
+  # 一行あたりの文字数
+  INDENTION_COUNT = 12
   ROW_LIMIT = 100
 
   class << self
@@ -41,6 +42,7 @@ module RhetoricsHelper
         config.fill FONT_COLOR
         config.gravity GRAVITY
         config.pointsize FONT_SIZE
+        config.interline_spacing 6
         config.draw "text #{TEXT_POSITION} '#{text}'"
       end
     end
