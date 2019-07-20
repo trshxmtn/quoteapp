@@ -7,6 +7,8 @@ class Rhetoric < ApplicationRecord
   # has_many :rhetoric_speakers,dependent: :destroy
   acts_as_taggable
   acts_as_taggable_on :speakers
+  # アップローダー紐づけ
+  mount_uploader :image, RhetoricImageUploader
   #
   # def self.search(search)
   #   if search
