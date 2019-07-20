@@ -17,7 +17,6 @@ class RhetoricsController < ApplicationController
     @related_rhetorics = @rhetorics.tagged_with("#{@rhetoric.tag_list}") #同じタグが付いているquoteの表示
   end
 
-
   def new
     @rhetoric = current_user.rhetorics.build
   end
@@ -53,7 +52,6 @@ class RhetoricsController < ApplicationController
     redirect_to root_path
   end
 
-  # これなにで使うアクション？（もっち）
   def image
     send_data @rhetoric.image, type: @rhetoric.ctype, disposition: 'inline'
   end
