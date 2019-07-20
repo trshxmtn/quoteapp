@@ -5,99 +5,89 @@
     <% end %>
   </div>
 
-  <div class="container rhetorics-index">
-    <div class="row rhetorics-index">
-      <div class="col-sm-5 rhetorics-show-image margin-for-show-col">
-
-        <div class="rhetoric-image">
-          <%= image_tag(image_rhetoric_path(@rhetoric)) %>
-        </div>
-      
+  <div class="container rhetorics-show">
+    <div class="rhetorics-show-grid">
+      <div class="rhetoric-image">
+        <%= image_tag(image_rhetoric_path(@rhetoric)) %>
       </div>
-    </div>
     
-    <div class="row rhetorics-index">
-      <div class="col-sm-5 rhetorics-show-contents margin-for-show-col">
-        <div class="rhetoric-contents">
-        
-          <div class="share-like-area">
-            <div class="btn-area">
-              
-              <div class="btn-area-share">
-                <div class="count-share">
-                </div>
-                <div class="btn-share">
-                  <i class="fas fa-share my-share fa-lg"></i>
-                </div>
-                <div class="message-share">
-                  <h6>共有する</h6>
-                </div>
-              </div>
-
-              <div class="btn-area-like">
-                <div class="count-like">
-                </div>
-              <%= render "picks/pick", rhetoric: @rhetoric %>
-              </div>
-            </div>
-          </div>
-
-          <div class="detail">
-            <div class="rhetoric-discription">
-              <p><%= @rhetoric.description %></p>
-            </div>
-            <div class="rhetoric-tag">
-              <td><%= render 'rhetorics/tag_list', tag_list: @rhetoric.speaker_list %></td>
-              <td><%= render 'rhetorics/tag_list', tag_list: @rhetoric.tag_list %></td>
-            </div>
-            <% if @rhetoric.user == current_user %>
-            <div class="edit-and-delete-rhetoric">
-              <%= link_to "編集する", edit_rhetoric_path %>
-              <%= link_to "削除する", rhetoric_path, method: :delete, data: {confirm: "Are you sure??"} %>
-            </div>
-            <% end %>
-          </div>
-
-
-          <h5>コメント</h5>
-          <div class="comments">
-            <div id="comments_area"><!-- #① -->
-              <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-              <%= render partial: 'comments/index', locals: { comments: @comments } %>
-            </div>
-            <% if user_signed_in? %>
-              <div class="comment-input">
-              <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
-              <%= render partial: 'comments/form', locals: { comment: @comment, rhetoric: @rhetoric } %>
-              </div>
-            <% end %>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="row rhetorics-index">
-      <div class="related-index-message">
-        <h4>関連する言葉</h4>
-      </div>
-      <% @related_rhetorics.each do |rhetoric| %>
-        <div class="col-sm-3 padding-margin-for-col">
-          <div class="rhetoric-index-content">
-            <div class="rhetoric-index-img" id="result">
-              <%= link_to image_tag(image_rhetoric_path(rhetoric)),rhetoric %>
-            </div>
-
-            <div class="rhetoric-index-like">
-              
-            </div>
+      <div class="rhetoric-contents">
+        <div class="share-like-area">
+          <div class="btn-area">
             
+            <div class="btn-area-share">
+              <div class="count-share">
+              </div>
+              <div class="btn-share">
+                <i class="fas fa-share my-share fa-lg"></i>
+              </div>
+              <div class="message-share">
+                <h6>共有する</h6>
+              </div>
+            </div>
+
+            <div class="btn-area-like">
+              <div class="count-like">
+              </div>              
+              <div class="picks_buttons_<%= @rhetoric.id %>">
+                <%= render "picks/pick", rhetoric: @rhetoric %>
+              </div>
+            </div>
           </div>
         </div>
-      <% end %>
+
+        <div class="detail">
+          <div class="rhetoric-discription">
+            <p><%= @rhetoric.description %></p>
+          </div>
+          <div class="rhetoric-tag">
+            <td><%= render 'rhetorics/tag_list', tag_list: @rhetoric.speaker_list %></td>
+            <td><%= render 'rhetorics/tag_list', tag_list: @rhetoric.tag_list %></td>
+          </div>
+          <% if @rhetoric.user == current_user %>
+          <div class="edit-and-delete-rhetoric">
+            <%= link_to "編集する", edit_rhetoric_path %>
+            <%= link_to "削除する", rhetoric_path, method: :delete, data: {confirm: "Are you sure??"} %>
+          </div>
+          <% end %>
+        </div>
+      </div>
     </div>
 
+    <div class="rhetorics-comments-grid">
+      <h5>コメント</h5>
+      <div class="comments">
+        <div id="comments_area"><!-- #① -->
+          <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+          <%= render partial: 'comments/index', locals: { comments: @comments } %>
+        </div>
+        <% if user_signed_in? %>
+          <div class="comment-input">
+          <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+          <%= render partial: 'comments/form', locals: { comment: @comment, rhetoric: @rhetoric } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="related-index-message">
+    <h4>関連する言葉</h4>
+  </div>
+
+  <div class="container rhetorics-index">
+    <% @related_rhetorics.each do |rhetoric| %>
+      <div class="rheotorics-grid">
+        <div class="rhetoric-index-content">
+          <div class="rhetoric-index-img" id="result">
+            <%= link_to image_tag(image_rhetoric_path(rhetoric)),rhetoric %>
+          </div>
+          
+        </div>
+      </div>
+    <% end %>
+  </div>
 
     
-  </div>
 </div>

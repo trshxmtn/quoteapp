@@ -3,7 +3,7 @@ class RhetoricsController < ApplicationController
   include RhetoricsHelper
 
   def index
-    @rhetorics.all
+    @rhetorics = Rhetoric.all
 
     if params[:tag_name]
       @rhetorics = @rhetorics.tagged_with("#{params[:tag_name]}")
@@ -12,7 +12,6 @@ class RhetoricsController < ApplicationController
   end
 
   def show
-    @rhetoric = Rhetoric.find(params[:id])
     @comment = Comment.new
     @comments = @rhetoric.comments
     @related_rhetorics = @rhetorics.tagged_with("#{@rhetoric.tag_list}") #同じタグが付いているquoteの表示
