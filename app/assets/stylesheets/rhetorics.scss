@@ -111,10 +111,14 @@
   left: 20px;
   height: 40px;
   width: 40px;
-  background-color: transparent;
+  background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.05);
   text-align: center;
+}
+
+.btn-back:hover {
+  background-color: #efefef;
 }
 
 .my-back {
