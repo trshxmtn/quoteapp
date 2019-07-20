@@ -3,10 +3,13 @@ class RhetoricsController < ApplicationController
   include RhetoricsHelper
 
   def index
-    @rhetorics = Rhetoric.all
-
     if params[:tag_name]
       @rhetorics = @rhetorics.tagged_with("#{params[:tag_name]}")
+    end
+
+    respond_to do |format|
+      format.js {}
+      format.html {}
     end
 
   end
