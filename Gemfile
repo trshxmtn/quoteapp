@@ -24,6 +24,7 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'kaminari' #ページネーション
 gem 'ransack' #検索
+gem 'dotenv-rails' # 環境変数設定
 
 
 
@@ -54,7 +55,7 @@ end
 
 group :production do
   gem 'pg'
-  gem 'fog'
+  gem 'fog' # 画像保存先設定
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -115,6 +115,10 @@ GEM
     devise-i18n-views (0.3.7)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.6.0)
+    dotenv-rails (2.6.0)
+      dotenv (= 2.6.0)
+      railties (>= 3.2, < 6.0)
     dry-inflector (0.1.2)
     erubi (1.8.0)
     excon (0.64.0)
@@ -517,6 +521,7 @@ DEPENDENCIES
   devise
   devise-i18n
   devise-i18n-views
+  dotenv-rails
   fog
   jbuilder (~> 2.5)
   jquery-rails
