@@ -20,6 +20,12 @@
 
           <div class="tab-like">
             <p>いいねした言葉</p>
+            <% @picks.each do |pick| %>
+              <% rhetoric = Rhetoric.find_by(id: pick.rhetoric_id) %>
+
+                <%= link_to image_tag(image_path(rhetoric.image)), rhetoric %>
+
+            <% end %>
           </div>
           
           <div class="tab-follow">
