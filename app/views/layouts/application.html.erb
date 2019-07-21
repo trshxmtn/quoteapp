@@ -116,11 +116,13 @@
     </div>
     
     <div class="footer-content">
-    <%= link_to profile_path(current_user) do %>
-      <div class="footer-userProfileImage">
-        <%= image_tag current_user.picture.url %>
-      </div>
-    <% end %>
+      <% if user_signed_in? %>
+        <%= link_to profile_path(current_user) do %>
+          <div class="footer-userProfileImage">
+            <%= image_tag current_user.picture.url %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </footer>
