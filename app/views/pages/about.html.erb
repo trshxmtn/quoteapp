@@ -1,9 +1,66 @@
 <div class="main-about">
     <div class="container about">
-        <div class="row about">
+        <div class="row quote-concept">
             <div class="col-xs-12">
-                <h1>Quoteの説明をするページだよん</h1>
+                <div class="quote-concept">
+                    <h1>Quote</h1>
+                    <h6>あなたにぴったりの言葉を探して集めよう</h6>
+                </div>
             </div>
         </div>
+        <div class="row quote-tutorial">
+            <div class="col-sm-4">
+                <div class="tutorial-content">
+                    <div class="tutorial-image">
+                        <i class="fas fa-search fa-3x my-search-tutorial"></i>
+                    </div>
+                    <div class="tutorial-message">
+                        <h3>探す</h3>
+                        <p>好きな好きな漫画の主人公や偉人の名前、あるいはビジネスや恋愛などのシーンで検索しよう</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="tutorial-content">
+                    <div class="tutorial-image">
+                        <i class="fas fa-heart fa-3x my-heart-tutorial"></i>
+                    </div>
+                    <div class="tutorial-message">
+                        <h3>集める</h3>
+                        <p>胸に刺さったお気に入りの言葉にいいねをして自分のプロフィールに集めていこう</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="tutorial-content">
+                    <div class="tutorial-image">
+                        <i class="fas fa-pencil-alt fa-3x my-pencil-tutorial"></i>
+                    </div>
+                    <div class="tutorial-message">
+                        <h3>投稿する</h3>
+                        <p>ソクラテスのあの名言、ルフィのあのセリフ、昨日先輩が言ってた言葉、あなたのオススメの言葉を投稿しよう</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <% if user_signed_in? %>
+           
+        <% else %>
+            <div class="row signup-or-signin">
+                <div class="col-xs-12">
+                    <%= link_to new_user_registration_path do %>
+                        <div class="signupbtn">
+                            <h6>アカウント作成</h6>
+                        </div>
+                    <% end %>
+                    <%= link_to new_user_session_path do %>
+                        <div class="loginbtn">
+                            <h6>ログイン</h6>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
     </div>
 </div>
