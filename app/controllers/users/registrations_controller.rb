@@ -6,6 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def profile
     @user = User.find(params[:id])
+    @picks = Pick.where(user_id: @user.id)
   end
 
   def following
