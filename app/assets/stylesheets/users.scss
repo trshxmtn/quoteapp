@@ -11,7 +11,6 @@
     padding: 20px 5%;
     margin: 50px 25% 20px;
     border-radius: 10px;
-    box-shadow: 0 5px 40px rgba(0,0,0,0.06);
 }
 
 @media (max-width: 767px) {
@@ -54,9 +53,6 @@
     margin: 0 25%;
     display: flex;
     justify-content: space-around;
-    border-bottom-color: #efefef;
-    border-bottom-width: 1.5px;
-    border-bottom-style: solid;
 }
 
 @media (max-width: 767px) {
@@ -66,37 +62,78 @@
     }
 }
 
+
 .profile-tab {
-    display: block;
+    display: inline-block;
     float: left;
+    width: 100%;
     height: 30px;
     padding: 3px 15px; 
     font-size: 10px;
     color: #8b8b8b;
     font-weight: 800;
     line-height: 22px;
+}
+
+.tab.active {
+    border-bottom-color: #2b2b2b;
+    border-bottom-width: 1.5px;
+    border-bottom-style: solid;
+}
+
+.tab {
     border-bottom-color: #efefef;
     border-bottom-width: 1.5px;
     border-bottom-style: solid;
 }
 
-.profile-tab.liked {
+.tab.liked {
     width: 30%;
 }
 
-.profile-tab.post {
+.tab.post {
     width: 26%;
 }
 
-.profile-tab.follow {
+.tab.follow {
     width: 20%;
 }
 
-.profile-tab.follower {
+.tab.follower {
     width: 24%;
 }
 
-.profile-tab:hover {
+.tab:hover {
     background-color: #efefef;
 }
+
+
+
+.container.profile-contents {
+    width: 50%;
+    padding: 0 40px;
+    margin-top: 20px;
+}
+
+@media (max-width: 767px) {
+    .container.profile-contents {
+        min-width: 100%;
+        padding: 5%;
+        margin-top: 5px;
+    }
+}
+
+.profile-contents-columnFix {
+    column-count: 2;
+    column-gap: 0;
+}
+
+@media (max-width: 767px) {
+    .profile-contents-columnFix {
+      column-count: 1;
+    }
+  }
+
+
+
 
