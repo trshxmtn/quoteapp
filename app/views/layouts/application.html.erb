@@ -8,9 +8,14 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <script src="https://kit.fontawesome.com/1471aca7cc.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+  <script src="http://malsup.github.com/jquery.form.js"></script>
+
 </head>
 
 <body>
+
+
 
 <header>
   <div class="header">
@@ -96,6 +101,40 @@
       </ul>
   </div>
 </header>
+
+
+
+
+<footer>
+  <div class="footer">
+    <div class="footer-content">
+    <%= link_to root_path do %>
+      <div class="footer-logo">
+        <h4>Quote</h4>
+      </div>
+    <% end %>
+    </div>
+    
+    <% if user_signed_in? %>
+    <div class="footer-content">
+      <%= link_to profile_path(current_user) do %>
+        <div class="footer-userProfileImage">
+          <%= image_tag current_user.picture.url %>
+        </div>
+      <% end %>
+    </div>
+    <% else %>
+    <div class="footer-content">
+      <%= link_to new_user_session_path do %>
+        <div class="loginbtn-footer">
+          <h6>ログイン</h6>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</footer>
+
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>

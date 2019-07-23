@@ -7,13 +7,15 @@
     border-top-color: #2b2b2b;
     border-bottom-color: #2b2b2b;
     border: 2px;
-    padding: 2px;
-    margin: 0 0 30px 0;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    width: 100%;
 }
 
 .comment-body {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 7px;
 }
 
 .comment-left {
@@ -24,19 +26,20 @@
 
 .comment-user-image {
     height: 30px;
-    width: 30px;
+    width: 100%;
+    padding: 5%;
 }
 
 .comment-user-image img {
-    height: 30px;
-    width: 30px;
-    border-radius:15px;
+    width: 100%;
+    border-radius:50%;
     margin-top: 5px;
 }
 
 .comment-right{
     float: left;
     width: 92%;
+    padding-left: 2%;
 }
 
 .comment-user-name a {
