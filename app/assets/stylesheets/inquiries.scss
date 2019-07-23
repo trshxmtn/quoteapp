@@ -29,6 +29,16 @@
     vertical-align: middle;
 }
 
+.inquiry-grid.message {
+    padding: 150px 5%;
+  }
+  
+@media (max-width: 767px) {
+  .inquiry-grid.message {
+    padding: 20px 5%;
+  }
+}
+
 
 
 
@@ -109,6 +119,7 @@
     background-color: #2b2b2b;
     color: #ffffff;
 }
+
 
 
 
