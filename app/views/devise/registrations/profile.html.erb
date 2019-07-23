@@ -12,13 +12,17 @@
     <div class="user-show-user-name">
       <p><%= @user.username %></p>
     </div>
+
+    <%= render 'devise/shared/follow_form' if user_signed_in? %>
+
   </div>
+
 
   <div class="container-tabs">
     <%= link_to "#liked", class: "tab liked" do %><div class="profile-tab">いいねした言葉</div><% end %>
     <%= link_to "#post", class: "tab post" do %><div class="profile-tab">投稿した言葉</div><% end %>
-    <%= link_to "#follow", class: "tab follow" do%><div class="profile-tab">フォロー</div><% end %>
-    <%= link_to "#follower", class: "tab follower" do %><div class="profile-tab">フォロワー</div><% end %>
+    <%= link_to "#follow" , class: "tab follow" do%><div class="profile-tab" id="follow_count">フォロー&emsp;<%= @user.following.count %></div><% end %>
+    <%= link_to "#follower", class: "tab follower" do %><div class="profile-tab" id="follower_count">フォロワー&emsp;<%= @user.followers.count %></div><% end %>
   </div>
 
   <div class="container profile-contents">
@@ -51,23 +55,26 @@
     </div>
     <div class="profile-contents-index" id="follow">
       <div class="follow">
+        <% if @follow_users.any? %>
+          <ul class="users follow">
+            <% @follow_users.each do |user| %>
+              <li><%= image_tag current_user.picture.url %></li>
+              <li><%= link_to user.username, profile_path(user) %></li>
+            <% end %>
+          </ul>
+        <% end %>
       </div>
     </div>
     <div class="profile-contents-index" id="follower">
       <div class="follower">
+        <%= render 'show_follower' %>
       </div>
-    </div>
   </div>
 
 </div>
-        
-          
           <div class="tab-follow">
           <section class="stats">
             <%= render 'devise/shared/stats' %>
-          </section>
-          <section>
-            <%= render 'devise/shared/follow_form' if user_signed_in? %>
           </section>
 
 
