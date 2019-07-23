@@ -148,7 +148,7 @@ body{
 }
 
 @media (max-width: 767px) {
-  .header-right, .header-right-notlogin {
+  .header-right, .header-right-notlogin, .loginbtn {
     display: none;
   }
 }
@@ -449,7 +449,21 @@ nav.globalMenuSp.active {
   width: 30px;
 }
 
+.loginbtn-footer {
+  margin: 10px;
+  height: 30px;
+  width: 90px;
+  background-color: #2b2b2b;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 15px;
+}
 
+.loginbtn-footer h6 {
+  margin: 0;
+  line-height: 30px;
+  font-weight: 800;
+}
 
 
 
