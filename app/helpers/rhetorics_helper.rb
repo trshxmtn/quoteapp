@@ -6,6 +6,7 @@ module RhetoricsHelper
   BASE_IMAGE_PATH = './app/assets/images/quote_default.png'.freeze
   GRAVITY = 'center'.freeze
   TEXT_POSITION = '0,0'.freeze
+  SPEAKER_POSITION = '0,0'
   FONT = './app/assets/fonts/幻ノにじみ明朝.otf'.freeze
   FONT_SIZE = 44
   FONT_COLOR = "white"
@@ -15,15 +16,17 @@ module RhetoricsHelper
 
   class << self
     # 合成後のFileClassを生成
-    def build(text)
+    def build(text, speaker)
       # 元画像取得
       @image = MiniMagick::Image.open(BASE_IMAGE_PATH)
       # 文字列の整形
       text = prepare_text(text)
       # 画像リサイズ
       prepare_image(text)
-      # 画像に文字埋め込み
+      # 画像に名言埋め込み
       configuration(text)
+      # 画像に発言者埋め込み
+      configuration(speaker)
     end
 
     # 合成後のFileの書き出し
@@ -57,6 +60,17 @@ module RhetoricsHelper
       end
     end
 
+    def configuration_speaker(speaker)
+      @image.combine_options do |config|
+        config.font FONT
+        config.fill FONT_COLOR
+        config.gravity 'south'
+        config.pointsize "22"
+        config.interline_spacing 11
+        config.draw "text #{SPEAKER_POSITION} '#{speaker}'"
+      end
+    end
+
     # 背景にいい感じに収まるように文字を調整して返却
     def prepare_text(text)
       text.scan(/.{1,#{INDENTION_COUNT}}/)[0...ROW_LIMIT].join("\n")
@@ -67,7 +81,7 @@ module RhetoricsHelper
       # 文字描写前の画像の高さ
       default_height = 176
       # 行の数
-      rows_count = text.length/12 + 1
+      rows_count = text.length/12 + 1 + 2
       # 最終的な画像の高さ
       image_height = default_height + rows_count * 56
       # 高さをリサイズ
