@@ -156,7 +156,7 @@
 
 @media (max-width: 767px) {
   .rhetorics-show-grid {
-    padding: 7%;
+    padding: 7% 7% 0;
   }
 }
 
@@ -183,7 +183,7 @@
 
 @media (max-width: 767px) {
   .rhetorics-comments-grid {
-    padding: 7%;
+    padding: 2% 7% 7%;;
   }
 }
 
@@ -192,7 +192,7 @@
 }
 
 .share-like-area {
-  height: 120px;
+  height: 100px;
   width: 100%;
 }
 
@@ -294,11 +294,57 @@
   margin-bottom: 40px;
 }
 
+.post-user {
+  height: 35px;
+  width: 100%;
+  border-top: solid 1px #efefef;
+  border-bottom: solid 1px #efefef;
+  padding: 5px 5px 5px;
+  margin: 0 0 10px 0;
+}
+
+@media (max-width: 767px) {
+  .post-user-image {
+    width: 10%;
+  }
+}
+
+.post-user-image {
+  float: left;
+  height: 25px;
+  width: 25px;
+}
+
+.post-user-image img {
+  width: 20px;
+  height: 20px;
+  margin: 2.5px;
+  border-radius: 10px;
+}
+
+.post-user-name {
+  float: left;
+  height: 25px;
+  padding-left: 10px;
+  line-height: 25px;
+  color: #8b8b8b;
+  font-size: 10px;
+}
+
 .detail p {
   font-size: 10px;
   font-weight: 300;
   color: #8b8b8b;
   margin-bottom: 10px;
+}
+
+.rhetoric-discription {
+  padding: 0 5px;
+}
+
+.rhetoric-tag {
+  border-bottom: solid 1px #efefef;
+  padding: 5px 0 10px;
 }
 
 .tag-body {
@@ -433,3 +479,7 @@
   border: none;
   outline: none;
 }
+
+
+
+
