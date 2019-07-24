@@ -19,6 +19,10 @@ class User < ApplicationRecord
   # アップローダー紐づけ
   mount_uploader :picture, PictureUploader
 
+  def posts
+    return Rhetoric.where(user_id: self.id)
+  end
+
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
   end
