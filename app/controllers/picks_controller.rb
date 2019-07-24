@@ -2,16 +2,25 @@ class PicksController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @pick = Pick.new(user_id: current_user.id ,rhetoric_id: params[:rhetoric_id])
-    @pick.save
-    redirect_to("/rhetorics/#{params[:rhetoric_id]}")
+    @rhetoric = Rhetoric.find(params[:rhetoric_id])
+    unless @rhetoric.pick?(current_user)
+      @rhetoric.pick(current_user)
+      respond_to do |format|
+        format.html { redirect_to request.referrer || root_url }
+        format.js
+      end
+    end
   end
 
-
   def destroy
-    @pick = Pick.find_by(user_id: current_user.id ,rhetoric_id: params[:rhetoric_id])
-    @pick.destroy
-    redirect_to("/rhetorics/#{params[:rhetoric_id]}")
+    @rhetoric = Pick.find(params[:id]).rhetoric
+    if @rhetoric.pick?(current_user)
+      @rhetoric.unpick(current_user)
+      respond_to do |format|
+        format.html { redirect_to request.referrer || root_url }
+        format.js
+      end
+    end
   end
 
 end

@@ -1,19 +1,17 @@
 <div class="main-rhetorics-show">
+<%= link_to :back do %>
   <div class="btn-back">
-    <%= link_to :back do %>
-      <i class="fas fa-angle-left my-back fa-lg"></i>
-    <% end %>
+    <i class="fas fa-arrow-left my-back fa-lg"></i>
   </div>
+<% end %>
 
-  <div class="container">
-    <div class="row show">
-
+  <div class="container rhetorics-show">
+    <div class="rhetorics-show-grid">
       <div class="rhetoric-image">
-        <%= image_tag(image_rhetoric_path(@rhetoric)) %>
+        <%= image_tag image_path(@rhetoric.image) %>
       </div>
-      
+    
       <div class="rhetoric-contents">
-      
         <div class="share-like-area">
           <div class="btn-area">
             
@@ -27,36 +25,28 @@
                 <h6>共有する</h6>
               </div>
             </div>
-            
+
             <div class="btn-area-like">
               <div class="count-like">
+              </div>              
+              <div class="picks_buttons_<%= @rhetoric.id %>">
+                <%= render "picks/pick", rhetoric: @rhetoric %>
               </div>
-              <% if Pick.find_by(user_id: current_user.id, rhetoric_id: @rhetoric.id) %>
-                <%= link_to("/picks/#{@rhetoric.id}/destroy", {method: "post"}) do %>
-                <div class="btn-liked">
-                  <i class="fas fa-heart my-liked fa-lg"></i>
-                </div>
-                <% end %>
-                <div class="message-like">
-                  <h6>いいねしました</h6>
-                </div>
-              <% else %>
-                <%= link_to("/picks/#{@rhetoric.id}/create", {method: "post"}) do %>
-                <div class="btn-like">
-                  <i class="far fa-heart my-like fa-lg"></i>
-                </div>
-                <% end %>
-                <div class="message-like">
-                  <h6>いいね</h6>
-                </div>
-              <% end %>
-              
             </div>
-
           </div>
         </div>
 
         <div class="detail">
+          <%= link_to profile_path(@rhetoric.user.id) do %>
+          <div class="post-user">
+            <div class="post-user-image">
+              <%= image_tag @rhetoric.user.picture.url %>
+            </div>
+            <div class="post-user-name">
+              <%= @rhetoric.user.username %>
+            </div>
+          </div>
+          <% end %>
           <div class="rhetoric-discription">
             <p><%= @rhetoric.description %></p>
           </div>
@@ -71,30 +61,65 @@
           </div>
           <% end %>
         </div>
-
-        
-
-        <h5>コメント</h5>
-        <div class="comments">
-          <div id="comments_area"><!-- #① -->
-            <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-            <%= render partial: 'comments/index', locals: { comments: @comments } %>
-          </div>
-          <% if user_signed_in? %>
-            <div class="comment-input">
-            <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
-            <%= render partial: 'comments/form', locals: { comment: @comment, rhetoric: @rhetoric } %>
-            </div>
-          <% end %>
-        </div>
-
       </div>
     </div>
 
-    <div class="row index">
-      <div class="related-index">
+    <div class="rhetorics-comments-grid">
+      <h5>コメント</h5>
+      <div class="comments">
+        <div id="comments_area"><!-- #① -->
+          <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+          <%= render partial: 'comments/index', locals: { comments: @comments } %>
+        </div>
+        <% if user_signed_in? %>
+          <div class="comment-input">
+          <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+          <%= render partial: 'comments/form', locals: { comment: @comment, rhetoric: @rhetoric } %>
+          </div>
+        <% end %>
       </div>
     </div>
 
   </div>
+
+  <div class="related-index-message">
+    <h4>関連する言葉</h4>
+  </div>
+
+  <div class="container rhetorics-index">
+    <% @related_rhetorics.each do |rhetoric| %>
+      <div class="rheotorics-grid">
+        <div class="rhetoric-index-content">
+          <div class="rhetoric-index-img" id="result">
+            <%= link_to image_tag(image_path(rhetoric.image)), rhetoric %>
+          </div>
+
+          <div class="btn-area-like-index">
+            <div class="picks_buttons_index_<%= rhetoric.id %>">
+              <span class="pick">
+
+                <% if rhetoric.pick?(current_user) %>
+                  <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+                    <%= button_tag(class: "btn-liked-index") do %>
+                      <%= content_tag :span, "", class: "fas fa-heart my-liked-index fa-lg" %>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <%= form_for(rhetoric.picks.build, remote: true) do |f| %>
+                    <div><%= hidden_field_tag :rhetoric_id, rhetoric.id %></div>
+                    <%= button_tag(class: "btn-like-index") do %>
+                      <%= content_tag :span, "", class: "far fa-heart my-like-index fa-lg" %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+    
 </div>

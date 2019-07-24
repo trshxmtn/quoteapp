@@ -7,6 +7,8 @@ class Rhetoric < ApplicationRecord
   # has_many :rhetoric_speakers,dependent: :destroy
   acts_as_taggable
   acts_as_taggable_on :speakers
+  # アップローダー紐づけ
+  mount_uploader :image, RhetoricImageUploader
   #
   # def self.search(search)
   #   if search
@@ -15,5 +17,17 @@ class Rhetoric < ApplicationRecord
   #     all
   #   end
   # end
+
+  def pick(user)
+    picks.create(user_id: user.id)
+  end
+
+  def unpick(user)
+    picks.find_by(user_id: user.id).destroy
+  end
+
+  def pick?(user)
+    pick_users.include?(user)
+  end
 
 end

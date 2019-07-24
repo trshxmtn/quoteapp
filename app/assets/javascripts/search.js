@@ -1,18 +1,23 @@
 $(document).on('turbolinks:load', function (){
-    $(document).on('keyup', '#rhetoric_search', function(e){
-        e.preventDefault();
-        var input = $.trim($(this).val());
-        $.ajax({
-            url: '/',
-            type: 'GET',
-            date: ('keyward' +input),
-            processData: false, //おまじない
-            contentType: false, //おまじない
-            dataType: 'json' //データ形式を指定
-        })
-            .done(function (date) {
-                $('#result')
-                
-            })
+    var preFunc = null;
+    var preInput = '';
+    var input = '';
+    var timeoutValue = 10;
+
+    ajaxPost = function () {
+        $('#rhetoric_search').ajaxSubmit({
+            url: '/rhetorics/',
+            type: 'get'
+        });
+    }
+
+    $('#q_meigen_or_tags_name_or_speakers_name_cont').on('keyup', function () {
+        input = $.trim($(this).val());
+
+        if(preInput !== input){
+            clearTimeout(preFunc);
+            preFunc = setTimeout("ajaxPost()", timeoutValue);
+        }
+        preInput = input;
     })
 });

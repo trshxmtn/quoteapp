@@ -3,18 +3,21 @@ class RhetoricsController < ApplicationController
   include RhetoricsHelper
 
   def index
-    @rhetorics.all
-
     if params[:tag_name]
       @rhetorics = @rhetorics.tagged_with("#{params[:tag_name]}")
+    end
+
+    respond_to do |format|
+      format.js {}
+      format.html {}
     end
 
   end
 
   def show
-    @rhetoric = Rhetoric.find(params[:id])
     @comment = Comment.new
     @comments = @rhetoric.comments
+    @related_rhetorics = @rhetorics.tagged_with("#{@rhetoric.tag_list}") #同じタグが付いているquoteの表示
   end
 
   def new
@@ -23,8 +26,9 @@ class RhetoricsController < ApplicationController
 
   def create
     @rhetoric = current_user.rhetorics.build(rhetoric_params)
-    prepare_rhetoric_image
-    if @rhetoric.save
+    # Helperで生成した画像をimageカラムに
+    @rhetoric.image = RhetoricsHelper.build(@rhetoric.meigen)
+    if @rhetoric.save # ここでuploaderが走る
       flash[:success] = "rhetoricが作成されました！"
       redirect_to @rhetoric
     else
@@ -36,7 +40,8 @@ class RhetoricsController < ApplicationController
   end
 
   def update
-    prepare_rhetoric_image
+    # Helperで生成した画像をimageカラムに # rhetoric_paramsからmeigenを取り出す
+    @rhetoric.image = RhetoricsHelper.build(rhetoric_params[:meigen])
     if @rhetoric.update(rhetoric_params)
       flash[:success] = "rhetoricが編集されました！"
       redirect_to @rhetoric
@@ -63,13 +68,5 @@ class RhetoricsController < ApplicationController
   def find_rhetoric
     @rhetoric = Rhetoric.find(params[:id])
   end
-
-  def prepare_rhetoric_image
-    rhetoric_image = RhetoricsHelper.build(@rhetoric.meigen)
-    rhetoric_image.resize "350x350"
-    @rhetoric.image = rhetoric_image.tempfile.open.read
-    @rhetoric.ctype = rhetoric_image.mime_type
-  end
-
 
 end
