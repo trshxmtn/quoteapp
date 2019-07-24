@@ -1,11 +1,10 @@
 <%= form_with(model: [rhetoric, comment]) do |form| %>
-  <div>
-    <%= form.text_area :content  %>
+  <div class="comment-textarea">
+    <%= form.text_area :content, :placeholder => "コメントを追加する" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit "コメントする" %>
-
+  <div class="comment-submit">
+    <%= form.submit "コメントする", :class => "btn" %>
   </div>
 
 <% end %>

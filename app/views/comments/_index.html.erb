@@ -1,10 +1,33 @@
 <% comments.each do |comment| %>
-  <% unless comment.id.nil? %>
-    <p><%= link_to"#{comment.user.username}",profile_path(comment.user.id) %></p>
-    <p>コメント： <%= comment.content %></p>
-    <% if comment.user == current_user %>
-      <p><%= link_to 'コメントを削除する',rhetoric_comment_path(comment.rhetoric_id, comment.id),method: :delete, remote: true %></p>
-      <% end %>
-    <% end %>
+  <div class="comment-body">
+    <% unless comment.id.nil? %>
+    <div class="comment-left">
+      <div class="comment-user-image">
+        <%= link_to profile_path(comment.user.id) do %>
+	        <%= image_tag comment.user.picture.url %>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="comment-right">
+      <div class="comment-user-name">
+        <p><%= link_to"#{comment.user.username}",profile_path(comment.user.id) %></p>
+      </div>
+      <div class="comment-content">
+        <p><%= comment.content %></p>
+      </div>
 
+      <% if comment.user == current_user %>
+        <div class="comment-delete">
+          <li>
+          <%= link_to rhetoric_comment_path(comment.rhetoric_id, comment.id), method: :delete, remote: true do %>
+            <h6>コメントを削除する</h6>
+            <i class="fas fa-trash-alt my-comment-delete"></i>
+          <% end %>
+          </li>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
 <% end %>

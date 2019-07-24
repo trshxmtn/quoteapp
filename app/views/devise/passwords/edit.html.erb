@@ -7,13 +7,31 @@
   <%= f.full_error :reset_password_token %>
 
   <div class="form-inputs">
-    <%= f.input :password,
-                label: "New password",
-                required: true,
-                autofocus: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation, label: "Confirm your new password", required: true %>
+    <div class="form-inputs-text">
+      <div class="form-outline">
+        <div class="form-icon">
+          <i class="fas fa-key fa-lg my-password"></i>
+        </div>
+        <%= f.input :password,
+                    label: "New password",
+                    required: true,
+                    autofocus: true,
+                    :placeholder => "パスワード",
+                    label: false,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+      </div>
+      <div class="form-outline">
+        <div class="form-icon">
+          <i class="fas fa-key fa-lg my-password"></i>
+        </div>
+        <%= f.input :password_confirmation, 
+                    label: "Confirm your new password", 
+                    :placeholder => "確認用パスワード",
+                    label: false,
+                    required: true %>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions">

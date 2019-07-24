@@ -1,3 +1,107 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.comments {
+    border-top-color: #1A2023;
+    border-bottom-color: #1A2023;
+    border: 2px;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.comment-body {
+    width: 100%;
+    margin-top: 7px;
+}
+
+.comment-left {
+    float: left;
+    width: 8%;
+    min-height: 54px;
+}
+
+.comment-user-image {
+    height: 30px;
+    width: 100%;
+    padding: 5%;
+}
+
+.comment-user-image img {
+    width: 100%;
+    border-radius:50%;
+    margin-top: 5px;
+}
+
+.comment-right{
+    float: left;
+    width: 92%;
+    padding-left: 2%;
+}
+
+.comment-user-name a {
+    padding: 5px;
+    color: #2b2b2b;
+    font-size: 8px;
+}
+
+.comment-content {
+    background-color: #EDF0F2;
+    border-radius: 20px;
+    padding: 10px;
+    color: #1A2023;
+    font-size: 8px;
+    word-wrap: break-word;
+}
+
+.comment-delete {
+    float: right;
+    margin: 0 15px 0px 0;
+}
+
+.comment-delete h6 {
+    float: left;
+    font-size: 8px;
+    color: #899399;
+    margin-bottom: 0;
+}
+
+.my-comment-delete {
+    font-size: 10px;
+    float: right;
+    color: #899399;
+    margin: 9px 0 0 3px;
+}
+
+.comment-textarea textarea{
+    height: 34px;
+    width: 100%;
+    background-color: #EDF0F2;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 10px;
+    color: #1A2023;
+    font-size: 10px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.comment-submit {
+    height: 30px;
+    margin-top: 5px;
+}
+
+.comment-submit input {
+    background-color: #1A2023;
+    height: 30px;
+    width: 90px;
+    float: right;
+    margin: 0;
+    color: #FCFEFF;
+    font-size: 10px;
+    border-radius: 15px;
+}

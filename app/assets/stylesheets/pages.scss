@@ -1,0 +1,103 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+
+// about
+
+.container.about {
+    width: 100%;
+}
+
+.row.quote-concept {
+    height: 160px;
+}
+
+.quote-concept {
+    height: 80px;
+    width: 100%;
+    text-align: center;
+}
+
+.quote-concept h1 {
+    font-size: 50px;
+    font-weight: 900;
+    line-height: 60px;
+}
+
+.quote-concept h6 {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.col-sm-4 {
+    margin: 20px auto;
+}
+
+.tutorial-content {
+    height: 250px;
+    width: 100%;
+    padding: 10%;
+    border-radius: 10px;
+    box-shadow: 0px 5px 40px rgba(61,71,76,0.08);
+}
+
+.tutorial-image {
+    height: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+.my-search-tutorial {
+    color: #1A2023;
+}
+
+.my-heart-tutorial {
+    color: #dd5555;
+}
+
+.my-pencil-tutorial {
+    color: #1A2023;
+}
+
+.tutorial-message h3 {
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+
+
+
+// privacy
+
+.container.privacy {
+    width: 70%;
+    margin: 0 auto 100px;
+}
+
+
+
+// terms
+
+.container.terms {
+    width: 70%;
+    margin: 0 auto 100px;
+}
+
+.container h1 {
+    font-weight: 800;
+    margin: 40px 0;
+}
+
+.container h3 {
+    margin: 40px 0 10px;
+}
+
+.container h4 {
+    margin: 40px 0;
+}

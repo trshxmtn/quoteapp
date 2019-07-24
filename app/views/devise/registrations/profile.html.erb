@@ -1,15 +1,88 @@
-<h1>Your Account</h1>
+<div class="main-user-show">
+  <%= link_to :back do %>
+    <div class="btn-back">
+      <i class="fas fa-arrow-left my-back fa-lg"></i>
+    </div>
+  <% end %>
 
-<%= image_tag @user.picture.url if @user.picture? %>
+  <div class="container profile">
+    <div class="user-show-user-image">
+      <%= image_tag @user.picture.url %>
+    </div>
+    <div class="user-show-user-name">
+      <p><%= @user.username %></p>
+    </div>
+    <div class="user-show-followbtn">
+      <%= render 'devise/shared/follow_form' if user_signed_in? %>
+    </div>
 
-<p>名前 : <%= @user.username %></p>
-<p>メールアドレス : <%= @user.email %></p>
+  </div>
 
-<section class="stats">
-  <%= render 'devise/shared/stats' %>
-</section>
-<section>
-  <%= render 'devise/shared/follow_form' if user_signed_in? %>
-</section>
 
-<%= link_to "編集", edit_user_registration_path %>
+  <div class="container-tabs">
+    <%= link_to "#liked", class: "tab liked" do %><div class="profile-tab">いいねした言葉</div><% end %>
+    <%= link_to "#post", class: "tab post" do %><div class="profile-tab">投稿した言葉</div><% end %>
+    <%= link_to "#follow" , class: "tab follow" do%><div class="profile-tab" id="follow_count">フォロー&emsp;<%= @user.following.count %></div><% end %>
+    <%= link_to "#follower", class: "tab follower" do %><div class="profile-tab" id="follower_count">フォロワー&emsp;<%= @user.followers.count %></div><% end %>
+  </div>
+
+  <div class="container profile-contents">
+    <div class="profile-contents-index" id="liked">
+      <div class="profile-contents-columnFix">
+      <% @picks.each do |pick| %>
+        <% rhetoric = Rhetoric.find_by(id: pick.rhetoric_id) %>
+        <div class="rheotorics-index-grid">
+          <div class="rhetoric-index-content">
+            <div class="rhetoric-index-img" id="result">
+              <%= link_to image_tag(image_path(rhetoric.image)), rhetoric %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+    <div class="profile-contents-index" id="post">
+      <div class="profile-contents-columnFix">
+      <% @user.posts.each do |post| %>
+        <div class="rheotorics-index-grid">
+          <div class="rhetoric-index-content">
+            <div class="rhetoric-index-img" id="result">
+              <%= link_to image_tag(image_path(post.image)), post %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+    <div class="profile-contents-index" id="follow">
+      <% if @follow_users.any? %>
+        <% @follow_users.each do |user| %>
+          <%= link_to profile_path(user) do %>
+          <div class="follow-user">
+            <div class="follow-user-left">
+              <div class="follow-user-image">
+                <%= image_tag current_user.picture.url %>
+              </div>
+            </div>
+            <div class="follow-user-right">
+              <div class="follow-user-name">
+                <%= user.username %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="profile-contents-index" id="follower">
+      <%= render 'show_follower' %>
+  </div>
+
+</div>
+          <div class="tab-follow">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

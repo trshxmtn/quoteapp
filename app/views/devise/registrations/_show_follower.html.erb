@@ -1,0 +1,18 @@
+<% if @followed_users .any? %>
+  <% @followed_users .each do |user| %>
+    <%= link_to profile_path(user) do %>
+      <div class="follower-user">
+        <div class="follower-user-left">
+          <div class="follower-user-image">
+            <%= image_tag current_user.picture.url %>
+          </div>
+        </div>
+        <div class="follower-user-right">
+          <div class="follower-user-name">
+            <%= user.username %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

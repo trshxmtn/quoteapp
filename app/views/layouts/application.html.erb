@@ -7,48 +7,97 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://kit.fontawesome.com/1471aca7cc.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+  <script src="http://malsup.github.com/jquery.form.js"></script>
+
 </head>
 
 <body>
 
+
+
 <header>
 
-  <nav class="navbar navbar-default">
-
-    <div class="container">
-      <div class="navbar-header">
-        <%= link_to 'Quote', root_path, class: "navbar-brand" %>
+  <div class="header">
+    <div class="header-left">
+      <%= link_to root_path do %>
+      <div class="header-logo">
+        <h4>Quote</h4>
       </div>
-
+      <% end %>
+    </div>
+    <% if user_signed_in? %>
       <div class="header-search">
-        <%= form_tag(rhetorics_path, :method => 'get') do %>
+        <div class="search-icon">
+          <i class="fa fa-search fa-lg my-search"></i>
+        </div>
 
-          <%= text_field_tag :search, params[:search], placeholder: '検索' %>
-          <%= submit_tag "検索" , :name => nil %>
-
-        <% end %>
+        <div class="search-input" id="#search-form">
+          <%= search_form_for @q, url: rhetorics_path  do |f| %>
+            <%= f.search_field :meigen_or_tags_name_or_speakers_name_cont, placeholder: '検索' %>
+            <%= f.submit '検索' %>
+            <% end %>
+        </div>
 
       </div>
+    <% end %>
 
-      <ul class="header-right">
+    <% if user_signed_in? %>
+    <%= link_to profile_path(current_user) do %>
+    <div class="header-right">
+    <ul class="header-profile">
+      <li>
+        <div class="userProfileImage">
+            <%= image_tag current_user.picture.url %>
+        </div>
+      </li>
+      <li>
+        <div class="userProfileName">
+          <%= current_user.username %>
+        </div>
+      </li>
+    </ul>
+    </div>
+    <% end %>
+    <% else %>
+    <div class="header-right-notlogin">
+    <ul class="header-profile">
+      <li>
+        <%= link_to new_user_session_path do %>
+          <div class="loginbtn">
+            <h6>ログイン</h6>
+          </div>
+        <% end %>
+      </li>
+    </ul>
+    </div>
+    <% end %>
+    
+
+      <li>
         <div class="navToggle">
           <span></span><span></span><span></span>
         </div>
+      </li>
+
         <nav class="globalMenuSp">
           <ul>
             <% if user_signed_in? %>
-              <li>Quoteとは</li>
-              <li><%= link_to 'アカウント設定', profile_path(current_user) %></li>
-              <li>お問い合わせ</li>
-              <li>利用規約・プライバシー</li>
-              <li><%= link_to "新しい言葉を追加", new_rhetoric_path %></li>
-              <li> <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to about_path do %><div class="globalMenuList"><p>Quoteとは</p></div><% end %></li>
+              <li><%= link_to edit_user_registration_path do %><div class="globalMenuList"><p>アカウント設定</p></div><% end %></li>
+              <li><%= link_to inquiry_path do %><div class="globalMenuList"><p>お問い合わせ</p></div><% end %></li>
+              <li><%= link_to '/terms' do %><div class="globalMenuList"><p>利用規約</p></div><% end %></li>
+              <li><%= link_to '/privacy-policy' do %><div class="globalMenuList"><p>プライバシーポリシー</p></div><% end %></li>
+              <li><%= link_to new_rhetoric_path do %><div class="globalMenuList"><p>新しい言葉を追加</p></div><% end %></li>
+              <li><%= link_to destroy_user_session_path, method: :delete do %><div class="globalMenuList"><p>ログアウト</p></div><% end %></li>
             <% else %>
-              <li>Quoteとは</li>
-              <li>お問い合わせ</li>
-              <li>利用規約</li>
-              <li><%= link_to 'アカウント作成', new_user_registration_path %></li>
-              <li><%= link_to 'ログイン', new_user_session_path %></li>
+              <li><%= link_to about_path do %><div class="globalMenuList"><p>Quoteとは</p></div><% end %></li>
+              <li><%= link_to inquiry_path do %><div class="globalMenuList"><p>お問い合わせ</p></div><% end %></li>
+              <li><%= link_to '/terms' do %><div class="globalMenuList"><p>利用規約</p></div><% end %></li>
+              <li><%= link_to '/privacy-policy' do %><div class="globalMenuList"><p>プライバシーポリシー</p></div><% end %></li>
+              <li><%= link_to new_user_registration_path do %><div class="globalMenuList"><p>アカウント作成</p></div><% end %></li>
+              <li><%= link_to new_user_session_path do %><div class="globalMenuList"><p>ログイン</p></div><% end %></li>
             <% end %>
           </ul>
         </nav>
@@ -59,6 +108,40 @@
   </nav>
 
 </header>
+
+
+
+
+<footer>
+  <div class="footer">
+    <div class="footer-content">
+    <%= link_to root_path do %>
+      <div class="footer-logo">
+        <h4>Quote</h4>
+      </div>
+    <% end %>
+    </div>
+    
+    <% if user_signed_in? %>
+    <div class="footer-content">
+      <%= link_to profile_path(current_user) do %>
+        <div class="footer-userProfileImage">
+          <%= image_tag current_user.picture.url %>
+        </div>
+      <% end %>
+    </div>
+    <% else %>
+    <div class="footer-content">
+      <%= link_to new_user_session_path do %>
+        <div class="loginbtn-footer">
+          <h6>ログイン</h6>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</footer>
+
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>

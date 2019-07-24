@@ -1,0 +1,150 @@
+// Place all the styles related to the inquiries controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// all
+
+.container.inquiry {
+    min-width: 100%;
+    padding: 0 10%;
+    column-count: 2;
+    column-gap: 0;
+}
+
+@media (max-width: 767px) {
+    .container.inquiry {
+      column-count: 1;
+      padding: 0 3%;
+    }
+  }
+
+.inquiry-grid {
+    width: 100%;
+    padding: 20px 5%;
+    margin: 0;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    vertical-align: middle;
+}
+
+.inquiry-grid.message {
+    padding: 150px 5%;
+  }
+  
+@media (max-width: 767px) {
+  .inquiry-grid.message {
+    padding: 20px 5%;
+  }
+}
+
+
+
+
+// index & confirm
+
+.inquiry-message {
+    width: 100%;
+    height: 100px;
+}
+
+.inquiry-message h2 {
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.inquiry-message h5 {
+    font-size: 13px;
+    line-height: 19px;
+    margin: 15px auto;
+}
+
+.form-outline input {
+    height: 40px;
+    width: 90%;
+    margin: 0 20px;
+    outline: none;
+    border: none;
+}
+
+.filled-out-text {
+    padding: 10px 21px;
+    color: #899399;
+}
+
+.textarea-outline {
+    background-color: #FCFEFF;
+    box-shadow: 0px 3px 10px rgba(61,71,76,0.2);
+    margin-bottom: 20px;
+    height: 200px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.textarea-outline textarea {
+    height: 180px;
+    width: 90%;
+    margin: 10px 20px;
+    outline: none;
+    border: none;
+    resize: none;
+}
+
+.form-actions-inquiry-confirm  {
+    float: left;
+    height: 40px;
+    width: 45%;
+    margin: 10px 2%;
+}
+
+.form-actions-inquiry-confirm input {
+    height: 40px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    border: none;
+    outline: none;
+}
+
+.inquiry-back {
+    background-color: #ebebeb;
+    color: #1A2023;
+}
+
+.inquiry-submit {
+    background-color: #1A2023;
+    color: #FCFEFF;
+}
+
+
+
+
+
+
+
+// done
+
+.container.inquiry-done {
+    text-align: center;
+}
+
+.back-to-top {
+    height: 40px;
+    width: 170px;
+    margin: 40px auto;
+    font-weight: bold;
+    text-align: center;
+    background-color: #1A2023;
+    color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    line-height: 40px;
+}
+
+.back-to-top p {
+    height: 40px;
+}

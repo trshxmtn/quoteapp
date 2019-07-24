@@ -16,15 +16,19 @@ class User < ApplicationRecord
   has_many :following,through: :active_relationships,source: :followed
   has_many :followers,through: :passive_relationships,source: :follower
 
+  # アップローダー紐づけ
   mount_uploader :picture, PictureUploader
 
+  def posts
+    return Rhetoric.where(user_id: self.id)
+  end
 
   def follow(other_user)
-    active_relationships.create(followed_ids: other_user.id)
+    active_relationships.create(followed_id: other_user.id)
   end
 
   def unfollow(other_user)
-    passive_relationships.find_by(followed_id: other_user.id).destroy
+    active_relationships.find_by(followed_id: other_user.id).destroy
   end
 
   def following?(other_user)
