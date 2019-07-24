@@ -28,7 +28,6 @@ class RhetoricsController < ApplicationController
     @rhetoric = current_user.rhetorics.build(rhetoric_params)
     # Helperで生成した画像をimageカラムに
     @rhetoric.image = RhetoricsHelper.build(@rhetoric.meigen)
-    byebug
     if @rhetoric.save # ここでuploaderが走る
       flash[:success] = "rhetoricが作成されました！"
       redirect_to @rhetoric
