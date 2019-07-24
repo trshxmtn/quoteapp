@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 2019_07_16_074328) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
+  create_table "rhetoric_speakers", force: :cascade do |t|
+    t.integer "speaker_id"
+    t.integer "rhetoric_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rhetoric_id", "speaker_id"], name: "index_rhetoric_speakers_on_rhetoric_id_and_speaker_id", unique: true
+    t.index ["rhetoric_id"], name: "index_rhetoric_speakers_on_rhetoric_id"
+    t.index ["speaker_id"], name: "index_rhetoric_speakers_on_speaker_id"
+  end
+
   create_table "rhetorics", force: :cascade do |t|
     t.text "meigen"
     t.text "description"
