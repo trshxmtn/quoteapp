@@ -1,4 +1,4 @@
-jQuery(function($){
+$(document).on('turbolinks:load', function() {
     $('.profile-contents > div').hide();
 
     $('.tab').click(function () {

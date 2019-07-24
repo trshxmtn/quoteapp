@@ -1,3 +1,4 @@
+
 <div class="main-rhetorics-show">
 <%= link_to :back do %>
   <div class="btn-back">
@@ -37,6 +38,16 @@
         </div>
 
         <div class="detail">
+          <%= link_to profile_path(@rhetoric.user.id) do %>
+          <div class="post-user">
+            <div class="post-user-image">
+              <%= image_tag @rhetoric.user.picture.url %>
+            </div>
+            <div class="post-user-name">
+              <%= @rhetoric.user.username %>
+            </div>
+          </div>
+          <% end %>
           <div class="rhetoric-discription">
             <p><%= @rhetoric.description %></p>
           </div>

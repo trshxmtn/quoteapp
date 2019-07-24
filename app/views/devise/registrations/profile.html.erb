@@ -12,13 +12,18 @@
     <div class="user-show-user-name">
       <p><%= @user.username %></p>
     </div>
+    <div class="user-show-followbtn">
+      <%= render 'devise/shared/follow_form' if user_signed_in? %>
+    </div>
+
   </div>
+
 
   <div class="container-tabs">
     <%= link_to "#liked", class: "tab liked" do %><div class="profile-tab">いいねした言葉</div><% end %>
     <%= link_to "#post", class: "tab post" do %><div class="profile-tab">投稿した言葉</div><% end %>
-    <%= link_to "#follow", class: "tab follow" do%><div class="profile-tab">フォロー</div><% end %>
-    <%= link_to "#follower", class: "tab follower" do %><div class="profile-tab">フォロワー</div><% end %>
+    <%= link_to "#follow" , class: "tab follow" do%><div class="profile-tab" id="follow_count">フォロー&emsp;<%= @user.following.count %></div><% end %>
+    <%= link_to "#follower", class: "tab follower" do %><div class="profile-tab" id="follower_count">フォロワー&emsp;<%= @user.followers.count %></div><% end %>
   </div>
 
   <div class="container profile-contents">
@@ -50,28 +55,31 @@
       </div>
     </div>
     <div class="profile-contents-index" id="follow">
-      <div class="follow">
-        <p>あ</p>
-      </div>
+      <% if @follow_users.any? %>
+        <% @follow_users.each do |user| %>
+          <%= link_to profile_path(user) do %>
+          <div class="follow-user">
+            <div class="follow-user-left">
+              <div class="follow-user-image">
+                <%= image_tag current_user.picture.url %>
+              </div>
+            </div>
+            <div class="follow-user-right">
+              <div class="follow-user-name">
+                <%= user.username %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
     <div class="profile-contents-index" id="follower">
-      <div class="follower">
-      </div>
-    </div>
+      <%= render 'show_follower' %>
   </div>
 
 </div>
-        
-          
           <div class="tab-follow">
-          <section class="stats">
-            <%= render 'devise/shared/stats' %>
-          </section>
-          <section>
-            <%= render 'devise/shared/follow_form' if user_signed_in? %>
-          </section>
-
-
         </div>
       </div>
     </div>

@@ -56,15 +56,15 @@
   
 .rhetoric-index-img img{
   width: 100%;
-  border-radius: 3%;
-  box-shadow: 0 5px 40px rgba(0,0,0,0.06);
+  border-radius: 8px;
+  box-shadow: 0px 5px 40px rgba(61,71,76,0.06);
   transition-duration: 0.3s;
   position:relative;
 }
 
 .rhetoric-index-img img:hover {
   transform: translate3d(0, 3px, 0);
-  box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+  box-shadow: 0px 5px 30px rgba(61,71,76,0.1);
 }
   
 .rhetorics-grid a img{
@@ -111,18 +111,18 @@
   left: 20px;
   height: 40px;
   width: 40px;
-  background-color: #ffffff;
+  background-color: #FCFEFF;
   border-radius: 20px;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.05);
+  box-shadow: 0px 5px 10px rgba(61,71,76,0.05);
   text-align: center;
 }
 
 .btn-back:hover {
-  background-color: #efefef;
+  background-color: #EDF0F2;
 }
 
 .my-back {
-  color: #2b2b2b;
+  color: #1A2023;
   margin-top: 13.5px;
 }
 
@@ -132,8 +132,8 @@
   margin: 50px 10%;
   column-count: 2;
   column-gap: 0;
-  border-radius: 3%;
-  box-shadow: 0 5px 40px rgba(0,0,0,0.06);
+  border-radius: 15px;
+  box-shadow: 0px 5px 40px rgba(61,71,76,0.1);
 }
 
 @media (max-width: 767px) {
@@ -156,7 +156,7 @@
 
 @media (max-width: 767px) {
   .rhetorics-show-grid {
-    padding: 7%;
+    padding: 7% 7% 0;
   }
 }
 
@@ -167,8 +167,8 @@
 
 .rhetoric-image img {
   width: 100%;
-  border-radius: 3%;
-  box-shadow: 0 5px 40px rgba(0,0,0,0.06);
+  border-radius: 7px;
+  box-shadow: 0px 5px 40px rgba(61,71,76,0.06);
 }
 
 .rhetorics-comments-grid {
@@ -183,7 +183,7 @@
 
 @media (max-width: 767px) {
   .rhetorics-comments-grid {
-    padding: 7%;
+    padding: 2% 7% 7%;;
   }
 }
 
@@ -192,7 +192,7 @@
 }
 
 .share-like-area {
-  height: 120px;
+  height: 100px;
   width: 100%;
 }
 
@@ -215,13 +215,13 @@
   margin: auto;
   border: none;
   border-radius: 20px;
-  box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+  box-shadow: 0px 5px 20px rgba(61,71,76,0.1);
   padding-top: 10px;
   transition-duration: 0.3s;
 }
 
 .btn-share:hover {
-  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  box-shadow: 0px 5px 10px rgba(61,71,76,0.15);
 }
 
 .btn-like {
@@ -230,13 +230,13 @@
   margin: auto;
   border: none;
   border-radius: 20px;
-  box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+  box-shadow: 0px 5px 20px rgba(61,71,76,0.1);
   padding-top: 6px;
   transition-duration: 0.3s;
 }
 
 .btn-like:hover {
-  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  box-shadow: 0px 5px 10px rgba(61,71,76,0.15);
 }
 
 .btn-liked {
@@ -245,7 +245,7 @@
   margin: auto;
   border: none;
   border-radius: 20px;
-  box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+  box-shadow: 0px 5px 20px rgba(61,71,76,0.1);
   vertical-align: middle;
   padding-top: 6px;
   background-color: #dd5555;
@@ -253,7 +253,7 @@
 }
 
 .btn-liked:hover {
-  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  box-shadow: 0px 5px 10px rgba(61,71,76,0.15);
 }
 
 .liked-message {
@@ -261,7 +261,7 @@
 }
 
 .like-message, .message-share {
-  color: #8b8b8b;
+  color: #899399;
 }
 
 .message-share h6, .message-like h6 {
@@ -270,7 +270,7 @@
 }
 
 .my-share {
-  color: #2b2b2b;
+  color: #1A2023;
 }
 
 .my-like {
@@ -278,7 +278,7 @@
 }
 
 .my-liked {
-  color: #ffffff;
+  color: #FCFEFF;
 }
 
 .like-btn {
@@ -287,28 +287,74 @@
   width: 40px;
   margin: 20px 10px 0px 10px;
   border-radius: 20px;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+  box-shadow: 0px 5px 10px rgba(61,71,76,0.2);
 }
 
 .detail {
   margin-bottom: 40px;
 }
 
+.post-user {
+  height: 35px;
+  width: 100%;
+  border-top: solid 1px #EDF0F2;
+  border-bottom: solid 1px #EDF0F2;
+  padding: 5px 5px 5px;
+  margin: 0 0 10px 0;
+}
+
+@media (max-width: 767px) {
+  .post-user-image {
+    width: 10%;
+  }
+}
+
+.post-user-image {
+  float: left;
+  height: 25px;
+  width: 25px;
+}
+
+.post-user-image img {
+  width: 20px;
+  height: 20px;
+  margin: 2.5px;
+  border-radius: 10px;
+}
+
+.post-user-name {
+  float: left;
+  height: 25px;
+  padding-left: 10px;
+  line-height: 25px;
+  color: #899399;
+  font-size: 10px;
+}
+
 .detail p {
   font-size: 10px;
   font-weight: 300;
-  color: #8b8b8b;
+  color: #899399;
   margin-bottom: 10px;
+}
+
+.rhetoric-discription {
+  padding: 0 5px;
+}
+
+.rhetoric-tag {
+  border-bottom: solid 1px #EDF0F2;
+  padding: 5px 0 10px;
 }
 
 .tag-body {
   display: inline;
-  background-color: #efefef;
+  background-color: #EDF0F2;
   padding: 4px 8px;
   margin: 3px;
   border-radius: 10px;
   font-size: 7px;
-  color: #5d6266;
+  color: #899399;
   font-weight: 550;
   vertical-align: baseline;
   white-space: nowrap;
@@ -326,7 +372,7 @@
 }
 
 .edit-and-delete-rhetoric a {
-  color: #8b8b8b;
+  color: #899399;
 }
 
 .related-index-message h4{
@@ -398,8 +444,8 @@
 }
 
 .textarea-outline {
-  background-color: #ffffff;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  background-color: #FCFEFF;
+  box-shadow: 0px 3px 10px rgba(61,71,76,0.2);
   margin-bottom: 20px;
   height: 100px;
   width: 100%;
@@ -426,10 +472,14 @@
   height: 40px;
   width: 100%;
   border-radius: 20px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  box-shadow: 0px 3px 10px rgba(61,71,76,0.2);
   font-weight: bold;
   text-align: center;
   line-height: 40px;
   border: none;
   outline: none;
 }
+
+
+
+

@@ -1,2 +1,3 @@
 $("#follow_form").html("<%= escape_javascript(render('devise/shared/unfollow')) %>");
 $("#followers").html('<%= @user.followers.count %>');
+$("#follower_count").html('フォロワー&emsp;<%= @user.followers.count %>');
