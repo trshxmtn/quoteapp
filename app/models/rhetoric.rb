@@ -1,6 +1,5 @@
 class Rhetoric < ApplicationRecord
   belongs_to :user
-  belongs_to :speaker
   validates :user_id, presence: true
   has_many :picks, dependent: :destroy
   has_many :pick_users, through: :picks, source: :user

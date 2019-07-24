@@ -27,7 +27,8 @@ class RhetoricsController < ApplicationController
   def create
     @rhetoric = current_user.rhetorics.build(rhetoric_params)
     # Helperで生成した画像をimageカラムに
-    @rhetoric.image = RhetoricsHelper.build(@rhetoric.meigen, @rhetoric.speaker_list)
+    @rhetoric.image = RhetoricsHelper.build(@rhetoric.meigen)
+    byebug
     if @rhetoric.save # ここでuploaderが走る
       flash[:success] = "rhetoricが作成されました！"
       redirect_to @rhetoric
@@ -63,7 +64,7 @@ class RhetoricsController < ApplicationController
 
 
   def rhetoric_params
-    params.require(:rhetoric).permit(:title, :description, :meigen, :tag_list, :speaker_list )
+    params.require(:rhetoric).permit(:description, :meigen, :tag_list, :speaker_list )
   end
 
   def find_rhetoric

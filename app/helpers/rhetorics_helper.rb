@@ -6,7 +6,6 @@ module RhetoricsHelper
   BASE_IMAGE_PATH = './app/assets/images/quote_default.png'.freeze
   GRAVITY = 'center'.freeze
   TEXT_POSITION = '0,0'.freeze
-  SPEAKER_POSITION = '0,0'
   FONT = './app/assets/fonts/幻ノにじみ明朝.otf'.freeze
   FONT_SIZE = 44
   FONT_COLOR = "white"
@@ -16,7 +15,7 @@ module RhetoricsHelper
 
   class << self
     # 合成後のFileClassを生成
-    def build(text, speaker)
+    def build(text)
       # 元画像取得
       @image = MiniMagick::Image.open(BASE_IMAGE_PATH)
       # 文字列の整形
@@ -25,8 +24,6 @@ module RhetoricsHelper
       prepare_image(text)
       # 画像に名言埋め込み
       configuration(text)
-      # 画像に発言者埋め込み
-      configuration(speaker)
     end
 
     # 合成後のFileの書き出し
@@ -57,17 +54,6 @@ module RhetoricsHelper
         config.interline_spacing 22
         # 文字描写
         config.draw "text #{TEXT_POSITION} '#{text}'"
-      end
-    end
-
-    def configuration_speaker(speaker)
-      @image.combine_options do |config|
-        config.font FONT
-        config.fill FONT_COLOR
-        config.gravity 'south'
-        config.pointsize "22"
-        config.interline_spacing 11
-        config.draw "text #{SPEAKER_POSITION} '#{speaker}'"
       end
     end
 
