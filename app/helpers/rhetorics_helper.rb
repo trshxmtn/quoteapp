@@ -22,7 +22,7 @@ module RhetoricsHelper
       text = prepare_text(text)
       # 画像リサイズ
       prepare_image(text)
-      # 画像に文字埋め込み
+      # 画像に名言埋め込み
       configuration(text)
     end
 
@@ -67,7 +67,7 @@ module RhetoricsHelper
       # 文字描写前の画像の高さ
       default_height = 176
       # 行の数
-      rows_count = text.length/12 + 1
+      rows_count = text.length/12 + 1 + 2
       # 最終的な画像の高さ
       image_height = default_height + rows_count * 56
       # 高さをリサイズ
