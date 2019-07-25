@@ -154,7 +154,7 @@
 
 @media (max-width: 767px) {
     .container.profile-contents {
-        min-width: 100%;
+        max-width: 100%;
         padding: 5%;
         margin-top: 5px;
     }
@@ -209,3 +209,128 @@
 }
 
 
+
+
+
+
+// edit-profile 
+
+.container.edit-profile {
+    min-width: 100%;
+    padding: 0 10%;
+}
+
+@media (max-width: 767px) {
+    .container.edit-profile {
+      padding: 0 3%;
+    }
+}
+
+.container.edit-profile h1 {
+    margin: 0 0 40px;
+}
+
+.edit-form-body {
+    width: 100%;
+}
+
+.edit-form-content {
+    width: 590px;
+    padding: 5px 0 0;
+    margin-bottom: 10px;
+    border-bottom: solid #EDF0F2 1px;
+    display: inline-block;
+}
+
+@media (max-width: 767px) {
+    .edit-form-content {
+        width: 100%;
+    }
+
+    .edit-form-left {
+        width: 100%;
+    }
+    
+    .edit-form-right {
+        width: 100%;
+        margin-top: 10px; 
+    }
+
+    .edit-form-right input {
+        width: 100%;
+    }
+}
+
+.edit-form-left {
+    float: left;
+    width: 240px;
+    display: inline-block;
+    padding: 0 20px 0 0;
+}
+
+.edit-form-left h6 {
+    font-size: 15px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.edit-form-left p {
+    font-size: 8px;
+    font-weight: 500;
+    margin: 5px 0 0;
+    display: block;
+    color: #899399;
+}
+
+.edit-form-right {
+    float: left;
+    width: 350px;
+    height: 50px;
+}
+
+.edit-form-right input {
+    background-color: #EDF0F2;
+    border-radius: 16px;
+    border: none;
+    outline: none;
+    padding: 6px 12px;
+}
+
+.form-actions.rhetoric-edit {
+    height: 80px;
+    width: 590px;
+    padding-right: 30px; 
+}
+
+@media (max-width: 767px) {
+    .form-actions.rhetoric-edit {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+.form-actions.rhetoric-edit input {
+    float: right;
+    width: 150px;
+}
+
+.delete-account {
+    height: 40px;
+    width: 590px;
+    margin: 0;
+    padding-right: 30px;
+    font-size: 10px;
+    color: #899399;
+}
+
+@media (max-width: 767px) {
+    .delete-account {
+        width: 100%;
+        margin: 20px 0;
+        padding-right: 0;
+    }
+}
+
+.delete-account p {
+    float: right;
+}

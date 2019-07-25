@@ -61,8 +61,9 @@ class RhetoricsController < ApplicationController
 
     private
 
+
   def rhetoric_params
-    params.require(:rhetoric).permit(:title, :description, :meigen, :tag_list, :speaker_list )
+    params.require(:rhetoric).permit(:description, :meigen, :tag_list, :speaker_list )
   end
 
   def find_rhetoric
