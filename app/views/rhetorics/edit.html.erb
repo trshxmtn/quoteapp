@@ -1,27 +1,53 @@
+<div class="main edit-rhetoric">
+  <div class="container rhetoric-new">
+    <div class="rhetoric-new-grid message">
+        <div class="new-rhetoric-message">
+            <h2>オススメの言葉を投稿する</h2>
+            <h5>ソクラテスの名言、ルフィのあの言葉、昨日職場の先輩の言っていたあの言葉、みんなにオススメの素敵な言葉を投稿しよう</h5>
+        </div>
+    </div>
 
-<h1>Quote編集</h1>
+    <div class="rhetoric-new-grid">
 
-<%= form_for(@rhetoric) do |f| %>
-  <div class="form-group">
-    <%= f.label :meigen %>
-    <%= f.text_field :meigen, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_field :description, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :speaker_list,:speaker_list %>
-    <%= f.text_field :speaker_list, value: @rhetoric.speaker_list.join(','),class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :tag_list %>
-    <%= f.text_field :tag_list , value: @rhetoric.tag_list.join(','),class: "form-control" %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <%= form_for(@rhetoric) do |f| %>
+        <div class="form-body">
 
-<% end %>
+          <div class="form-inputs rhetoric">
+            <strong>言葉（ここが画像になります）</strong>
+            <div class="textarea-outline">
+              <%= f.text_area :meigen %>
+            </div>
+          </div>
 
-<%= link_to 'Back', root_path %>
+          <div class="form-inputs speaker">
+            <strong>この言葉を言った人の名前</strong>
+            <div class="form-outline">
+              <%= f.text_field :speaker_list, value: @rhetoric.speaker_list.join(','), class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-inputs source">
+            <strong>出典などの説明</strong>
+            <div class="textarea-outline">
+              <%= f.text_area :description %>
+            </div>
+          </div>
+
+          <div class="form-inputs tag">
+            <strong>ハッシュタグを追加してください</strong>
+            <div class="form-outline">
+              <%= f.text_field :tag_list , value: @rhetoric.tag_list.join(','),class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <%= f.submit '編集を保存' %>
+          </div>
+
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
