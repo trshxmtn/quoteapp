@@ -4,7 +4,7 @@
   <title>Quote</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <script src="https://kit.fontawesome.com/1471aca7cc.js"></script>
@@ -23,7 +23,7 @@
     <div class="header-left">
       <%= link_to root_path do %>
       <div class="header-logo">
-        <h4>Quote</h4>
+        <%= image_tag "logo_symbol.png" %>
       </div>
       <% end %>
     </div>
@@ -117,7 +117,7 @@
     <div class="footer-content">
     <%= link_to root_path do %>
       <div class="footer-logo">
-        <h4>Quote</h4>
+        <%= image_tag "logo_symbol.png" %>
       </div>
     <% end %>
     </div>
