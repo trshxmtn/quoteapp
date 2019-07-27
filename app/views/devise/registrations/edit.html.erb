@@ -1,92 +1,99 @@
-<div class="main registration">
-  <div class="container">
-    <div class="signup-signin-message">
-      <h1 class="text-center">プロフィールを編集する</h1>
-    </div>
+<div class="main edit-profile">
+  <div class="container edit-profile">
+    <h1>プロフィールを編集する</h1>
 
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= f.error_notification %>
 
-    <div class="form-body">
-      <div class="form-inputs">
-        <div class="form-inputs-text">
-          <div class="form-outline">
-            <div class="form-icon">
-              <i class="fas fa-user fa-lg my-user"></i>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
+        
+        <div class="edit-form-body">
+          <div class="edit-form-content">
+            <div class="edit-form-left">
+              <h6>ユーザー名</h6>
             </div>
-            <%= f.input :username,
-                        autofocus: true,
-                        :placeholder => "ユーザー名",
-                        label: false %>
+            <div class="edit-form-right">
+              <%= f.input :username,
+                          autofocus: true,
+                          :placeholder => "ユーザー名",
+                          label: false %>
+            </div>
           </div>
-        </div>
-        <div class="form-outline">
-          <div class="form-icon">
-            <i class="fas fa-envelope fa-lg my-email"></i>
+
+          <div class="edit-form-content">
+            <div class="edit-form-left">
+              <h6>メールアドレス</h6>
+            </div>
+            <div class="edit-form-right">
+              <%= f.input :email, 
+                          required: true, 
+                          :placeholder => "メールアドレス",
+                          label: false,
+                          autofocus: true %>
+            </div>
           </div>
-          <%= f.input :email, 
-                      required: true, 
-                      :placeholder => "メールアドレス",
-                      label: false,
-                      autofocus: true %>
-        </div>
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-        <% end %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
 
-        <div class="form-outline">
-          <div class="form-icon">
-            <i class="fas fa-key fa-lg my-password"></i>
+          <div class="edit-form-content">
+            <div class="edit-form-left">
+              <h6>新しいパスワード</h6>
+              <p>変更しない場合は空白のまま保存してください</p>
+            </div>
+            <div class="edit-form-right">
+              <%= f.input :password,
+                          required: false,
+                          :placeholder => "パスワード",
+                          label: false,
+                          input_html: { autocomplete: "new-password" } %>
+            </div>
           </div>
-          <%= f.input :password,
-                      hint: "leave it blank if you don't want to change it",
-                      required: false,
-                      :placeholder => "パスワード",
-                      label: false,
-                      input_html: { autocomplete: "new-password" } %>
-        </div>
 
-        <div class="form-outline">
-          <div class="form-icon">
-            <i class="fas fa-key fa-lg my-password"></i>
+          <div class="edit-form-content">
+            <div class="edit-form-left">
+              <h6>新しいパスワード（確認用）</h6>
+            </div>
+            <div class="edit-form-right">
+              <%= f.input :password_confirmation,
+                          required: false,
+                          :placeholder => "確認用パスワード",
+                          label: false,
+                          input_html: { autocomplete: "new-password" } %>
+            </div>
           </div>
-          <%= f.input :password_confirmation,
-                      required: false,
-                      :placeholder => "確認用パスワード",
-                      label: false,
-                      input_html: { autocomplete: "new-password" } %>
-        </div>
 
-        <div class="form-outline">
-          <div class="form-icon">
-            <i class="fas fa-key fa-lg my-password"></i>
+          <div class="edit-form-content">
+            <div class="edit-form-left">
+              <h6>現在のパスワード</h6>
+              <p>入力して変更を保存してください</p>
+            </div>
+            <div class="edit-form-right">
+              <%= f.input :current_password,
+                          required: true,
+                          :placeholder => "現在のパスワード",
+                          label: false,
+                          input_html: { autocomplete: "current-password" } %>
+            </div>
           </div>
-          <%= f.input :current_password,
-                      hint: "we need your current password to confirm your changes",
-                      required: true,
-                      :placeholder => "現在のパスワード",
-                      label: false,
-                      input_html: { autocomplete: "current-password" } %>
+
+          <div class="edit-form-content">
+            <span class="picture">
+              <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+            </span>
+          </div>
+
+          <div class="form-actions rhetoric-edit">
+            <%= f.button :submit, "変更を保存する" %>
+          </div>
+
+          <div class="delete-account">
+            <p><%= link_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+          </div>
+
         </div>
-      </div>
 
-      <span class="picture">
-        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-      </span>
-
-
-      <div class="form-actions">
-        <%= f.button :submit, "保存する" %>
-      </div>
-      
       <% end %>
-
-      <h3>Cancel my account</h3>
-
-      <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-      <%= link_to "Back", :back %>
-    </div>
+      
   </div>
 </div>

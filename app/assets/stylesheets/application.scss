@@ -72,9 +72,12 @@ p {
 ::placeholder {
   color: #899399;
 }
+//
+//nav.pagination {
+//  display: none;
+//}
 
-
-
+//無限スクロールの際にページネーションの表示を隠す
 
 
 // layout
@@ -117,7 +120,7 @@ body{
 
 .header-left {
   float: left;
-  padding-left: 20px;
+  padding-left: 10px;
   font-size: 22px;
   line-height: 50px;
 }
@@ -130,7 +133,7 @@ body{
 
 .header-logo {
   height: 40px;
-  padding: 0 10px;
+  padding: 0;
   margin: 5px 0;
   border-radius: 20px;
 }
@@ -139,10 +142,9 @@ body{
   background-color: #EDF0F2;
 }
 
-.header-logo h4 {
-  font-size: 20px;
-  line-height: 38px;
-  margin: 0;
+.header-logo img {
+  height: 40px;
+  display: block;
 }
 
 .header-profile {
@@ -192,7 +194,7 @@ body{
 
 .header-search{
   float: left;
-  margin-left: 20px;
+  margin-left: 10px;
   width: 60%;
   height: 30px;
   border-radius: 15px;
@@ -435,7 +437,6 @@ nav.globalMenuSp.active {
 .footer-logo {
   height: 40px;
   border-radius: 20px;
-  padding: 0 10px;
   margin: 5px;
   display: inline-block;
 }
@@ -444,11 +445,9 @@ nav.globalMenuSp.active {
   background-color: #EDF0F2;
 }
 
-.footer-logo h4 {
-  line-height: 38px;
-  font-weight: 800;
+.footer-logo img {
+  height: 40px;
   display: block;
-  margin: 0;
 }
 
 .footer-userProfileImage {
