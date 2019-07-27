@@ -73,8 +73,11 @@ p {
   color: #899399;
 }
 
+nav.pagination {
+  display: none;
+}
 
-
+//無限スクロールの際にページネーションの表示を隠す
 
 
 // layout
