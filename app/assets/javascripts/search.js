@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function (){
         });
     }
 
-    $('#q_meigen_or_tags_name_or_speakers_name_cont').on('keyup', function () {
+    $('#q_meigen_or_tags_name_cont').on('keyup', function () {
         input = $.trim($(this).val());
 
         if(preInput !== input){

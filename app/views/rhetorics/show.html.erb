@@ -52,7 +52,6 @@
             <p><%= @rhetoric.description %></p>
           </div>
           <div class="rhetoric-tag">
-            <td><%= render 'rhetorics/tag_list', tag_list: @rhetoric.speaker_list %></td>
             <td><%= render 'rhetorics/tag_list', tag_list: @rhetoric.tag_list %></td>
           </div>
           <% if @rhetoric.user == current_user %>
