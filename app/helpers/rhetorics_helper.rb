@@ -16,7 +16,7 @@ module RhetoricsHelper
 
   #発言者部分の設定
   GRAVITY2 = 'south'.freeze #デフォルトを下の方にする
-  TEXT_POSITION2 = '0,20'.freeze #ちょっと上の方に表示
+  TEXT_POSITION2 = '0,80'.freeze #ちょっと上の方に表示
   FONT2 = './app/assets/fonts/NotoSansCJKjp-Medium.otf'.freeze
   FONT_SIZE2 = 30
   FONT_COLOR2 = "white"
@@ -92,8 +92,11 @@ module RhetoricsHelper
       rows_count = text.length/12 + 1 + 2
       # 最終的な画像の高さ
       image_height = default_height + rows_count * 56
+
+      after_height = image_height + 170 #発言者用のスペースを確保（要調整）
+
       # 高さをリサイズ
-      @image.resize "700x#{image_height}!"
+      @image.resize "700x#{after_height}!"
     end
 
     # 発言者部分
