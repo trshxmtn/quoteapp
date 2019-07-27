@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   def search
     @q = Rhetoric.ransack(params[:q])
-    @rhetorics = @q.result(distinct: true).page(params[:page]).per(15)
+    @rhetorics = @q.result(distinct: true).page(params[:page]).per(20)
   end
 
 end

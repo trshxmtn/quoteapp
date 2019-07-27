@@ -4,7 +4,7 @@ class RhetoricsController < ApplicationController
 
   def index
     if params[:tag_name]
-      @rhetorics = @rhetorics.tagged_with("#{params[:tag_name]}")
+      @rhetorics = @rhetorics.tagged_with("#{params[:tag_name]}").page(params[:page]).per(20)
     end
 
     respond_to do |format|
@@ -17,7 +17,7 @@ class RhetoricsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @rhetoric.comments
-    @related_rhetorics = @rhetorics.tagged_with("#{@rhetoric.tag_list}") #同じタグが付いているquoteの表示
+    @related_rhetorics = @rhetorics.tagged_with("#{@rhetoric.tag_list}").page(params[:page]).per(20) #同じタグが付いているquoteの表示
   end
 
   def new

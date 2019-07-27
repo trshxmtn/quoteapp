@@ -1,18 +1,12 @@
-$(document).on('turbolinks:load', function (){
+// $(document).on('turbolinks:load', function (){
     $(window).on('scroll', function() {
         scrollHeight = $(document).height();
         scrollPosition = $(window).height() + $(window).scrollTop();
-        if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.05) {
+        if ( (scrollHeight - scrollPosition) / scrollHeight === 0) {
             $('.jscroll').jscroll({
-                contentSelector: '.rheotorics-index-grid',
+                contentSelector: '.main-rhetorics-index',
                 nextSelector: 'span.next:last a'
             });
         }
     });
-
-
-    // $('.jscroll').jscroll({
-    //     contentSelector: '.rheotorics-index-grid',
-    //     nextSelector: 'span.next:last a'
-    // });
-});
+// });
