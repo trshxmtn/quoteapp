@@ -116,6 +116,9 @@
       <div class="footer-logo">
         <%= image_tag "logo_symbol.png" %>
       </div>
+      <div class="footer-content-name">
+        ホーム
+      </div>
     <% end %>
     </div>
     
@@ -124,6 +127,9 @@
       <%= link_to profile_path(current_user) do %>
         <div class="footer-userProfileImage">
           <%= image_tag current_user.picture.url %>
+        </div>
+        <div class="footer-content-name">
+          マイページ
         </div>
       <% end %>
     </div>

@@ -85,6 +85,7 @@ p {
   text-align: center;
   line-height: 30px;
   display: block;
+  position: fixed;
 }
 
 .alert-message {
@@ -98,6 +99,7 @@ p {
   text-align: center;
   line-height: 30px;
   display: block;
+  position: fixed;
 }
 
 
@@ -105,6 +107,8 @@ p {
 
 
 //無限スクロールの際にページネーションの表示を隠す
+
+
 
 // layout
 
@@ -442,8 +446,7 @@ nav.globalMenuSp.active {
   bottom: 0;
   z-index: 1;
   width: 100%;
-  height: 50px;
-  padding-right: 20px;
+  height: 65px;
   box-shadow: 0px -5px 10px rgba(61,71,76,0.5);
   background-color: #FCFEFF;
   color: #1A2023;
@@ -452,15 +455,20 @@ nav.globalMenuSp.active {
 
 .footer-content {
   float: left;
-  height: 50px;
+  height: 65px;
   width: 50%;
   text-align: center;
 }
 
+.footer-content a {
+  height: 0;
+}
+
 .footer-logo {
   height: 40px;
+  width: 40px;
   border-radius: 20px;
-  margin: 5px;
+  margin: 5px 5px 0;
   display: inline-block;
 }
 
@@ -470,7 +478,6 @@ nav.globalMenuSp.active {
 
 .footer-logo img {
   height: 40px;
-  display: block;
 }
 
 .footer-userProfileImage {
@@ -478,13 +485,23 @@ nav.globalMenuSp.active {
   width: 40px;
   border-radius: 20px;
   padding: 3px;
-  margin: 5px;
+  margin: 5px 5px 0;
   display: inline-block;
 }
 
 .footer-userProfileImage img {
   height: 30px;
   width: 30px;
+  border-radius: 15px;
+}
+
+.footer-content-name {
+  height: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 8px;
+  margin: 0;
+  padding: 0;
 }
 
 .loginbtn-footer {
@@ -507,6 +524,13 @@ nav.globalMenuSp.active {
 
 // devise
 
+@media (max-width: 767px) {
+  .container {
+    max-width: 100%;
+    padding: 0 8%;
+  }
+}
+
 .form-body{
   max-width: 400px;
   margin: 0 auto;
@@ -514,6 +538,7 @@ nav.globalMenuSp.active {
 
 .form-box {
   display: inline-block;
+  width: 100%;
 }
 
 .form-outline{
@@ -527,7 +552,7 @@ nav.globalMenuSp.active {
 
 .form-group {
   float: left;
-  max-width: 86%;
+  width: 75%;
   margin: 0;
 }
 
@@ -557,10 +582,6 @@ nav.globalMenuSp.active {
   padding-top: 12px;
 }
 
-.form-control {
-  padding: 6px 12px 6px 0px;
-}
-
 .form-group.boolean {
   height: 0;
 }
@@ -571,7 +592,8 @@ nav.globalMenuSp.active {
   font-size: 16px;
   font-weight: 400;
   height: 40px;
-  width: 310px;
+  width: 100%;
+  padding: 6px 12px 6px 0px;
   margin: 0;
   border: 0;
   outline: 0;
