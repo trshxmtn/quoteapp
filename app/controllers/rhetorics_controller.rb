@@ -4,7 +4,7 @@ class RhetoricsController < ApplicationController
 
   def index
     if params[:tag_name]
-      @rhetorics = @rhetorics.tagged_with("#{params[:tag_name]}")
+      @rhetorics = @rhetorics.tagged_with("#{params[:tag_name]}").page(params[:page]).per(20)
     end
 
     respond_to do |format|
@@ -17,7 +17,7 @@ class RhetoricsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @rhetoric.comments
-    @related_rhetorics = @rhetorics.tagged_with("#{@rhetoric.tag_list}") #同じタグが付いているquoteの表示
+    @related_rhetorics = @rhetorics.tagged_with("#{@rhetoric.tag_list}").page(params[:page]).per(20) #同じタグが付いているquoteの表示
   end
 
   def new
@@ -27,7 +27,8 @@ class RhetoricsController < ApplicationController
   def create
     @rhetoric = current_user.rhetorics.build(rhetoric_params)
     # Helperで生成した画像をimageカラムに
-    @rhetoric.image = RhetoricsHelper.build(@rhetoric.meigen)
+    RhetoricsHelper.build1(@rhetoric.meigen)
+    @rhetoric.image = RhetoricsHelper.build2(@rhetoric.speaker)
     if @rhetoric.save # ここでuploaderが走る
       flash[:success] = "rhetoricが作成されました！"
       redirect_to @rhetoric
@@ -63,7 +64,7 @@ class RhetoricsController < ApplicationController
 
 
   def rhetoric_params
-    params.require(:rhetoric).permit(:description, :meigen, :tag_list, :speaker_list )
+    params.require(:rhetoric).permit(:description, :meigen, :tag_list, :speaker )
   end
 
   def find_rhetoric
