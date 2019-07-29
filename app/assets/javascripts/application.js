@@ -17,3 +17,11 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+
+// セッションやタイムアウトは表示されてから3秒で非表示になる
+
+$(document).on('turbolinks:load', function() {
+$(function(){
+    setTimeout("$('.alert').fadeOut('slow')", 3000)
+})
+});

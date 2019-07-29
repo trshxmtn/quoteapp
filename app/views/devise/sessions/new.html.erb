@@ -10,26 +10,30 @@
     <div class="form-body">
       <div class="form-inputs">
         <div class="form-inputs-text">
-          <div class="form-outline">
-          　<div class="form-icon">
-              <i class="fas fa-envelope fa-lg my-email"></i>
+          <div class="form-box">
+            <div class="form-outline">
+            　<div class="form-icon">
+                <i class="fas fa-envelope fa-lg my-email"></i>
+              </div>
+              <%= f.input :email,
+                          required: false,
+                          :placeholder => "メールアドレス",
+                          label: false,
+                          autofocus: true,
+                          input_html: { autocomplete: "email" } %>
             </div>
-            <%= f.input :email,
-                        required: false,
-                        :placeholder => "メールアドレス",
-                        label: false,
-                        autofocus: true,
-                        input_html: { autocomplete: "email" } %>
           </div>
-          <div class="form-outline">
-          　<div class="form-icon">
-              <i class="fas fa-key fa-lg my-password"></i>
+          <div class="form-box">
+            <div class="form-outline">
+            　<div class="form-icon">
+                <i class="fas fa-key fa-lg my-password"></i>
+              </div>
+              <%= f.input :password,
+                          required: false,
+                          :placeholder => "パスワード",
+                          label: false,
+                          input_html: { autocomplete: "current-password" } %>
             </div>
-            <%= f.input :password,
-                        required: false,
-                        :placeholder => "パスワード",
-                        label: false,
-                        input_html: { autocomplete: "current-password" } %>
           </div>
         </div>
         <div class="remember_me">

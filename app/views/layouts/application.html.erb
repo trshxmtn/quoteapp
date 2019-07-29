@@ -17,8 +17,6 @@
 
 <body>
 
-
-
 <header>
 
   <div class="header">
@@ -111,15 +109,15 @@
 
 </header>
 
-
-
-
 <footer>
   <div class="footer">
     <div class="footer-content">
     <%= link_to root_path do %>
       <div class="footer-logo">
         <%= image_tag "logo_symbol.png" %>
+      </div>
+      <div class="footer-content-name">
+        ホーム
       </div>
     <% end %>
     </div>
@@ -129,6 +127,9 @@
       <%= link_to profile_path(current_user) do %>
         <div class="footer-userProfileImage">
           <%= image_tag current_user.picture.url %>
+        </div>
+        <div class="footer-content-name">
+          マイページ
         </div>
       <% end %>
     </div>
@@ -144,9 +145,16 @@
   </div>
 </footer>
 
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% if flash[:notice] %>
+  <div class="notice-message">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="alert-message">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
 
 <%= yield %>
 
