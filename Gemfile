@@ -26,6 +26,7 @@ gem 'kaminari' #ページネーション
 gem 'ransack' #検索
 gem 'dotenv-rails' # 環境変数設定
 gem 'meta-tags' #ページごとのタイトルの設定やOGP
+gem 'masonry-rails' #Pinterest風レイアウト
 
 
 group :development, :test do
