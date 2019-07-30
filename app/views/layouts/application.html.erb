@@ -95,7 +95,6 @@
               <li><%= link_to inquiry_path do %><div class="globalMenuList"><p>お問い合わせ</p></div><% end %></li>
               <li><%= link_to '/terms' do %><div class="globalMenuList"><p>利用規約</p></div><% end %></li>
               <li><%= link_to '/privacy-policy' do %><div class="globalMenuList"><p>プライバシーポリシー</p></div><% end %></li>
-              <li><%= link_to new_rhetoric_path do %><div class="globalMenuList"><p>新しい言葉を追加</p></div><% end %></li>
               <li><%= link_to destroy_user_session_path, method: :delete do %><div class="globalMenuList"><p>ログアウト</p></div><% end %></li>
             <% else %>
               <li><%= link_to about_path do %><div class="globalMenuList"><p>Quoteとは</p></div><% end %></li>
@@ -160,6 +159,12 @@
   <div class="alert-message">
     <%= flash[:alert] %>
   </div>
+<% end %>
+
+<%= link_to new_rhetoric_path do %>
+<div class="rhetoric-new-btn">
+  <%= image_tag ('new_btn.png') %>
+</div>
 <% end %>
 
 <%= yield %>
