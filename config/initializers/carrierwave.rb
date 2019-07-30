@@ -16,6 +16,17 @@ CarrierWave.configure do |config|
         path_style: true
     }
     config.storage :fog
+  elsif Rails.env.staging?
+    config.fog_provider = 'fog/aws'
+    config.fog_directory = 's3quote-stg'
+    config.fog_credentials = {
+        provider: 'AWS',
+        aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+        aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+        region: ENV['AWS_REGION'],
+        path_style: true
+    }
+    config.storage :fog
   else
     config.storage :file
     config.enable_processing = false if Rails.env.test?
