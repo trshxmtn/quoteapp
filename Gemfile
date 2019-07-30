@@ -25,7 +25,7 @@ gem 'devise-i18n-views'
 gem 'kaminari' #ページネーション
 gem 'ransack' #検索
 gem 'dotenv-rails' # 環境変数設定
-gem 'meta-tags' #ページごとのタイトルの設定やOGP
+gem 'meta-tags' #metaの設定を簡潔にする。ページごとのタイトルの設定やOGPの設定
 
 
 
