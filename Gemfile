@@ -28,7 +28,6 @@ gem 'dotenv-rails' # 環境変数設定
 gem 'meta-tags' #ページごとのタイトルの設定やOGP
 gem 'masonry-rails' #Pinterest風レイアウト
 
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
