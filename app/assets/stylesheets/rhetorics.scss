@@ -12,38 +12,28 @@
 
 // rhetorics index
 
-.container.rhetorics-index {
-  min-width: 100%;
-  margin: 0 0 50px 0;
-  padding: 20px 40px;
-  column-count: 4;
-  column-gap: 0;
+#masonry-container {
+  width: 98%;
+  margin: 0 auto;
 }
 
-@media (max-width: 1100px) {
-  .container.rhetorics-index {
-    column-count: 3;
-  }
-}
-
-@media (max-width: 991px) {
-  .container.rhetorics-index {
-    column-count: 2;
-  }
+.mas-box {
+  width: 250px;
+  float: left;
 }
 
 @media (max-width: 767px) {
-  .container.rhetorics-index {
-    column-count: 1;
-    padding: 5%;
+  .mas-box {
+    width: 100%;
   }
 }
 
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
 .rhetorics-index-grid {
   padding: 5px;
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
-  break-inside: avoid;
   background-color: #eaeaea;
 }
 
