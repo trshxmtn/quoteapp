@@ -83,6 +83,29 @@
     background-color: #1A2023;
 }
 
+@media (max-width: 767px) {
+    .user-show-user-image {
+        width: 25%;
+    }
+
+    .user-show-user-name {
+        width: 75%;
+    }
+
+    .user-show-followbtn {
+        height: 45px;
+        width: 100px;
+        float: right;
+        margin-bottom: 10px;
+    }
+
+    .follow-btn, .unfollow-btn {
+        margin: 0;
+    }
+}
+
+
+
 .container-tabs {
     height: 30px;
     width: 50%;
@@ -110,6 +133,12 @@
     color: #899399;
     font-weight: 800;
     line-height: 22px;
+}
+
+@media (max-width: 767px) {
+    .profile-tab {
+        padding: 3px 5px;
+    }
 }
 
 .tab.active {
@@ -154,9 +183,9 @@
 
 @media (max-width: 767px) {
     .container.profile-contents {
-        max-width: 100%;
         padding: 5%;
         margin-top: 5px;
+        min-width: 100%;
     }
 }
 
@@ -222,7 +251,7 @@
 
 @media (max-width: 767px) {
     .container.edit-profile {
-      padding: 0 3%;
+      padding: 0 5%;
     }
 }
 
@@ -235,30 +264,11 @@
 }
 
 .edit-form-content {
-    width: 590px;
+    width: 650px;
     padding: 5px 0 0;
     margin-bottom: 10px;
     border-bottom: solid #EDF0F2 1px;
     display: inline-block;
-}
-
-@media (max-width: 767px) {
-    .edit-form-content {
-        width: 100%;
-    }
-
-    .edit-form-left {
-        width: 100%;
-    }
-    
-    .edit-form-right {
-        width: 100%;
-        margin-top: 10px; 
-    }
-
-    .edit-form-right input {
-        width: 100%;
-    }
 }
 
 .edit-form-left {
@@ -333,4 +343,23 @@
 
 .delete-account p {
     float: right;
+}
+
+@media (max-width: 767px) {
+    .edit-form-content {
+        width: 100%;
+    }
+
+    .edit-form-left {
+        width: 100%;
+    }
+    
+    .edit-form-right {
+        width: 100%;
+        margin-top: 10px; 
+    }
+
+    div.edit-form-right * {
+        width: 100%;
+    }
 }

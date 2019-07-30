@@ -1,5 +1,6 @@
-<div id="rhetoric-search-result"></div>
-<div class="main-rhetorics-index">
+<% assign_meta_tags title: ''%>
+
+<div class="main rhetorics-index">
   <div class="container rhetorics-index ">
 
     <div class="jscroll">
@@ -43,3 +44,9 @@
 
   </div>
 </div>
+
+<%= link_to new_rhetoric_path do %>
+<div class="rhetoric-new-btn">
+  <%= image_tag ('new_btn.png') %>
+</div>
+<% end %>

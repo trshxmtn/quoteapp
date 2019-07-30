@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Quote</title>
+  <%= favicon_link_tag('favicon.ico') %>
+  <%= favicon_link_tag('apple-touch-icon-180x180.png',
+                      {:rel => 'apple-touch-icon',
+                        :sizes => '180x180',
+                        :type => 'image/png'}) %>
+  <meta name="theme-color" content="#1a2023">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <%= show_meta_tags %>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <script src="https://kit.fontawesome.com/1471aca7cc.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
-  <script src="http://malsup.github.com/jquery.form.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+  <script src="https://malsup.github.com/jquery.form.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
 
 </head>
 
 <body>
-
-
 
 <header>
 
@@ -91,7 +96,6 @@
               <li><%= link_to inquiry_path do %><div class="globalMenuList"><p>お問い合わせ</p></div><% end %></li>
               <li><%= link_to '/terms' do %><div class="globalMenuList"><p>利用規約</p></div><% end %></li>
               <li><%= link_to '/privacy-policy' do %><div class="globalMenuList"><p>プライバシーポリシー</p></div><% end %></li>
-              <li><%= link_to new_rhetoric_path do %><div class="globalMenuList"><p>新しい言葉を追加</p></div><% end %></li>
               <li><%= link_to destroy_user_session_path, method: :delete do %><div class="globalMenuList"><p>ログアウト</p></div><% end %></li>
             <% else %>
               <li><%= link_to about_path do %><div class="globalMenuList"><p>Quoteとは</p></div><% end %></li>
@@ -111,15 +115,15 @@
 
 </header>
 
-
-
-
 <footer>
   <div class="footer">
     <div class="footer-content">
     <%= link_to root_path do %>
       <div class="footer-logo">
         <%= image_tag "logo_symbol.png" %>
+      </div>
+      <div class="footer-content-name">
+        ホーム
       </div>
     <% end %>
     </div>
@@ -129,6 +133,9 @@
       <%= link_to profile_path(current_user) do %>
         <div class="footer-userProfileImage">
           <%= image_tag current_user.picture.url %>
+        </div>
+        <div class="footer-content-name">
+          マイページ
         </div>
       <% end %>
     </div>
@@ -144,9 +151,18 @@
   </div>
 </footer>
 
+<% if flash[:notice] %>
+  <div class="notice-message">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="alert-message">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div id="rhetoric-search-result"></div>
 
 <%= yield %>
 
