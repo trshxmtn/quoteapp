@@ -25,3 +25,8 @@ $(function(){
     setTimeout("$('.alert').fadeOut('slow')", 3000)
 })
 });
+
+
+
+
+//= require masonry/jquery.masonry
