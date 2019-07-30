@@ -89,9 +89,9 @@
     <h4>関連する言葉</h4>
   </div>
 
-  <div class="container rhetorics-index">
+  <div id="masonry-container">
     <% @related_rhetorics.each do |rhetoric| %>
-      <div class="rheotorics-grid">
+      <div class="mas-box rheotorics-grid">
         <div class="rhetoric-index-content">
           <div class="rhetoric-index-img" id="result">
             <%= link_to image_tag(image_path(rhetoric.image)), rhetoric %>
