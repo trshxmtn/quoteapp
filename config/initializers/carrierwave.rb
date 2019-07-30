@@ -16,6 +16,7 @@ CarrierWave.configure do |config|
         path_style: true
     }
     config.storage :fog
+  # stagingの場合はfog_directoryを変更
   elsif Rails.env.staging?
     config.fog_provider = 'fog/aws'
     config.fog_directory = 's3quote-stg'
