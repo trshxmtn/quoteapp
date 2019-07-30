@@ -12,6 +12,13 @@
  *
  *= require_tree .
  *= require_self
+ *= require 'masonry/basic'
+ *= require 'masonry/centered'
+ *= require 'masonry/fluid'
+ *= require 'masonry/gutters'
+ *= require 'masonry/infinitescroll'
+ *= require 'masonry/right-to-left'
+ *= require 'masonry/transitions'
  */
 
 @import "bootstrap-sprockets";
@@ -121,6 +128,7 @@ body{
   top: 50px;
   position: absolute;
   width: 100%;
+  margin-bottom: 70px;
 }
 
 .container {
@@ -688,3 +696,8 @@ nav.globalMenuSp.active {
 .signup-signin-message h1, h4{
   font-weight: bold;
 }
+
+
+
+
+

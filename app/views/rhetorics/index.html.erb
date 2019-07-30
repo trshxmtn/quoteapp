@@ -2,12 +2,10 @@
 
 <div id="rhetoric-search-result"></div>
 <div class="main rhetorics-index">
-  <div class="container rhetorics-index ">
-
-    <div class="jscroll">
+  <div id="masonry-container">
 
     <% @rhetorics.each do |rhetoric| %>
-      <div class="rheotorics-index-grid">
+      <div class="mas-box rheotorics-index-grid">
         <div class="rhetoric-index-content">
 
           <div class="rhetoric-index-img" id="result">
@@ -39,8 +37,6 @@
         </div>
       </div>
     <% end %>
-      <%= paginate @rhetorics %>
-    </div>
 
 
   </div>
