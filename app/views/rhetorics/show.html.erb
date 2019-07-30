@@ -1,5 +1,8 @@
+<% assign_meta_tags title: @rhetoric.meigen,
+                    description: @rhetoric.description,
+                    keywords: @rhetoric.tag_list %>
 
-<div class="main-rhetorics-show">
+<div class="main rhetorics-show">
 <%= link_to :back do %>
   <div class="btn-back">
     <i class="fas fa-arrow-left my-back fa-lg"></i>
@@ -86,9 +89,9 @@
     <h4>関連する言葉</h4>
   </div>
 
-  <div class="container rhetorics-index">
+  <div id="masonry-container">
     <% @related_rhetorics.each do |rhetoric| %>
-      <div class="rheotorics-grid">
+      <div class="mas-box rheotorics-grid">
         <div class="rhetoric-index-content">
           <div class="rhetoric-index-img" id="result">
             <%= link_to image_tag(image_path(rhetoric.image)), rhetoric %>
@@ -123,3 +126,9 @@
 
     
 </div>
+
+<%= link_to new_rhetoric_path do %>
+<div class="rhetoric-new-btn">
+  <%= image_tag ('new_btn.png') %>
+</div>
+<% end %>

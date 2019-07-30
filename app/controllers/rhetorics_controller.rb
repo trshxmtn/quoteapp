@@ -27,8 +27,7 @@ class RhetoricsController < ApplicationController
   def create
     @rhetoric = current_user.rhetorics.build(rhetoric_params)
     # Helperで生成した画像をimageカラムに
-    RhetoricsHelper.build1(@rhetoric.meigen)
-    @rhetoric.image = RhetoricsHelper.build2(@rhetoric.speaker)
+    @rhetoric.image = RhetoricsHelper.build(@rhetoric.meigen, @rhetoric.speaker)
     if @rhetoric.save # ここでuploaderが走る
       flash[:success] = "rhetoricが作成されました！"
       redirect_to @rhetoric
@@ -42,7 +41,7 @@ class RhetoricsController < ApplicationController
 
   def update
     # Helperで生成した画像をimageカラムに # rhetoric_paramsからmeigenを取り出す
-    @rhetoric.image = RhetoricsHelper.build(rhetoric_params[:meigen])
+    @rhetoric.image = RhetoricsHelper.build(rhetoric_params[:meigen], rhetoric_params[:speaker])
     if @rhetoric.update(rhetoric_params)
       flash[:success] = "rhetoricが編集されました！"
       redirect_to @rhetoric

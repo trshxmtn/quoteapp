@@ -1,10 +1,17 @@
+<% assign_meta_tags title: 'プロフィール編集'%>
+
 <div class="main edit-profile">
   <div class="container edit-profile">
-    <h1>プロフィールを編集する</h1>
+    <h1>プロフィール編集</h1>
 
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
+
+      <div class="userProfileImage">
+        <img id="userImgPrev" src="#" class='hidden' />
+        <%= image_tag current_user.picture.url ,class: 'userPresentImg' %>
+      </div>
         
         <div class="edit-form-body">
           <div class="edit-form-content">
@@ -14,6 +21,7 @@
             <div class="edit-form-right">
               <%= f.input :username,
                           autofocus: true,
+                          class: 'edit-profile-form',
                           :placeholder => "ユーザー名",
                           label: false %>
             </div>
@@ -79,7 +87,7 @@
 
           <div class="edit-form-content">
             <span class="picture">
-              <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+              <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', id: 'post_img' %>
             </span>
           </div>
 

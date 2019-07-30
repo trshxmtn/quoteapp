@@ -1,11 +1,10 @@
-<div id="rhetoric-search-result"></div>
-<div class="main-rhetorics-index">
-  <div class="container rhetorics-index ">
+<% assign_meta_tags title: ''%>
 
-    <div class="jscroll">
+<div class="main rhetorics-index">
+  <div id="masonry-container">
 
     <% @rhetorics.each do |rhetoric| %>
-      <div class="rheotorics-index-grid">
+      <div class="mas-box rheotorics-index-grid">
         <div class="rhetoric-index-content">
 
           <div class="rhetoric-index-img" id="result">
@@ -37,9 +36,13 @@
         </div>
       </div>
     <% end %>
-      <%= paginate @rhetorics %>
-    </div>
 
 
   </div>
 </div>
+
+<%= link_to new_rhetoric_path do %>
+<div class="rhetoric-new-btn">
+  <%= image_tag ('new_btn.png') %>
+</div>
+<% end %>

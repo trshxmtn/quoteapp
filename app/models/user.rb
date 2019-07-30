@@ -35,12 +35,8 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-
-                 def self.find_for_oauth(auth)
+  def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
-
-    validates :name, presence: true #追記
-    validates :profile, length: { maximum: 200 } #追記
 
     unless user
       user = User.create(

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_101944) do
+ActiveRecord::Schema.define(version: 2019_07_30_163757) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2019_07_26_101944) do
   end
 
   create_table "rhetorics", force: :cascade do |t|
-    t.string "title"
     t.text "meigen"
     t.text "description"
     t.datetime "created_at", null: false
@@ -67,8 +66,6 @@ ActiveRecord::Schema.define(version: 2019_07_26_101944) do
     t.integer "user_id"
     t.string "ctype"
     t.binary "image"
-    t.string "username"
-    t.text "profile"
     t.integer "picks_count", default: 0, null: false
     t.text "speaker"
     t.index ["user_id"], name: "index_rhetorics_on_user_id"
