@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function() {
 $(window).load(function(){
 
   $('#masonry-container').masonry({
@@ -8,4 +9,5 @@ $(window).load(function(){
     "fitWidth": true
   });
 
+});
 });

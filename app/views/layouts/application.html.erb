@@ -33,7 +33,6 @@
       </div>
       <% end %>
     </div>
-    <% if user_signed_in? %>
       <div class="header-search">
         <div class="search-icon">
           <i class="fa fa-search fa-lg my-search"></i>
@@ -47,7 +46,6 @@
         </div>
 
       </div>
-    <% end %>
 
     <% if user_signed_in? %>
     <%= link_to profile_path(current_user) do %>
