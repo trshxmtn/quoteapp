@@ -306,6 +306,28 @@
     padding: 6px 12px;
 }
 
+.edit-form-content.userImg {
+    width: 650px;
+    padding: 5px 0 0;
+    margin-bottom: 10px;
+    border-bottom: solid #EDF0F2 1px;
+    display: inline-block;
+}
+
+.userImagePreview {
+    height: 80px;
+}
+
+.userPresentImg, #userImgPrev {
+    height: 70px;
+    width: 70px;
+    border-radius: 35px;
+}
+
+#post_img {
+    background-color: #FCFEFF;
+}
+
 .form-actions.rhetoric-edit {
     height: 80px;
     width: 590px;
