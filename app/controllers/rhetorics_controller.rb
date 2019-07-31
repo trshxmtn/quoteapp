@@ -1,5 +1,7 @@
 class RhetoricsController < ApplicationController
   before_action :find_rhetoric, only: [:show, :destroy, :image, :edit, :update]
+  # ログイン済ユーザーのみにアクセスを許可する
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   include RhetoricsHelper
 
   def index
