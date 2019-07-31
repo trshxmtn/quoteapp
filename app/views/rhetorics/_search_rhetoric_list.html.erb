@@ -1,6 +1,8 @@
 <div class="main rhetorics-index">
   <div class="container rhetorics-index">
 
+    <% if @rhetorics.present? %>
+
       <% @rhetorics.each do |rhetoric| %>
         <div class="rheotorics-index-grid">
           <div class="rhetoric-index-content">
@@ -34,6 +36,12 @@
 
           </div>
         </div>
+      <% end %>
+
+      <% else %>
+
+        <p>お探しのQuoteはまだないみたいです。他の人も探しているかもしれないので投稿してくれませんか？？</p>
+
       <% end %>
 
   </div>
