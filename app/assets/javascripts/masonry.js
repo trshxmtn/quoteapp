@@ -4,7 +4,8 @@ $(window).load(function(){
     itemSelector: '.mas-box',
     columnWidth: 250,
     transitionDuration: 0,
-    gutterWidth: 40
+    gutterWidth: 40,
+    "fitWidth": true
   });
 
 });
