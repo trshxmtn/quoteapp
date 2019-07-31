@@ -7,13 +7,22 @@
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
-
-      <div class="userProfileImage">
-        <img id="userImgPrev" src="#" class='hidden' />
-        <%= image_tag current_user.picture.url ,class: 'userPresentImg' %>
-      </div>
         
         <div class="edit-form-body">
+          <div class="edit-form-content userImg">
+            <div class="edit-form-left">
+              <div class="userImagePreview">
+                <img id="userImgPrev" src="#" class='hidden' />
+                <%= image_tag current_user.picture.url ,class: 'userPresentImg' %>
+              </div>
+            </div>
+            <div class="edit-form-right">
+              <span class="picture">
+                <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', id: 'post_img' %>
+              </span>
+            </div>
+          </div>
+
           <div class="edit-form-content">
             <div class="edit-form-left">
               <h6>ユーザー名</h6>
@@ -85,11 +94,6 @@
             </div>
           </div>
 
-          <div class="edit-form-content">
-            <span class="picture">
-              <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', id: 'post_img' %>
-            </span>
-          </div>
 
           <div class="form-actions rhetoric-edit">
             <%= f.button :submit, "変更を保存する" %>
