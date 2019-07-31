@@ -1,7 +1,7 @@
 <% assign_meta_tags title: @rhetoric.meigen,
                     description: @rhetoric.description,
                     keywords: @rhetoric.tag_list,
-                    image: image_path(@rhetoric.image),width: 1200, height: 630%>
+                    image: {_: image_path(@rhetoric.image), width: 1200, height: 630}%>
 
 <div class="main rhetorics-show">
 <%= link_to :back do %>
