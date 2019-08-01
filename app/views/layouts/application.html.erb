@@ -139,8 +139,11 @@
     <% else %>
     <div class="footer-content">
       <%= link_to new_user_session_path do %>
-        <div class="loginbtn-footer">
-          <h6>ログイン</h6>
+        <div class="footer-userProfileImage">
+          <%= image_tag ('default.png') %>
+        </div>
+        <div class="footer-content-name">
+          マイページ
         </div>
       <% end %>
     </div>
