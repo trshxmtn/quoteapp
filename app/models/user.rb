@@ -43,7 +43,10 @@ class User < ApplicationRecord
           uid:      auth.uid,
           provider: auth.provider,
           email:    User.dummy_email(auth),
-          password: Devise.friendly_token[0, 20]
+          password: Devise.friendly_token[0, 20],
+          remote_picture_url: auth.info.image,
+          # picture: auth.info.image_url,
+          username: auth.info.nickname,
       )
     end
 
