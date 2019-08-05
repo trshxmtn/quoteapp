@@ -2,7 +2,7 @@
                     description: @rhetoric.description,
                     keywords: @rhetoric.tag_list,
                     image: {_: image_path(@rhetoric.image), width: 1200, height: 630}%>
-
+                                       
 <div class="main rhetorics-show">
 <%= link_to :back do %>
   <div class="btn-back">
@@ -23,9 +23,11 @@
             <div class="btn-area-share">
               <div class="count-share">
               </div>
-              <div class="btn-share">
-                <i class="fas fa-share my-share fa-lg"></i>
-              </div>
+              <%= link_to "https://twitter.com/share?url=https://quote-by.me/rhetorics/#{@rhetoric.id}&text=Quote｜みんなの名言集" do %>
+                <div class="btn-twitter">
+                  <i class="fab fa-twitter my-twitter fa-lg"></i>
+                </div>
+              <% end %>
               <div class="message-share">
                 <h6>共有する</h6>
               </div>
@@ -33,7 +35,7 @@
 
             <div class="btn-area-like">
               <div class="count-like">
-              </div>              
+              </div>            
               <div class="picks_buttons_<%= @rhetoric.id %>">
                 <%= render "picks/pick", rhetoric: @rhetoric %>
               </div>
