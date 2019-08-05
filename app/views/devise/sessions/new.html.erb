@@ -10,7 +10,30 @@
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
     <div class="form-body">
+      <div class="snsLogin">
+        <div class="snsLoginMessage title-border">
+          <p>SNSでログインする</p>
+        </div>
+        <%- if devise_mapping.omniauthable? %>
+          <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+              <div class="snsLoginBtn">
+                <div class="snsLoginImg">
+                  <i class="fab fa-twitter fa-lg"></i>
+                </div>
+                <p>
+                  <%= OmniAuth::Utils.camelize(provider) %>で登録する
+                </p>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
       <div class="form-inputs">
+        <div class="formMessage title-border">
+          <p>メールアドレスでログインする</p>
+        </div>
         <div class="form-inputs-text">
           <div class="form-box">
             <div class="form-outline">
@@ -50,7 +73,14 @@
 
 <% end %>
 
-<%= render "devise/shared/links" %>
+      <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+        <%= link_to "アカウント作成", new_registration_path(resource_name) %><br />
+      <% end %>
+
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to "パスワードをお忘れですか？", new_password_path(resource_name) %><br />
+      <% end %>
+      
     </div>
   </div>
 </div>
