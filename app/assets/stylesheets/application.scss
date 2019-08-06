@@ -109,8 +109,20 @@ p {
   position: fixed;
 }
 
-
-
+.require-login{
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  top: 50px;
+  z-index: 1;
+  background-color: #dd5555;
+  color: #FCFEFF;
+  text-align: center;
+  line-height: 30px;
+  display: block;
+  position: fixed;
+  display: none;
+}
 
 
 //無限スクロールの際にページネーションの表示を隠す

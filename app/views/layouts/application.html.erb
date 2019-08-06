@@ -164,6 +164,12 @@
   </div>
 <% end %>
 
+<% if !user_signed_in? %>
+  <div class="require-login">
+    <p>ログインが必要です</p>
+  </div>
+<% end %>
+
 <div id="rhetoric-search-result"></div>
 
 <%= yield %>
