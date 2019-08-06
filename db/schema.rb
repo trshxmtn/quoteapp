@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_101944) do
+ActiveRecord::Schema.define(version: 2019_08_03_051348) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_101944) do
   create_table "tags", force: :cascade do |t|
     t.string "name"
     t.integer "taggings_count", default: 0
+    t.text "description"
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 

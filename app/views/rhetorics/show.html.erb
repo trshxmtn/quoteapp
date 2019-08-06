@@ -77,12 +77,10 @@
           <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
           <%= render partial: 'comments/index', locals: { comments: @comments } %>
         </div>
-        <% if user_signed_in? %>
           <div class="comment-input">
           <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
           <%= render partial: 'comments/form', locals: { comment: @comment, rhetoric: @rhetoric } %>
           </div>
-        <% end %>
       </div>
     </div>
 
