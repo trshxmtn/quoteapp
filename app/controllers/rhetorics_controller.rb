@@ -72,4 +72,7 @@ class RhetoricsController < ApplicationController
     @rhetoric = Rhetoric.find(params[:id])
   end
 
+  def genre
+  end
+
 end
