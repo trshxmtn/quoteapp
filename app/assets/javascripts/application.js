@@ -28,7 +28,7 @@ $(function(){
 
 $('.modal-show').click(function () {
     $('.require-login').fadeIn();
-    setTimeout("$('.require-login').fadeOut('slow')", 1000)
+    setTimeout("$('.require-login').fadeOut('slow')", 2000)
 
 });
 
