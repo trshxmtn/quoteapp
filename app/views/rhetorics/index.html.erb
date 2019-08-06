@@ -5,10 +5,19 @@
 
     <% @rhetorics.each do |rhetoric| %>
       <div class="mas-box rheotorics-index-grid">
-        <div class="rhetoric-index-content">
+        <div class="rhetoric-index-container">
 
           <div class="rhetoric-index-img" id="result">
-           <%= link_to image_tag(image_path(rhetoric.image)), rhetoric %>
+            <%= link_to rhetoric do %>
+            <div class="rhetoric-container">
+              <div class="rhetoric-meigen">
+                <%= rhetoric.meigen %>
+              </div></br>
+              <div class="rhetoric-speaker">
+                <%= rhetoric.speaker %>
+              </div>
+            </div>
+            <% end %>
           </div>
 
           <div class="btn-area-like-index">
