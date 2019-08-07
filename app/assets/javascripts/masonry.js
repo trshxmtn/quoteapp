@@ -3,7 +3,7 @@ $(window).load(function(){
 
   $('#masonry-container').masonry({
     itemSelector: '.mas-box',
-    columnWidth: 240,
+    columnWidth: 400,
     transitionDuration: 0,
     gutterWidth: 40,
     "fitWidth": true

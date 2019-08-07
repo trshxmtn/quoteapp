@@ -8,13 +8,15 @@
   <% end %>
 
   <div class="container profile">
-    <div class="user-show-user-image">
-      <%= image_tag @user.picture.url %>
+    <div class="profile-area">
+      <div class="profile-image">
+        <%= image_tag @user.picture.url %>
+      </div>
+      <div class="profile-name">
+        <p><%= @user.username %></p>
+      </div>
     </div>
-    <div class="user-show-user-name">
-      <p><%= @user.username %></p>
-    </div>
-    <div class="user-show-followbtn">
+    <div class="profile-followbtn">
       <%= render 'devise/shared/follow_form' if user_signed_in? %>
     </div>
 
@@ -30,13 +32,22 @@
 
   <div class="container profile-contents">
     <div class="profile-contents-index" id="liked">
-      <div class="profile-contents-columnFix">
+      <div id="masonry-container">
       <% @picks.each do |pick| %>
         <% rhetoric = Rhetoric.find_by(id: pick.rhetoric_id) %>
-        <div class="rheotorics-index-grid">
-          <div class="rhetoric-index-content">
+        <div class="mas-box rheotorics-index-grid">
+          <div class="rhetoric-index-container">
             <div class="rhetoric-index-img" id="result">
-              <%= link_to image_tag(image_path(rhetoric.image)), rhetoric %>
+              <%= link_to rhetoric do %>
+              <div class="rhetoric-container">
+                <div class="rhetoric-meigen">
+                  <%= rhetoric.meigen %>
+                </div></br>
+                <div class="rhetoric-speaker">
+                  <%= rhetoric.speaker %>
+                </div>
+              </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -44,17 +55,26 @@
       </div>
     </div>
     <div class="profile-contents-index" id="post">
-      <div class="profile-contents-columnFix">
-      <% @user.posts.each do |post| %>
-        <div class="rheotorics-index-grid">
-          <div class="rhetoric-index-content">
-            <div class="rhetoric-index-img" id="result">
-              <%= link_to image_tag(image_path(post.image)), post %>
+        <div id="masonry-container">
+        <% @user.posts.each do |post| %>
+          <div class="mas-box rheotorics-index-grid">
+            <div class="rhetoric-index-container">
+              <div class="rhetoric-index-img" id="result">
+                <%= link_to post do %>
+                <div class="rhetoric-container">
+                  <div class="rhetoric-meigen">
+                    <%= post.meigen %>
+                  </div></br>
+                  <div class="rhetoric-speaker">
+                    <%= post.speaker %>
+                  </div>
+                </div>
+                <% end %>
+              </div>
             </div>
           </div>
+        <% end %>
         </div>
-      <% end %>
-      </div>
     </div>
     <div class="profile-contents-index" id="follow">
       <% if @follow_users.any? %>

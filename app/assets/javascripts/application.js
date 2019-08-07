@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
+//= require masonry/jquery.masonry
 //= require_tree .
 
 
@@ -23,10 +24,16 @@
 $(document).on('turbolinks:load', function() {
 $(function(){
     setTimeout("$('.alert').fadeOut('slow')", 3000)
-})
+});
+
+$('.modal-show').click(function () {
+    $('.require-login').fadeIn();
+    setTimeout("$('.require-login').fadeOut('slow')", 2000)
+
+});
+
+
 });
 
 
 
-
-//= require masonry/jquery.masonry

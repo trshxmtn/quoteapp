@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
 
   def create
     @rhetoric = Rhetoric.find(params[:rhetoric_id])

@@ -12,8 +12,13 @@
 
   <div class="container rhetorics-show">
     <div class="rhetorics-show-grid">
-      <div class="rhetoric-image">
-        <%= image_tag image_path(@rhetoric.image) %>
+      <div class="rhetoric-container show">
+        <div class="rhetoric-meigen show">
+          <%= @rhetoric.meigen %>
+        </div></br>
+        <div class="rhetoric-speaker show">
+          <%= @rhetoric.speaker %>
+        </div>
       </div>
     
       <div class="rhetoric-contents">
@@ -77,12 +82,10 @@
           <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
           <%= render partial: 'comments/index', locals: { comments: @comments } %>
         </div>
-        <% if user_signed_in? %>
           <div class="comment-input">
           <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
           <%= render partial: 'comments/form', locals: { comment: @comment, rhetoric: @rhetoric } %>
           </div>
-        <% end %>
       </div>
     </div>
 
@@ -97,7 +100,14 @@
       <div class="mas-box rheotorics-grid">
         <div class="rhetoric-index-content">
           <div class="rhetoric-index-img" id="result">
-            <%= link_to image_tag(image_path(rhetoric.image)), rhetoric %>
+            <div class="rhetoric-container index">
+              <div class="rhetoric-meigen index">
+                <%= @rhetoric.meigen %>
+              </div></br>
+              <div class="rhetoric-speaker index">
+                <%= @rhetoric.speaker %>
+              </div>
+            </div>
           </div>
 
           <div class="btn-area-like-index">

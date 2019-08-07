@@ -9,11 +9,11 @@
 
           <div class="rhetoric-index-img" id="result">
             <%= link_to rhetoric do %>
-            <div class="rhetoric-container">
-              <div class="rhetoric-meigen">
+            <div class="rhetoric-container index">
+              <div class="rhetoric-meigen index">
                 <%= rhetoric.meigen %>
               </div></br>
-              <div class="rhetoric-speaker">
+              <div class="rhetoric-speaker index">
                 <%= rhetoric.speaker %>
               </div>
             </div>
@@ -34,7 +34,7 @@
                   <%= form_for(rhetoric.picks.build, remote: true) do |f| %>
                     <div><%= hidden_field_tag :rhetoric_id, rhetoric.id %></div>
                     <%= button_tag(class: "btn-like-index") do %>
-                      <%= content_tag :span, "", class: "far fa-heart my-like-index fa-lg" %>
+                      <%= content_tag :span, "", class: "far fa-heart my-like-index fa-lg modal-show" %>
                     <% end %>
                   <% end %>
                 <% end %>
