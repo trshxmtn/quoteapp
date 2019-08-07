@@ -462,6 +462,8 @@ nav.globalMenuSp.active {
   background-color: #FCFEFF;
   color: #1A2023;
   font-weight: bold;
+  padding: 0 5%;
+  display: flex;
 }
 
 .footer-content {
@@ -489,6 +491,11 @@ nav.globalMenuSp.active {
 
 .footer-logo img {
   height: 40px;
+}
+
+.my-search-footer {
+  color: #1a2023;
+  padding-top: 5px;
 }
 
 .footer-userProfileImage {

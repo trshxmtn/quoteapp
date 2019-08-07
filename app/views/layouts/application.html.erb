@@ -126,6 +126,17 @@
       </div>
     <% end %>
     </div>
+
+    <div class="footer-content">
+    <%= link_to genre_path do %>
+      <div class="footer-logo">
+        <i class="fas fa-search fa-2x my-search-footer"></i>
+      </div>
+      <div class="footer-content-name">
+        ジャンル検索
+      </div>
+    <% end %>
+    </div>
     
     <% if user_signed_in? %>
     <div class="footer-content">
