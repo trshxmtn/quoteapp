@@ -99,6 +99,10 @@
             <div class="sidebarProfileImage">
               <%= image_tag current_user.picture.url %>
             </div>
+            <div class="balloon">
+              いいねした投稿はマイページに登録されます
+              <br>たくさんいいねして自分だけの名言集を作ろう！
+            </div>
           </div>
         <% end %>
       <% else %>
@@ -148,6 +152,7 @@
           マイページ
         </div>
       <% end %>
+
     </div>
     <% else %>
     <div class="footer-content">

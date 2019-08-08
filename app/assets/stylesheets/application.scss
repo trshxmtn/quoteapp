@@ -124,11 +124,6 @@ p {
   display: none;
 }
 
-.css1 { font-size: 1.0em; }
-.css2 { font-size: 1.2em; }
-.css3 { font-size: 1.4em; }
-.css4 { font-size: 1.6em; }
-
 //無限スクロールの際にページネーションの表示を隠す
 
 
@@ -440,11 +435,31 @@ nav.globalMenuSp.active {
   background-color: #3D474C;
 }
 
+//いいねの吹き出し
+.balloon{
+  position: absolute;
+  top: 100px;
+  left: 70px;
+  padding: 20px;
+  background-color: #fff3ad;
+  border-radius: 10px;
+  width: 150px;
+  display: none;
+}
 
-
-
-
-
+.balloon::before{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  left: -15px;
+  top: 50%;
+  margin-top: -15px;
+  border-right: 15px solid #fff3ad;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
 
 
 // footer
@@ -525,6 +540,7 @@ nav.globalMenuSp.active {
   padding: 0;
 }
 
+
 .loginbtn-footer {
   margin: 10px;
   height: 30px;
@@ -540,11 +556,6 @@ nav.globalMenuSp.active {
   line-height: 30px;
   font-weight: 800;
 }
-
-
-
-
-
 
 // rhetoric-new-btn
 

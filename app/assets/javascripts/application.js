@@ -35,5 +35,19 @@ $('.modal-show').click(function () {
 
 });
 
+$(document).on('turbolinks:load', function() {
+
+    $(function() {
+    // ボタン・クリック時に1度だけ反映
+    $('.show-balloon').one('click',
+        function() {
+            $('.balloon').fadeIn();
+            setTimeout("$('.balloon').fadeOut('slow')", 3000)
+        }
+    );
+});
+
+
+});
 
 
