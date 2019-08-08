@@ -47,6 +47,7 @@
 
             <div class="btn-area-like">
               <div class="count-like">
+                <%= @rhetoric.picks_count %>
               </div>            
               <div class="picks_buttons_<%= @rhetoric.id %>">
                 <%= render "picks/pick", rhetoric: @rhetoric %>
@@ -126,7 +127,11 @@
             </div>
 
             <div class="btn-area-like-index">
-              <div class="picks_buttons_index_<%= rhetoric.id %>">
+              <div class="count-like index">
+                <%= rhetoric.picks_count %>
+              </div>
+
+              <div class="picks_buttons_index_<%= rhetoric.id %> indexPick">
                 <span class="pick">
 
                   <% if rhetoric.pick?(current_user) %>
