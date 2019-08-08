@@ -1,5 +1,5 @@
 module RhetoricsHelper
-
+  include ActsAsTaggableOn::TagsHelper
   require 'mini_magick'
   require 'securerandom'
 

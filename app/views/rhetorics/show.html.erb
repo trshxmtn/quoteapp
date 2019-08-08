@@ -13,6 +13,11 @@
   <div class="container rhetorics-show">
     <div class="rhetorics-show-grid">
       <div class="rhetoric-container show">
+
+        <% if @rhetoric.picture? %>
+          <%= image_tag @rhetoric.picture.url %>
+        <% end %>
+
         <div class="rhetoric-meigen show">
           <%= @rhetoric.meigen %>
         </div></br>
@@ -101,6 +106,9 @@
         <div class="rhetoric-index-content">
           <div class="rhetoric-index-img" id="result">
             <div class="rhetoric-container index">
+              <% if rhetoric.picture? %>
+                <%= image_tag rhetoric.picture.url %>
+              <% end %>
               <div class="rhetoric-meigen index">
                 <%= @rhetoric.meigen %>
               </div></br>
