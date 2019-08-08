@@ -7,7 +7,6 @@
 // profile
 
 .container.profile {
-    height: 120px;
     width: 75%;
     padding: 20px;
     margin: 50px auto 0px;
@@ -16,8 +15,9 @@
 
 @media (max-width: 767px) {
     .container.profile {
-      min-width: 90%;
-      margin: 50px 5% 20px;
+      width: 100%;
+      padding: 0 5%;
+      margin: 20px 0;
       box-sizing: border-box;
     }
 }
@@ -63,8 +63,6 @@
 
 .profile-followbtn {
     float: right;
-    height: 80px;
-    width: 100px;
     padding: 10px 10px 10px 0;
 }
 
@@ -97,10 +95,8 @@
     }
 
     .profile-followbtn {
-        height: 45px;
-        width: 100px;
+        padding: 0 0 10px; 
         float: right;
-        margin-bottom: 10px;
         display: inline-block;
     }
 
@@ -122,8 +118,8 @@
 
 @media (max-width: 767px) {
     .container-tabs {
-        min-width: 90%;
-        margin: 0 5%;
+        min-width: 100%;
+        padding: 0 5%;
     }
 }
 
@@ -191,19 +187,13 @@
         padding: 5%;
         margin-top: 5px;
         min-width: 100%;
+        display: inline-block;
+    }
+
+    #masonry-container {
+        min-width: 100%;
     }
 }
-
-.profile-contents-columnFix {
-    column-count: 2;
-    column-gap: 0;
-}
-
-@media (max-width: 767px) {
-    .profile-contents-columnFix {
-      column-count: 1;
-    }
-  }
 
 .follow-user, .follower-user {
     height: 60px;
