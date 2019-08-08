@@ -1,29 +1,22 @@
+<span class="pick">
 
-  <span class="pick">
+                  <% if rhetoric.pick?(current_user) %>
+                    <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+                      <%= button_tag(class: "btn-liked-index") do %>
+                        <%= content_tag :span, "", class: "fas fa-heart my-liked-index fa-lg" %>
+                      <% end %>
+                    <% end %>
+                  <% else %>
+                    <%= form_for(rhetoric.picks.build, remote: true) do |f| %>
+                      <div><%= hidden_field_tag :rhetoric_id, rhetoric.id %></div>
+      <%= button_tag(class: "btn-like-index") do %>
+                        <%= content_tag :span, "", class: "far fa-heart my-like-index fa-lg" %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
 
-    <% if @rhetoric.pick?(current_user) %>
+  <div class="count-like index">
+                    <%= rhetoric.picks_count %>
+                  </div>
 
-      <%= form_for(@rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-        <%= button_tag(class: "btn-liked") do %>
-          <%= content_tag :span, "", class: "fas fa-heart my-liked fa-lg" %>
-        <% end %>
-      <% end %>
-      <div class="message-like">
-        <h6 class="liked-message">いいねしました</h6>
-      </div>
-
-    <% else %>
-
-      <%= form_for(@rhetoric.picks.build, remote: true) do |f| %>
-        <div><%= hidden_field_tag :rhetoric_id, @rhetoric.id %></div>
-        <%= button_tag(class: "btn-like") do %>
-          <%= content_tag :span, "", class: "far fa-heart my-like fa-lg modal-show show-balloon" %>
-        <% end %>
-      <% end %>
-      <div class="message-like">
-        <h6 class="like-message">いいね</h6>
-      </div>
-
-    <% end %>
-  
-  </span>
+                </span>

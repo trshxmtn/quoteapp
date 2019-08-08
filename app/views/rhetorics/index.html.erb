@@ -28,9 +28,6 @@
           </div>
 
           <div class="btn-area-like-index">
-            <div class="count-like index">
-              <%= rhetoric.picks_count %>
-            </div>
 
             <div class="picks_buttons_index_<%= rhetoric.id %> indexPick">
               <span class="pick">
@@ -49,6 +46,10 @@
                     <% end %>
                   <% end %>
                 <% end %>
+
+                <div class="count-like index">
+                  <%= rhetoric.picks_count %>
+                </div>
 
               </span>
             </div>
