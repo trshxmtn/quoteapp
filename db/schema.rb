@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2019_08_08_095650) do
   end
 
   create_table "rhetorics", force: :cascade do |t|
-    t.string "title"
     t.text "meigen"
     t.text "description"
     t.datetime "created_at", null: false
@@ -67,8 +66,6 @@ ActiveRecord::Schema.define(version: 2019_08_08_095650) do
     t.integer "user_id"
     t.string "ctype"
     t.binary "image"
-    t.string "username"
-    t.text "profile"
     t.integer "picks_count", default: 0, null: false
     t.text "speaker"
     t.text "picture"

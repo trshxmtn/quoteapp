@@ -94,6 +94,29 @@
                 </div>
                 <% end %>
               </div>
+
+              <div class="btn-area-like-index">
+                <div class="picks_buttons_index_<%= post.id %>">
+                  <span class="pick">
+
+                    <% if post.pick?(current_user) %>
+                      <%= form_for(post.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+                        <%= button_tag(class: "btn-liked-index") do %>
+                          <%= content_tag :span, "", class: "fas fa-heart my-liked-index fa-lg" %>
+                        <% end %>
+                      <% end %>
+                    <% else %>
+                      <%= form_for(post.picks.build, remote: true) do |f| %>
+                        <div><%= hidden_field_tag :rhetoric_id, post.id %></div>
+                        <%= button_tag(class: "btn-like-index") do %>
+                          <%= content_tag :span, "", class: "far fa-heart my-like-index fa-lg modal-show" %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         <% end %>

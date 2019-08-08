@@ -2,6 +2,11 @@
 <%= form_for(@rhetoric) do |f| %>
   <div class="form-body">
   
+    <div class="form-inputs picture">
+      <strong>添付画像</strong>
+        <%= f.file_field :picture%>
+    </div>
+
     <div class="form-inputs rhetoric">
       <strong>言葉（ここが画像になります）</strong>
       <div class="textarea-outline">
@@ -28,11 +33,6 @@
       <div class="form-outline">
         <%= f.text_field :tag_list, placeholder: '例 : Hump Back, 拝啓、少年よ, ロック, バンド, 歌詞', value: @rhetoric.tag_list.join(',') %>
       </div>
-    </div>
-
-    <div class="form-inputs picture">
-      <strong>添付画像</strong>
-        <%= f.file_field :picture%>
     </div>
     
     <div class="form-actions">
