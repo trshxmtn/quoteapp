@@ -1,9 +1,8 @@
 $(document).on('turbolinks:load', function() {
 
-  if (window.matchMedia( '(min-width: 767px)' ).matches) {
+  if (window.matchMedia( '(max-width: 767px)' ).matches) {
     $('#masonry-container').masonry({
       itemSelector: '.mas-box',
-      columnWidth: 400,
       transitionDuration: 0,
       gutterWidth: 40,
       "fitWidth": true
@@ -11,7 +10,7 @@ $(document).on('turbolinks:load', function() {
   } else {
     $('#masonry-container').masonry({
       itemSelector: '.mas-box',
-      columnWidth: 100%,
+      columnWidth: 400,
       transitionDuration: 0,
       gutterWidth: 40,
       "fitWidth": true
