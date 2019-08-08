@@ -124,6 +124,10 @@ p {
   display: none;
 }
 
+.css1 { font-size: 1.0em; }
+.css2 { font-size: 1.2em; }
+.css3 { font-size: 1.4em; }
+.css4 { font-size: 1.6em; }
 
 //無限スクロールの際にページネーションの表示を隠す
 
@@ -458,7 +462,7 @@ nav.globalMenuSp.active {
   z-index: 1;
   width: 100%;
   height: 65px;
-  box-shadow: 0px -5px 10px rgba(61,71,76,0.5);
+  box-shadow: 0px -5px 10px rgba(61,71,76,0.1);
   background-color: #FCFEFF;
   color: #1A2023;
   font-weight: bold;

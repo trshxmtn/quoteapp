@@ -5,6 +5,7 @@ class RhetoricsController < ApplicationController
   include RhetoricsHelper
 
   def index
+
     if params[:tag_name]
       @rhetorics = @rhetorics.tagged_with("#{params[:tag_name]}").page(params[:page]).per(20)
     end
@@ -61,18 +62,21 @@ class RhetoricsController < ApplicationController
     send_data @rhetoric.image, type: @rhetoric.ctype, disposition: 'inline'
   end
 
-    private
+  def genre
+    @rhetorics = Rhetoric.all
+    @tags = Rhetoric.all_tags
+  end
+
+  private
 
 
   def rhetoric_params
-    params.require(:rhetoric).permit(:description, :meigen, :tag_list, :speaker )
+    params.require(:rhetoric).permit(:description, :meigen, :tag_list, :speaker, :picture )
   end
 
   def find_rhetoric
     @rhetoric = Rhetoric.find(params[:id])
   end
 
-  def genre
-  end
 
 end

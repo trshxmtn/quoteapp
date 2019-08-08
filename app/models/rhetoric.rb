@@ -9,7 +9,8 @@ class Rhetoric < ApplicationRecord
 
   acts_as_taggable
   # アップローダー紐づけ
-  mount_uploader :image, RhetoricImageUploader
+  mount_uploader :image, RhetoricImageUploader #OGPの全体写真
+  mount_uploader :picture, RhetoricPictureUploader #投稿の画像
 
   def pick(user)
     picks.create(user_id: user.id)
