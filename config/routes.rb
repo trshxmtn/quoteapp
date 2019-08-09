@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tags/index'
   devise_for :users, controllers: { :registrations => 'users/registrations',
                                     :sessions => 'users/sessions' ,
                                     omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   get 'comments/destroy'
 
   resources :picks, only: [:create, :destroy]
+  resources :tags, only: [:index]
 
   get  'inquiry' =>'inquiries#index'
   get 'inquiry/confirm' => redirect("/inquiry")

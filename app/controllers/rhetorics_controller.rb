@@ -62,11 +62,6 @@ class RhetoricsController < ApplicationController
     send_data @rhetoric.image, type: @rhetoric.ctype, disposition: 'inline'
   end
 
-  def genre
-    @rhetorics = Rhetoric.all
-    @tags = Rhetoric.all_tags
-  end
-
   private
 
 

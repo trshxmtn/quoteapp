@@ -5,8 +5,6 @@ class Rhetoric < ApplicationRecord
   has_many :picks, dependent: :destroy
   has_many :pick_users, through: :picks, source: :user
   has_many :comments,dependent: :destroy
-  # has_many :rhetoric_speakers,dependent: :destroy
-
   acts_as_taggable
   # アップローダー紐づけ
   mount_uploader :image, RhetoricImageUploader #OGPの全体写真
