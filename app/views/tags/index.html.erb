@@ -3,12 +3,13 @@
     <div class="genre-title">
       <h3>今人気のタグ</h3>
 
-      <% @popular_tags.each do |tag| %>
-        <%= link_to rhetorics_path(tag_name: tag.name) do %>
-            <%= "#{tag}" %>
-        <% end %>
-      <% end %>
-
+      <%# @popular_tags.each do |tag| %>
+        <%# popular_rhetoric = Rhetoric.tagged_with(tag.name).maximum(:picks_count) %>
+        <%#= link_to rhetorics_path(tag_name: tag.name) do %>
+            <%#= popular_rhetoric.description %>
+            <%#= "#{tag}" %>
+        <%# end %>
+      <%# end %>
     </div>
     <ul class="genre-list">
       <li class="genre-container">
@@ -154,6 +155,10 @@
         </div>
       </li>
     </ul>
+
+    <% @popular_rhetorics.each do |rhetoric| %>
+      <%= rhetoric.meigen %>
+    <% end %>
 
   </div>
 </div>
