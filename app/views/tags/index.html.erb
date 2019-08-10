@@ -118,13 +118,6 @@
     <div class="genre-title">
       <h3>漫画・アニメの名言</h3>
 
-      <% @anime_hash.each do |tag, picture| %>
-        <%= link_to rhetorics_path(tag_name: tag) do %>
-          <%= image_tag picture.url %>
-          <%= "#{tag}" %>
-        <% end %>
-      <% end %>
-
     </div>
     <ul class="genre-list">
       <li class="genre-container">
