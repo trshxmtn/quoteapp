@@ -14,6 +14,11 @@
       <%= form_for(@rhetoric) do |f| %>
         <div class="form-body">
 
+          <div class="form-inputs picture">
+            <strong>添付画像</strong>
+            <%= f.file_field :picture%>
+          </div>
+          
           <div class="form-inputs rhetoric">
             <strong>言葉（ここが画像になります）</strong>
             <div class="textarea-outline">

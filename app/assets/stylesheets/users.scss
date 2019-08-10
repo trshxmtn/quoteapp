@@ -7,60 +7,62 @@
 // profile
 
 .container.profile {
-    height: 120px;
-    width: 50%;
+    width: 75%;
     padding: 20px;
-    margin: 50px 25% 0px;
+    margin: 50px auto 0px;
     border-radius: 10px;
 }
 
 @media (max-width: 767px) {
     .container.profile {
-      min-width: 90%;
-      margin: 50px 5% 20px;
+      width: 100%;
+      padding: 0 5%;
+      margin: 20px 0;
       box-sizing: border-box;
     }
 }
 
-.user-show-user-image {
+.profile-area {
+    width: 80%;
+    display: table;
     float: left;
-    height: 80px;
-    width: 20%;
-    padding: 10px;
 }
 
-.user-show-user-image img {
+.profile-image {
+    height: 80px;
+    width: 80px;
+    padding: 10px;
+    display: table-cell;
+}
+
+.profile-image img {
     height: 60px;
     width: 60px;
     border-radius: 50%;
     margin: auto;
 }
 
-.user-show-user-name {
-    float: left;
+.profile-name {
     height: 80px;
-    width: 55%;
-    margin: auto;
+    width: 100%;
     padding: 10px;
     vertical-align: middle;
-    display: inline-block;
+    display: table-cell;
 }
 
-.user-show-user-name p {
+.profile-name p {
     font-size: 30px;
     line-height: 60px;
 }
 
 @media (max-width: 767px) {
-    .user-show-user-name p {
+    .profile-name p {
         font-size: 25px;
     }
 }
 
-.user-show-followbtn {
-    float: left;
-    height: 80px;
-    width: 25%;
+.profile-followbtn {
+    float: right;
     padding: 10px 10px 10px 0;
 }
 
@@ -84,19 +86,18 @@
 }
 
 @media (max-width: 767px) {
-    .user-show-user-image {
-        width: 25%;
+    .profile-image {
+        width: 80px;
     }
 
-    .user-show-user-name {
+    .profile-name {
         width: 75%;
     }
 
-    .user-show-followbtn {
-        height: 45px;
-        width: 100px;
+    .profile-followbtn {
+        padding: 0 0 10px; 
         float: right;
-        margin-bottom: 10px;
+        display: inline-block;
     }
 
     .follow-btn, .unfollow-btn {
@@ -108,17 +109,17 @@
 
 .container-tabs {
     height: 30px;
-    width: 50%;
+    width: 75%;
     text-align: center;
-    margin: 0 25%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-around;
 }
 
 @media (max-width: 767px) {
     .container-tabs {
-        min-width: 90%;
-        margin: 0 5%;
+        min-width: 100%;
+        padding: 0 5%;
     }
 }
 
@@ -176,7 +177,7 @@
 
 
 .container.profile-contents {
-    width: 50%;
+    width: 75%;
     padding: 0 40px;
     margin-top: 20px;
 }
@@ -186,19 +187,13 @@
         padding: 5%;
         margin-top: 5px;
         min-width: 100%;
+        display: inline-block;
+    }
+
+    #masonry-container {
+        min-width: 100%;
     }
 }
-
-.profile-contents-columnFix {
-    column-count: 2;
-    column-gap: 0;
-}
-
-@media (max-width: 767px) {
-    .profile-contents-columnFix {
-      column-count: 1;
-    }
-  }
 
 .follow-user, .follower-user {
     height: 60px;

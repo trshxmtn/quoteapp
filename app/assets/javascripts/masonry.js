@@ -1,13 +1,20 @@
 $(document).on('turbolinks:load', function() {
-$(window).load(function(){
 
-  $('#masonry-container').masonry({
-    itemSelector: '.mas-box',
-    columnWidth: 240,
-    transitionDuration: 0,
-    gutterWidth: 40,
-    "fitWidth": true
-  });
+  if (window.matchMedia( '(max-width: 767px)' ).matches) {
+    $('#masonry-container').masonry({
+      itemSelector: '.mas-box',
+      transitionDuration: 0,
+      gutterWidth: 40,
+      "fitWidth": true
+    });
+  } else {
+    $('#masonry-container').masonry({
+      itemSelector: '.mas-box',
+      columnWidth: 400,
+      transitionDuration: 0,
+      gutterWidth: 40,
+      "fitWidth": true
+    });
+  };
 
-});
 });

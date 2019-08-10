@@ -1,4 +1,6 @@
 class RhetoricImageUploader < CarrierWave::Uploader::Base
+  #OGPなどで活用されるQuote全体のアップローダーです
+
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # MiniMagick読み込んでるけど画像加工処理はHelperに記載
