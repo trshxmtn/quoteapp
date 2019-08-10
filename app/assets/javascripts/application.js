@@ -37,17 +37,24 @@ $('.modal-show').click(function () {
 
 $(document).on('turbolinks:load', function() {
 
-    $(function() {
-    // ボタン・クリック時に1度だけ反映
-    $('.show-balloon').one('click',
-        function() {
+    $('.show-balloon').click(function() {
+
+        //cookieの値がonじゃなかったら表示させる
+        if ($.cookie('likeMessage') != 'on') {
             $('.balloon').fadeIn();
-            setTimeout("$('.balloon').fadeOut('slow')", 3000)
-        }
-    );
+            setTimeout("$('.balloon').fadeOut('slow')", 5000)
+            $.cookie('likeMessage', 'on', { //cookieにlikeMessageという名前でonという値をセット
+                path:'/' //有効にするパス
+              });
+        }        
+        
+    });
+
 });
 
 
-});
+
+
+
 
 

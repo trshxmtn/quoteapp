@@ -32,6 +32,10 @@
             <div class="picks_buttons_index_<%= rhetoric.id %> indexPick">
               <span class="pick">
 
+                <div class="count-like index">
+                  <%= rhetoric.picks_count %>
+                </div>
+
                 <% if rhetoric.pick?(current_user) %>
                   <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
                     <%= button_tag(class: "btn-liked-index") do %>
@@ -47,9 +51,7 @@
                   <% end %>
                 <% end %>
 
-                <div class="count-like index">
-                  <%= rhetoric.picks_count %>
-                </div>
+                
 
               </span>
             </div>

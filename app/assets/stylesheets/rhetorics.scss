@@ -107,7 +107,7 @@
   }
 }
 
-.indexPick {
+.edit_pick, .new_pick {
   float: left;
 }
 
@@ -137,6 +137,7 @@
   color: #dd5555;
   margin: auto;
 }
+
   
 
 
@@ -318,12 +319,14 @@
   color: white;
 }
 
-.liked-message {
+.message-liked {
   color: #dd5555;
+  width: 100%;
 }
 
-.like-message, .message-share {
+.message-like, .message-share {
   color: #899399;
+  width: 100%;
 }
 
 .message-share h6, .message-like h6 {

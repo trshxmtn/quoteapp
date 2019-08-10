@@ -19,6 +19,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
 </head>
 
 <body>
@@ -95,13 +97,18 @@
       <% end %>
       <% if user_signed_in? %>
         <%= link_to profile_path(current_user) do %>
-          <div class="sidebar-content">
+          <div class="sidebar-content" id="like-tutorial-side">
             <div class="sidebarProfileImage">
               <%= image_tag current_user.picture.url %>
             </div>
             <div class="balloon">
-              いいねした投稿はマイページに登録されます
-              <br>たくさんいいねして自分だけの名言集を作ろう！
+              <div class="likedIcon">
+                <i class="fas fa-heart my-liked-index fa-lg"></i>
+              </div>
+              <div class="balloon-message">
+                いいねした投稿はマイページに登録されます
+                <br>たくさんいいねして自分だけの名言集を作ろう！
+              </div>
             </div>
           </div>
         <% end %>
