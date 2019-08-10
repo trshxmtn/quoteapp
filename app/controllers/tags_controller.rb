@@ -3,15 +3,27 @@ class TagsController < ApplicationController
   def index
     @popular_tags = ActsAsTaggableOn::Tag.most_used(3) #最も使われている上位10個のタグの取得
 
-    @hash = Hash.new
+    @top_hash = Hash.new
 
     @popular_tags.each do |tag|
       popular_rhetoric = Rhetoric.tagged_with("#{tag.name}").order("picks_count DESC").first
-      @hash.store(tag.name, popular_rhetoric.picture)
+      @top_hash.store(tag.name, popular_rhetoric.picture)
     end
 
-    # @movie = Rhetoric.tagged_with("映画")
-    movie = ["ONE PIECE", "宇宙兄弟", "キングダム", "ドラえもん", "BLEACH", "カイジ", "SLAM DUNK", "NARUTO", "はじめの一歩", "進撃の巨人", "闇金ウシジマくん", "王様達のヴァイキング", "コードギアス"]
+    # anime_names = ["ONE PIECE", "宇宙兄弟", "キングダム"]
+    #
+    # # , "ドラえもん", "BLEACH", "カイジ", "SLAM DUNK", "NARUTO", "はじめの一歩", "進撃の巨人", "闇金ウシジマくん", "王様達のヴァイキング", "コードギアス"
+    #
+    # anime_names.each do |name|
+    #   @anime_tags = ActsAsTaggableOn::Tag.find_by(name: name)
+    # end
+    #
+    # @anime_hash = Hash.new
+    #
+    # @anime_tags.each do |tag|
+    #   anime_rhetoric = Rhetoric.tagged_with("#{tag.name}").order("picks_count DESC").first
+    #   @anime_hash.store(tag.name, anime_rhetoric.picture)
+    # end
 
 
   end
