@@ -61,6 +61,17 @@
     <% end %>
 
   </div>
+  <div class="page-load-status">
+    <p class="infinite-scroll-request">
+      <i class="fa fa-spinner fa-spin"></i>Loading...
+      <br>
+      <%= paginate @rhetorics %>
+    </p>
+    <p class="infinite-scroll-last">End of content</p>
+    <p class="infinite-scroll-error">No more pages to load</p>
+  </div>
+
+
 </div>
 
 <%= link_to new_rhetoric_path do %>

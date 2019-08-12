@@ -126,7 +126,13 @@ p {
 
 //無限スクロールの際にページネーションの表示を隠す
 
-
+.page-load-status {
+  display: none;
+  padding-top: 20px;
+  border-top: 1px solid #DDD;
+  text-align: center;
+  color: #777;
+}
 
 // layout
 
