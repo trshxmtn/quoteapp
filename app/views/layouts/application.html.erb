@@ -89,11 +89,6 @@
     <div class="sidebar-contents">
       <%= link_to root_path do %>
         <div class="sidebar-content">
-          <i class="fas fa-home fa-lg my-home"></i>
-        </div>
-      <% end %>
-      <%= link_to tags_index_path do %>
-        <div class="sidebar-content">
           <i class="fas fa-search fa-lg my-search-sidebar"></i>
         </div>
       <% end %>
@@ -129,19 +124,9 @@
 
 <footer>
   <div class="footer">
-    <div class="footer-content">
-    <%= link_to root_path do %>
-      <div class="footer-logo">
-        <%= image_tag "logo_symbol.png" %>
-      </div>
-      <div class="footer-content-name">
-        ホーム
-      </div>
-    <% end %>
-    </div>
 
     <div class="footer-content">
-    <%= link_to tags_index_path do %>
+    <%= link_to root_path do %>
       <div class="footer-logo">
         <i class="fas fa-search fa-2x my-search-footer"></i>
       </div>
