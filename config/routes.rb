@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'tags/index'
+  get '/' => 'tags#index'
   devise_for :users, controllers: { :registrations => 'users/registrations',
                                     :sessions => 'users/sessions' ,
                                     omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  root 'rhetorics#index'
+  root 'tags#index'
 
   resources :rhetorics do
     member do
