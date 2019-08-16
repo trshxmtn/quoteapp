@@ -10,7 +10,7 @@ class TagsController < ApplicationController
       @top_hash.store(tag.name, popular_rhetoric.picture)
     end
 
-  anime_names = ["ONE PIECE", "宇宙兄弟", "キングダム"]
+  anime_names = ["カイジ", "宇宙兄弟", "キングダム"]
 
     # , "ドラえもん", "BLEACH", "カイジ", "SLAM DUNK", "NARUTO", "はじめの一歩", "進撃の巨人", "闇金ウシジマくん", "王様達のヴァイキング", "コードギアス"
 
