@@ -15,7 +15,6 @@
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
-//= require infinite-scroll.pkgd.min
 //= require masonry/jquery.masonry
 //= require_tree .
 
