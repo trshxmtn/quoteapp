@@ -299,7 +299,6 @@ Devise.setup do |config|
   config.omniauth :twitter,'9pDNwKXMylfYACH6Hg2ozUKOs', 'Yv5K2JFOa9ETsBy3ZOVLw8TVikWN5yk5zgriWmvLPEL9hOOQSs',{
       secure_image_url: 'true',
       image_size: 'bigger'
-
-  },callback_url: "https://quote-by.me/users/auth/twitter/callback"
+  }
 
 end
