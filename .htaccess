@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} meigen-quote.herokuapp.com [OR,NC]
+RewriteCond %{HTTP_HOST} www.quote-by.me [NC]
+RewriteRule .* https://quote-by.me%{REQUEST_URL} [L,R=301]
