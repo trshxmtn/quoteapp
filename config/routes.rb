@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/' => 'tags#index'
   devise_for :users, controllers: { :registrations => 'users/registrations',
                                     :sessions => 'users/sessions' ,
                                     omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  root 'rhetorics#index'
+  root 'tags#index'
 
   resources :rhetorics do
     member do
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   get 'comments/destroy'
 
   resources :picks, only: [:create, :destroy]
+  resources :tags, only: [:index]
 
   get  'inquiry' =>'inquiries#index'
   get 'inquiry/confirm' => redirect("/inquiry")
@@ -35,5 +37,7 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about'
   get 'privacy-policy' => 'pages#privacy'
   get 'terms' => 'pages#terms'
+
+  get 'genre' => 'rhetorics#genre_search'
 end
 

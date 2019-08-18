@@ -14,13 +14,13 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
   <script src="https://kit.fontawesome.com/1471aca7cc.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
-  <script src="http://malsup.github.com/jquery.form.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
-  <script src="https://malsup.github.com/jquery.form.js"></script>
+  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
 </head>
 
@@ -36,7 +36,6 @@
       </div>
       <% end %>
     </div>
-    <% if user_signed_in? %>
       <div class="header-search">
         <div class="search-icon">
           <i class="fa fa-search fa-lg my-search"></i>
@@ -49,40 +48,7 @@
             <% end %>
         </div>
 
-      </div>
-    <% end %>
-
-    <% if user_signed_in? %>
-    <%= link_to profile_path(current_user) do %>
-    <div class="header-right">
-    <ul class="header-profile">
-      <li>
-        <div class="userProfileImage">
-            <%= image_tag current_user.picture.url %>
-        </div>
-      </li>
-      <li>
-        <div class="userProfileName">
-          <%= current_user.username %>
-        </div>
-      </li>
-    </ul>
-    </div>
-    <% end %>
-    <% else %>
-    <div class="header-right-notlogin">
-    <ul class="header-profile">
-      <li>
-        <%= link_to new_user_session_path do %>
-          <div class="loginbtn">
-            <h6>ログイン</h6>
-          </div>
-        <% end %>
-      </li>
-    </ul>
-    </div>
-    <% end %>
-    
+      </div>    
 
       <li>
         <div class="navToggle">
@@ -117,15 +83,54 @@
 
 </header>
 
+<sidebar>
+  <div class="sidebar">
+    <div class="sidebar-contents">
+      <%= link_to root_path do %>
+        <div class="sidebar-content">
+          <i class="fas fa-search fa-lg my-search-sidebar"></i>
+        </div>
+      <% end %>
+      <% if user_signed_in? %>
+        <%= link_to profile_path(current_user) do %>
+          <div class="sidebar-content" id="like-tutorial-side">
+            <div class="sidebarProfileImage">
+              <%= image_tag current_user.picture.url %>
+            </div>
+            <div class="balloon">
+              <div class="likedIcon">
+                <i class="fas fa-heart my-liked-index fa-lg"></i>
+              </div>
+              <div class="balloon-message">
+                いいねした投稿はマイページに登録されます
+                <br>たくさんいいねして自分だけの名言集を作ろう！
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path do %>
+          <div class="sidebar-content">
+            <div class="sidebarProfileImage">
+              <%= image_tag ('default.png') %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</sidebar>
+
 <footer>
   <div class="footer">
+
     <div class="footer-content">
     <%= link_to root_path do %>
       <div class="footer-logo">
-        <%= image_tag "logo_symbol.png" %>
+        <i class="fas fa-search fa-2x my-search-footer"></i>
       </div>
       <div class="footer-content-name">
-        ホーム
+        ジャンル検索
       </div>
     <% end %>
     </div>
@@ -140,12 +145,16 @@
           マイページ
         </div>
       <% end %>
+
     </div>
     <% else %>
     <div class="footer-content">
       <%= link_to new_user_session_path do %>
-        <div class="loginbtn-footer">
-          <h6>ログイン</h6>
+        <div class="footer-userProfileImage">
+          <%= image_tag ('default.png') %>
+        </div>
+        <div class="footer-content-name">
+          マイページ
         </div>
       <% end %>
     </div>
@@ -161,6 +170,12 @@
 <% if flash[:alert] %>
   <div class="alert-message">
     <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<% if !user_signed_in? %>
+  <div class="require-login">
+    <p>ログイン・ユーザー登録をすれば言葉にいいねやコメントをすることができます！</p>
   </div>
 <% end %>
 

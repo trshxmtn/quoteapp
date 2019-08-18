@@ -2,67 +2,109 @@
 
 <div class="main about">
     <div class="container about">
-        <div class="row quote-concept">
-            <div class="col-xs-12">
-                <div class="quote-concept">
-                    <h1>Quote</h1>
-                    <h6>あなたにぴったりの言葉を探して集めよう</h6>
+        <div class="row top">
+            <div class="col-xs-12 top">
+                <div class="logo-side">
+                    <%= image_tag 'logo_side.png' %>
                 </div>
+                <h6>世界中のステキな言葉が集まる名言共有サイト</h6>
             </div>
         </div>
-        <div class="row quote-tutorial">
-            <div class="col-sm-4">
-                <div class="tutorial-content">
-                    <div class="tutorial-image">
-                        <i class="fas fa-search fa-3x my-search-tutorial"></i>
+
+        <div class="row message">
+            <div class="col-xs-12 question">
+                <h2>「 何の為に生きるの？ 」</h2>
+                <h2>「 愛するってなんだろう？ 」</h2>
+                <h2>「 私の夢はどうすれば叶うの？ 」</h2>
+            </div>
+            <div class="col-xs-12 conceptMessage">
+                <h4>今日まで人類は色んな悩みを抱えて生きてきた。そして悩み抜いた結果、多くの名言が生まれた。今あなたが悩んでいることは誰かも同じように悩んできたことかも！</h4>
+            </div>
+        </div>
+
+        <div class="row canDo">
+            <div class="canDoMessage">
+                <h4>Quoteでできること</h4>
+            </div>
+            <div class="col-sm-4 canDo">
+                <div class="canDo-container">
+                    <div class="canDo-num">
+                        <p>01</p>
                     </div>
-                    <div class="tutorial-message">
-                        <h3>探す</h3>
-                        <p>好きな好きな漫画の主人公や偉人の名前、あるいはビジネスや恋愛などのシーンで検索しよう</p>
+                    <div class="canDo-title">
+                        <h3>あなたにぴったりの<br>言葉が見つかる</h3>
+                    </div>
+                    <div class="canDo-discription">
+                        <p>ジャンル検索を使えば、あなたの今の気分にぴったりの名言が見つかる！<br>好きな漫画やアニメ、哲学者からも探すことができます。</p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-4">
-                <div class="tutorial-content">
-                    <div class="tutorial-image">
-                        <i class="fas fa-heart fa-3x my-heart-tutorial"></i>
+                <div class="canDo-container">
+                    <div class="canDo-num">
+                        <p>02</p>
                     </div>
-                    <div class="tutorial-message">
-                        <h3>集める</h3>
-                        <p>胸に刺さったお気に入りの言葉にいいねをして自分のプロフィールに集めていこう</p>
+                    <div class="canDo-title">
+                        <h3>あなただけの名言集になる</h3>
+                    </div>
+                    <div class="canDo-discription">
+                        <p>心に響いた名言は「いいね」することでマイページに追加されていきます。あなたの好きな言葉だけの名言集ができあがります！</p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-4">
-                <div class="tutorial-content">
-                    <div class="tutorial-image">
-                        <i class="fas fa-pencil-alt fa-3x my-pencil-tutorial"></i>
+                <div class="canDo-container">
+                    <div class="canDo-num">
+                        <p>03</p>
                     </div>
-                    <div class="tutorial-message">
-                        <h3>投稿する</h3>
-                        <p>ソクラテスのあの名言、ルフィのあのセリフ、昨日先輩が言ってた言葉、あなたのオススメの言葉を投稿しよう</p>
+                    <div class="canDo-title">
+                        <h3>あなたのQuoteで<br>誰かの心を救おう</h3>
+                    </div>
+                    <div class="canDo-discription">
+                        <p>あなたの知っている誰かのステキな言葉を引用して投稿することで、悩んでいる誰かを助けられるかも。好きな名言をみんなに教えてあげよう！</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <% if user_signed_in? %>
-           
-        <% else %>
-            <div class="row signup-or-signin">
-                <div class="col-xs-12">
+        <div class="row login">
+            <% if user_signed_in? %>
+                <div class="col-xs-12 conceptMessage">
+                    <h4>今やる気が欲しいあなた、生きるのに少し疲れたあなた、そんなあなたにぴったりの言葉が待っています。ジャンル検索をしてみましょう ! </h4>
+                </div>
+                <div class="col-xs-12 login">                
+                    <div class="rowBtn">
+                    <%= link_to root_path do %>
+                        <div class="signUpBtn">
+                            <h6>検索する ! </h6>
+                        </div>
+                    <% end %>
+                    </div>
+                </div>
+            <% else %>
+                <div class="col-xs-12 conceptMessage">
+                    <h4>今やる気が欲しいあなた、生きるのに少し疲れたあなた、そんなあなたにぴったりの言葉が待っています。まずはアカウント作成から ! </h4>
+                </div>
+                <div class="col-xs-12 login">                
+                    <div class="rowBtn">
                     <%= link_to new_user_registration_path do %>
-                        <div class="signupbtn">
+                        <div class="signUpBtn">
                             <h6>アカウント作成</h6>
                         </div>
                     <% end %>
-                    <%= link_to new_user_session_path do %>
-                        <div class="loginbtn">
-                            <h6>ログイン</h6>
-                        </div>
-                    <% end %>
+                    </div>
                 </div>
-            </div>
-        <% end %>
+            <% end %>
+        </div>
+
+        <div class="row c">
+            <p>©︎ 2019 Quote</p>
+        </div>
+
+
+
+        
+
+        
     </div>
 </div>

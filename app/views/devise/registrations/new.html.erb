@@ -11,7 +11,31 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
     <div class="form-body">
+      <div class="snsLogin">
+        <div class="snsLoginMessage title-border">
+          <p>SNSでログインする</p>
+        </div>
+        <%- if devise_mapping.omniauthable? %>
+          <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+              <div class="snsLoginBtn">
+                <div class="snsLoginImg">
+                  <i class="fab fa-twitter fa-lg"></i>
+                </div>
+                <p>
+                  <%= OmniAuth::Utils.camelize(provider) %>で登録する
+                </p>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
+
       <div class="form-inputs">
+        <div class="formMessage title-border">
+          <p>メールアドレスでアカウント作成する</p>
+        </div>
         <div class="form-inputs-text">
           <div class="form-box">
             <div class="form-outline">
@@ -71,9 +95,7 @@
       </div>
 
       <% end %>
-      <div class="signin-with-twitter">
-        <%= render "devise/shared/links" %>
-      </div>
+      
 
     </div>
 

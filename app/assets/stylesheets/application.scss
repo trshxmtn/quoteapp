@@ -109,13 +109,30 @@ p {
   position: fixed;
 }
 
-
-
-
+.require-login{
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  top: 50px;
+  z-index: 1;
+  background-color: #dd5555;
+  color: #FCFEFF;
+  text-align: center;
+  line-height: 30px;
+  display: block;
+  position: fixed;
+  display: none;
+}
 
 //無限スクロールの際にページネーションの表示を隠す
 
-
+.page-load-status {
+  display: none;
+  padding-top: 20px;
+  border-top: 1px solid #DDD;
+  text-align: center;
+  color: #777;
+}
 
 // layout
 
@@ -127,8 +144,16 @@ body{
 .main{
   top: 50px;
   position: absolute;
-  width: 100%;
+  width: 95%;
+  margin-left: 60px;
   margin-bottom: 70px;
+}
+
+@media (max-width: 767px) {
+  .main {
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
 .container {
@@ -182,43 +207,9 @@ body{
   display: block;
 }
 
-.header-profile {
-  float: right;
-}
 
-.header-right {
-  float: right;
-  height: 40px;
-  width: auto;
-  display: inline;
-  padding: 0 10px;
-  margin: 5px 50px 0 0;
-  border-radius: 20px;
-}
 
-.header-right:hover {
-  background-color: #EDF0F2;
-}
 
-@media (max-width: 767px) {
-  .header-right, .header-right-notlogin, .loginbtn {
-    display: none;
-  }
-}
-
-.header-right li {
-  float: left;
-}
-
-.header-right-notlogin {
-  float: right;
-  height: 40px;
-  width: auto;
-  display: inline;
-  padding: 0 10px;
-  margin: 5px 50px 0 0;
-  border-radius: 20px;
-}
 
 
 
@@ -229,7 +220,7 @@ body{
 
 .header-search{
   float: left;
-  margin-left: 10px;
+  margin-left: 30px;
   width: 60%;
   height: 30px;
   border-radius: 15px;
@@ -283,42 +274,6 @@ body{
   display: none;
 }
 
-
-
-
-
-// header-userProfile
-
-.userProfileImage {
-  margin: 5px 10px 0 0;
-}
-
-.userProfileImage img {
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-}
-
-.userProfileName {
-  margin: 5px 5px 0 0;
-  line-height: 30px;
-}
-
-.loginbtn {
-  margin: 5px 10px 10px 0;
-  height: 30px;
-  width: 90px;
-  background-color: #1A2023;
-  color: #FCFEFF;
-  text-align: center;
-  border-radius: 15px;
-}
-
-.loginbtn h6 {
-  margin: 0;
-  line-height: 30px;
-  font-weight: 800;
-}
 
 
 
@@ -440,6 +395,87 @@ nav.globalMenuSp.active {
 
 
 
+// sidebar
+
+.sidebar {
+  width: 60px;
+  height: 100vh;
+  background-color: #1a2023;
+  position: fixed;
+  top: 50px;
+  z-index: 1;
+  box-shadow: 10px 0px 10px rgba(61,71,76,0.08);
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+.sidebar-contents {
+  margin-top: 20px;
+}
+
+.sidebar-content {
+  width: 40px;
+  height: 40px;
+  margin: 30px 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-home, .my-search-sidebar {
+  color: #FCFEFF;
+}
+
+.sidebarProfileImage img {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+.sidebar-content:hover {
+  background-color: #3D474C;
+}
+
+//いいねの吹き出し
+.balloon{
+  position: absolute;
+  top: 110px;
+  left: 70px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 200px;
+  background-color: #FCFEFF;
+  box-shadow: 0px 5px 20px rgba(61,71,76,0.2);
+  font-weight: 600;
+  display: none;
+}
+
+.likedIcon {
+  height: 40px;
+  width: 100%;
+  display: flex;
+}
+
+.balloon::before{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  left: -15px;
+  top: 50%;
+  margin-top: -15px;
+  border-right: 15px solid #FCFEFF;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+
+
 // footer
 
 
@@ -455,10 +491,11 @@ nav.globalMenuSp.active {
   z-index: 1;
   width: 100%;
   height: 65px;
-  box-shadow: 0px -5px 10px rgba(61,71,76,0.5);
+  box-shadow: 0px -5px 10px rgba(61,71,76,0.1);
   background-color: #FCFEFF;
   color: #1A2023;
   font-weight: bold;
+  padding: 0 5%;
 }
 
 .footer-content {
@@ -488,6 +525,11 @@ nav.globalMenuSp.active {
   height: 40px;
 }
 
+.my-search-footer {
+  color: #1a2023;
+  padding-top: 5px;
+}
+
 .footer-userProfileImage {
   height: 40px;
   width: 40px;
@@ -512,6 +554,7 @@ nav.globalMenuSp.active {
   padding: 0;
 }
 
+
 .loginbtn-footer {
   margin: 10px;
   height: 30px;
@@ -527,11 +570,6 @@ nav.globalMenuSp.active {
   line-height: 30px;
   font-weight: 800;
 }
-
-
-
-
-
 
 // rhetoric-new-btn
 
@@ -697,7 +735,67 @@ nav.globalMenuSp.active {
   font-weight: bold;
 }
 
+.snsLoginBtn {
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #55acee;
+  box-shadow: 0px 3px 10px rgba(61,71,76,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 500;
+}
 
+.snsLogin {
+  margin: 60px 0 0;
+  padding: 0 0 40px;
+}
+
+.snsLoginMessage {
+  margin: 30px 0;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 12px;
+}
+
+.title-border {
+display: flex;
+align-items: center;
+}
+
+.title-border:before, .title-border:after {
+  border-top: 1px solid;
+  content: "";
+  flex-grow: 1;
+}
+
+.title-border:before {
+  margin-right: 1rem;
+}
+
+.title-border:after {
+  margin-left: 1rem;
+}
+
+.snsLoginImg {
+  float: left;
+  height: 40px;
+  width: 40px;
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formMessage {
+  margin: 30px 0;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 12px;
+}
 
 
 

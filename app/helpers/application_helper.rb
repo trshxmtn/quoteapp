@@ -15,7 +15,7 @@ module ApplicationHelper
     title = options[:title]
     description = options[:description]
     keywords = options[:keywords]
-    image = options[:image].presence || image_url('logo_symbol.png')
+    image = options[:image].presence || {_: image_url('logo_symbol.png'), width: 1200, height: 630}
 
     configs = {
         separator: '|',

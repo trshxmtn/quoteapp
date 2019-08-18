@@ -1,0 +1,47 @@
+<div class="main genre-search">
+  <div class="container genre-search">
+    <div class="genre-title">
+      <h3>今人気のタグ</h3>
+    </div>
+    <ul class="genre-list">
+      <% @top_hash.each do |tag, picture| %>
+        <%= link_to rhetorics_path(tag_name: tag) do %>
+        <li class="genre-container">
+          <div class="genre-image">
+            <%= image_tag picture.url %>
+          </div>
+          <div class="genre-name">
+            <%= "#{tag}" %>
+          </div>
+          <div class="genre-count">
+            <p>（53,489）</p>
+          </div>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+
+
+    <div class="genre-title">
+      <h3>漫画・アニメの名言</h3>
+    </div>
+    <ul class="genre-list">
+      <% @anime_hash.each do |tag, picture| %>
+        <%= link_to rhetorics_path(tag_name: tag) do %>
+        <li class="genre-container">
+          <div class="genre-image">
+            <%= image_tag picture.url %>
+          </div>
+          <div class="genre-name">
+            <%= "#{tag}" %>
+          </div>
+          <div class="genre-count">
+            <p>（53,489）</p>
+          </div>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+
+  </div>
+</div>

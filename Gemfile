@@ -17,7 +17,7 @@ gem 'simple_form'
 gem 'devise' #認証
 gem 'omniauth'
 gem 'omniauth-twitter' #Twitter認証
-gem 'counter_culture', '~> 1.8'
+gem 'counter_culture', '~> 1.8' #いいね数のカウント
 gem 'acts-as-taggable-on', '~> 6.0' #タグ付け
 gem 'carrierwave' #画像アップロード
 gem 'devise-i18n'
@@ -27,6 +27,7 @@ gem 'ransack' #検索
 gem 'dotenv-rails' # 環境変数設定
 gem 'meta-tags' #ページごとのタイトルの設定やOGP
 gem 'masonry-rails' #Pinterest風レイアウト
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

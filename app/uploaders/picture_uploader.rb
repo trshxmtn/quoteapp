@@ -1,6 +1,9 @@
 class PictureUploader < CarrierWave::Uploader::Base
+  #ユーザーのプロフィール画像のアップローダーです
+
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
+
   include CarrierWave::MiniMagick
   process resize_to_limit: [700, 700]
 
