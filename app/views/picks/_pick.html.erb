@@ -1,34 +1,32 @@
 <span class="pick">
 
-                  <div class="count-like">
-                    <%= rhetoric.picks_count %>
-                  </div>
+  <div class="count-like">
+    <%= rhetoric.picks_count %>
+  </div>
 
-                  <% if rhetoric.pick?(current_user) %>
-                    <div class="likedBtn">
-                    <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-                      <%= button_tag(class: "btn-liked") do %>
-                        <%= content_tag :span, "", class: "fas fa-heart my-liked fa-lg" %>
-                      <% end %>
-                    <% end %>
-                    </div>
-                    <div class="message-liked">
-                      <h6>いいねしました</h6>
-                    </div>
-                  <% else %>
-                    <div class="likeBtn">
-                    <%= form_for(rhetoric.picks.build, remote: true) do |f| %>
-                      <div><%= hidden_field_tag :rhetoric_id, rhetoric.id %></div>
-                        <%= button_tag(class: "btn-like") do %>
-                        <%= content_tag :span, "", class: "far fa-heart my-like fa-lg modal-show show-balloon" %>
-                      <% end %>
-                    <% end %>
-                    </div>
-                    <div class="message-like">
-                      <h6>いいねする</h6>
-                    </div>
-                  <% end %>
+  <% if rhetoric.pick?(current_user) %>
+    <div class="likedBtn">
+    <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+      <%= button_tag(class: "btn-liked") do %>
+        <%= content_tag :span, "", class: "fas fa-heart my-liked fa-lg" %>
+      <% end %>
+    <% end %>
+    </div>
+    <div class="message-liked">
+      <h6>いいねしました</h6>
+    </div>
+  <% else %>
+    <div class="likeBtn">
+    <%= form_for(rhetoric.picks.build, remote: true) do |f| %>
+      <div><%= hidden_field_tag :rhetoric_id, rhetoric.id %></div>
+        <%= button_tag(class: "btn-like") do %>
+        <%= content_tag :span, "", class: "far fa-heart my-like fa-lg modal-show show-balloon" %>
+      <% end %>
+    <% end %>
+    </div>
+    <div class="message-like">
+      <h6>いいねする</h6>
+    </div>
+  <% end %>
 
-                  
-
-                </span>
+</span>

@@ -158,6 +158,12 @@ body{
 }
 
 
+
+
+
+
+
+
 // header
 
 .header{
@@ -170,6 +176,11 @@ body{
   background-color: #FCFEFF;
   color: #1A2023;
   font-weight: bold;
+  transition: 0.5s;
+}
+
+.header.hideUp {
+  transform: translateY(-50px);
 }
 
 .header-left {
@@ -282,7 +293,7 @@ nav.globalMenuSp {
   right: 0;
   background: #FCFEFF;
   color: #1A2023;
-  transform: translateY(-140%);
+  transform: translateX(100%);
   transition: all 0s;
   width: 250px;
   box-shadow: 0px 5px 10px rgba(61,71,76,0.1);
@@ -323,7 +334,7 @@ nav.globalMenuSp ul li a {
 
 /* このクラスを、jQueryで付与・削除する */
 nav.globalMenuSp.active {
-  transform: translateY(0%);
+  transform: translateX(0%);
 }
 
 .navToggle {
@@ -385,6 +396,17 @@ nav.globalMenuSp.active {
   transform: rotate(45deg);
 }
 
+.header-userName {
+  float: left;
+  height: 50px;
+  margin-left: 20px;
+  line-height: 50px;
+}
+
+.userName {
+  font-size: 20px;
+}
+
 
 
 
@@ -396,7 +418,7 @@ nav.globalMenuSp.active {
   height: 100vh;
   background-color: #1a2023;
   position: fixed;
-  top: 50px;
+  padding-top: 50px;
   z-index: 1;
   box-shadow: 10px 0px 10px rgba(61,71,76,0.08);
 }
@@ -484,17 +506,22 @@ nav.globalMenuSp.active {
   bottom: 0;
   z-index: 1;
   width: 100%;
-  height: 65px;
+  height: 50px;
   box-shadow: 0px -5px 10px rgba(61,71,76,0.1);
   background-color: #FCFEFF;
   color: #1A2023;
   font-weight: bold;
   padding: 0 5%;
+  transition: 0.5s;
+}
+
+.footer.hideDown {
+  transform: translateY(50px);
 }
 
 .footer-content {
   float: left;
-  height: 65px;
+  height: 50px;
   width: 50%;
   text-align: center;
 }
@@ -503,32 +530,21 @@ nav.globalMenuSp.active {
   height: 0;
 }
 
-.footer-logo {
-  height: 40px;
-  width: 40px;
-  border-radius: 20px;
-  margin: 5px 5px 0;
-  display: inline-block;
-}
-
-.footer-logo:hover, .footer-userProfileImage:hover {
+.footer-userProfileImage:hover {
   background-color: #EDF0F2;
-}
-
-.footer-logo img {
-  height: 40px;
 }
 
 .my-search-footer {
   color: #1a2023;
-  padding-top: 5px;
+  padding-top: 14px;
+  font-size: 1.6em;
 }
 
 .footer-userProfileImage {
   height: 40px;
   width: 40px;
   border-radius: 20px;
-  padding: 3px;
+  padding-top: 5px;
   margin: 5px 5px 0;
   display: inline-block;
 }
@@ -565,6 +581,11 @@ nav.globalMenuSp.active {
   font-weight: 800;
 }
 
+
+
+
+
+
 // rhetoric-new-btn
 
 .rhetoric-new-btn {
@@ -579,6 +600,10 @@ nav.globalMenuSp.active {
   transition-duration: 0.3s;
 }
 
+.rhetoric-new-btn.hideDown {
+  transform: translateY(50px); 
+}
+
 .rhetoric-new-btn img {
   height: 80px;
   width: 80px;
@@ -591,7 +616,7 @@ nav.globalMenuSp.active {
 
 @media (max-width: 767px) {
   .rhetoric-new-btn {
-    bottom: 90px;
+    bottom: 70px;
     right: 20px;
     height: 60px;
     width: 60px;
