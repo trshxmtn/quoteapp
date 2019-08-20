@@ -51,62 +51,15 @@
 
 <div class="main rhetorics-index">
   <div id="masonry-container">
-
-    <% if @rhetorics.present? %>
-
-      <% @rhetorics.each do |rhetoric| %>
-        <div class="mas-box rheotorics-index-grid">
-          <div class="rhetoric-index-container">
-
-            <div class="rhetoric-index-img" id="result">
-              <%= link_to rhetoric do %>
-                <div class="rhetoric-container index">
-
-                  <% if rhetoric.picture? %>
-                    <%= image_tag rhetoric.picture.url %>
-                  <% end %>
-
-                  <div class="rhetoric-meigen index">
-                    <%= rhetoric.meigen %>
-                  </div></br>
-                  <div class="rhetoric-speaker index">
-                    <%= rhetoric.speaker %>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-
-            <div class="btn-area-like-index">
-              <div class="picks_buttons_index_<%= rhetoric.id %>">
-              <span class="pick">
-
-                <% if rhetoric.pick?(current_user) %>
-                  <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-                    <%= button_tag(class: "btn-liked-index") do %>
-                      <%= content_tag :span, "", class: "fas fa-heart my-liked-index fa-lg" %>
-                    <% end %>
-                  <% end %>
-                <% else %>
-                  <%= form_for(rhetoric.picks.build, remote: true) do |f| %>
-                    <div><%= hidden_field_tag :rhetoric_id, rhetoric.id %></div>
-                    <%= button_tag(class: "btn-like-index") do %>
-                      <%= content_tag :span, "", class: "far fa-heart my-like-index fa-lg modal-show" %>
-                    <% end %>
-                  <% end %>
-                <% end %>
-
-              </span>
-              </div>
-            </div>
-          </div>
-        </div>
+<div id="search-square">
+  <% @rhetorics.each do |rhetoric| %>
+    <% rhetoric.tag_list.each do |tag| %>
+      <%= link_to rhetorics_path(tag_name: tag) do %>
+        <%= "#{tag}" %>
       <% end %>
-
-      <% else %>
-
-        <p>お探しのQuoteはまだないみたいです。他の人も探しているかもしれないので投稿してくれませんか？？</p>
-
-      <% end %>
-
+    <% end %>
+  <% end %>
+</div>
   </div>
 </div>
+
