@@ -102,5 +102,26 @@
       <% end %>
     </ul>
 
+    <div class="genre-title">
+      <h3>哲学者の名言</h3>
+    </div>
+    <ul class="genre-list">
+      <% @philosopher_hash.each do |tag, picture| %>
+        <%= link_to rhetorics_path(tag_name: tag) do %>
+        <li class="genre-container">
+          <div class="genre-image">
+            <%= image_tag picture.url %>
+          </div>
+          <div class="genre-name">
+            <%= "#{tag}" %>
+          </div>
+          <div class="genre-count">
+            <p></p>
+          </div>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+
   </div>
 </div>
