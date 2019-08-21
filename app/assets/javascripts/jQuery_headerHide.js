@@ -9,11 +9,9 @@ $(document).on('turbolinks:load', function(){
             $(window).on('scroll',function(){
                 winScrollTop = $(this).scrollTop();
                 if (winScrollTop >= startPos) {
-                    if(winScrollTop >= 200){
-                        $('.header').addClass('hideUp');
-                        $('.footer').addClass('hideDown');
-                        $('.rhetoric-new-btn').addClass('hideDown');
-                    }
+                    $('.header').addClass('hideUp');
+                    $('.footer').addClass('hideDown');
+                    $('.rhetoric-new-btn').addClass('hideDown');
                 } else {
                     $('.header').removeClass('hideUp');
                     $('.footer').removeClass('hideDown');
