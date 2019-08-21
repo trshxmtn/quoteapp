@@ -157,19 +157,25 @@
     border-bottom-style: solid;
 }
 
-.tab.liked {
-    width: 30%;
+.tab.liked, .tab.post {
+    width: 50%;
 }
 
-.tab.post {
-    width: 26%;
-}
+//.tab.liked {
+//   width: 30%;
+//}
+
+//.tab.post {
+//    width: 26%;
+//}
 
 .tab.follow {
+    display: none;
     width: 20%;
 }
 
 .tab.follower {
+    display: none;
     width: 24%;
 }
 
@@ -234,6 +240,8 @@
     font-size: 20px;
     line-height: 40px;
 }
+
+
 
 
 

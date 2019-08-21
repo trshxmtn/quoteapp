@@ -80,6 +80,11 @@
             <div class="rhetoric-index-img" id="result">
               <%= link_to rhetoric do %>
               <div class="rhetoric-container">
+                <% if rhetoric.picture? %>
+                <div class="rhetoric-picture index">
+                  <%= image_tag rhetoric.picture.url %>
+                </div>
+                <% end %>
                 <div class="rhetoric-meigen">
                   <%= rhetoric.meigen %>
                 </div></br>
@@ -127,6 +132,11 @@
               <div class="rhetoric-index-img" id="result">
                 <%= link_to post do %>
                 <div class="rhetoric-container">
+                  <% if post.picture? %>
+                  <div class="rhetoric-picture index">
+                    <%= image_tag post.picture.url %>
+                  </div>
+                  <% end %>
                   <div class="rhetoric-meigen">
                     <%= post.meigen %>
                   </div></br>
