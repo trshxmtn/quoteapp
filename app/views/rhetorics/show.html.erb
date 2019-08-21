@@ -2,7 +2,59 @@
                     description: @rhetoric.description,
                     keywords: @rhetoric.tag_list,
                     image: {_: image_path(@rhetoric.image), width: 1200, height: 630}%>
-                                       
+
+<header>
+  <div class="header">
+    <div class="header-left">
+      <%= link_to root_path do %>
+      <div class="header-logo">
+        <%= image_tag "logo_symbol.png" %>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="header-search">
+      <div class="search-icon">
+        <i class="fa fa-search fa-lg my-search"></i>
+      </div>
+
+      <div class="search-input" id="#search-form">
+        <%= search_form_for @q, url: rhetorics_path  do |f| %>
+          <%= f.search_field :meigen_or_tags_name_cont, placeholder: '検索', autocomplete: 'off' %>
+          <%= f.submit '検索' %>
+          <% end %>
+      </div>
+    </div>    
+
+    <li>
+      <div class="navToggle">
+        <span></span><span></span><span></span>
+      </div>
+    </li>
+
+    <nav class="globalMenuSp">
+      <ul>
+        <% if user_signed_in? %>
+          <li><%= link_to about_path do %><div class="globalMenuList"><p>Quoteとは</p></div><% end %></li>
+          <li><%= link_to edit_user_registration_path do %><div class="globalMenuList"><p>アカウント設定</p></div><% end %></li>
+          <li><%= link_to inquiry_path do %><div class="globalMenuList"><p>お問い合わせ</p></div><% end %></li>
+          <li><%= link_to '/terms' do %><div class="globalMenuList"><p>利用規約</p></div><% end %></li>
+          <li><%= link_to '/privacy-policy' do %><div class="globalMenuList"><p>プライバシーポリシー</p></div><% end %></li>
+          <li><%= link_to destroy_user_session_path, method: :delete do %><div class="globalMenuList"><p>ログアウト</p></div><% end %></li>
+        <% else %>
+          <li><%= link_to about_path do %><div class="globalMenuList"><p>Quoteとは</p></div><% end %></li>
+          <li><%= link_to inquiry_path do %><div class="globalMenuList"><p>お問い合わせ</p></div><% end %></li>
+          <li><%= link_to '/terms' do %><div class="globalMenuList"><p>利用規約</p></div><% end %></li>
+          <li><%= link_to '/privacy-policy' do %><div class="globalMenuList"><p>プライバシーポリシー</p></div><% end %></li>
+          <li><%= link_to new_user_registration_path do %><div class="globalMenuList"><p>アカウント作成</p></div><% end %></li>
+          <li><%= link_to new_user_session_path do %><div class="globalMenuList"><p>ログイン</p></div><% end %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
+                    
+
 <div class="main rhetorics-show">
 <%= link_to :back do %>
   <div class="btn-back">
@@ -126,7 +178,10 @@
 
               <div class="picks_buttons_index_<%= rhetoric.id %> indexPick">
                 <span class="pick">
-
+                  <div class="count-like index">
+                    <%= rhetoric.picks_count %>
+                  </div>
+                  
                   <% if rhetoric.pick?(current_user) %>
                     <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
                       <%= button_tag(class: "btn-liked-index") do %>
@@ -142,9 +197,7 @@
                     <% end %>
                   <% end %>
 
-                  <div class="count-like index">
-                    <%= rhetoric.picks_count %>
-                  </div>
+                  
 
                 </span>
               </div>

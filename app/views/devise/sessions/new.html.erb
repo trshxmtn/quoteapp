@@ -1,5 +1,43 @@
 <% assign_meta_tags title: 'ログイン'%>
 
+<header>
+  <div class="header">
+    <div class="header-left">
+      <%= link_to root_path do %>
+      <div class="header-logo">
+        <%= image_tag "logo_symbol.png" %>
+      </div>
+      <% end %>
+    </div>
+
+    <li>
+      <div class="navToggle">
+        <span></span><span></span><span></span>
+      </div>
+    </li>
+
+    <nav class="globalMenuSp">
+      <ul>
+        <% if user_signed_in? %>
+          <li><%= link_to about_path do %><div class="globalMenuList"><p>Quoteとは</p></div><% end %></li>
+          <li><%= link_to edit_user_registration_path do %><div class="globalMenuList"><p>アカウント設定</p></div><% end %></li>
+          <li><%= link_to inquiry_path do %><div class="globalMenuList"><p>お問い合わせ</p></div><% end %></li>
+          <li><%= link_to '/terms' do %><div class="globalMenuList"><p>利用規約</p></div><% end %></li>
+          <li><%= link_to '/privacy-policy' do %><div class="globalMenuList"><p>プライバシーポリシー</p></div><% end %></li>
+          <li><%= link_to destroy_user_session_path, method: :delete do %><div class="globalMenuList"><p>ログアウト</p></div><% end %></li>
+        <% else %>
+          <li><%= link_to about_path do %><div class="globalMenuList"><p>Quoteとは</p></div><% end %></li>
+          <li><%= link_to inquiry_path do %><div class="globalMenuList"><p>お問い合わせ</p></div><% end %></li>
+          <li><%= link_to '/terms' do %><div class="globalMenuList"><p>利用規約</p></div><% end %></li>
+          <li><%= link_to '/privacy-policy' do %><div class="globalMenuList"><p>プライバシーポリシー</p></div><% end %></li>
+          <li><%= link_to new_user_registration_path do %><div class="globalMenuList"><p>アカウント作成</p></div><% end %></li>
+          <li><%= link_to new_user_session_path do %><div class="globalMenuList"><p>ログイン</p></div><% end %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 <div class="main registration">
   <div class="container">
     <div class="signup-signin-message">

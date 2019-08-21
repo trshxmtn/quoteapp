@@ -1,11 +1,51 @@
 <% assign_meta_tags title: @user.username %>
 
-<div class="main user-show">
-  <%= link_to :back do %>
-    <div class="btn-back">
-      <i class="fas fa-arrow-left my-back fa-lg"></i>
+<header>
+  <div class="header">
+    <div class="header-left">
+      <%= link_to root_path do %>
+      <div class="header-logo">
+        <%= image_tag "logo_symbol.png" %>
+      </div>
+      <% end %>
     </div>
-  <% end %>
+
+    <div class="header-userName">
+      <div class="userName">
+        <%= @user.username %>
+      </div>
+    </div>    
+
+    <li>
+      <div class="navToggle">
+        <span></span><span></span><span></span>
+      </div>
+    </li>
+
+    <nav class="globalMenuSp">
+      <ul>
+        <% if user_signed_in? %>
+          <li><%= link_to about_path do %><div class="globalMenuList"><p>Quoteとは</p></div><% end %></li>
+          <li><%= link_to edit_user_registration_path do %><div class="globalMenuList"><p>アカウント設定</p></div><% end %></li>
+          <li><%= link_to inquiry_path do %><div class="globalMenuList"><p>お問い合わせ</p></div><% end %></li>
+          <li><%= link_to '/terms' do %><div class="globalMenuList"><p>利用規約</p></div><% end %></li>
+          <li><%= link_to '/privacy-policy' do %><div class="globalMenuList"><p>プライバシーポリシー</p></div><% end %></li>
+          <li><%= link_to destroy_user_session_path, method: :delete do %><div class="globalMenuList"><p>ログアウト</p></div><% end %></li>
+        <% else %>
+          <li><%= link_to about_path do %><div class="globalMenuList"><p>Quoteとは</p></div><% end %></li>
+          <li><%= link_to inquiry_path do %><div class="globalMenuList"><p>お問い合わせ</p></div><% end %></li>
+          <li><%= link_to '/terms' do %><div class="globalMenuList"><p>利用規約</p></div><% end %></li>
+          <li><%= link_to '/privacy-policy' do %><div class="globalMenuList"><p>プライバシーポリシー</p></div><% end %></li>
+          <li><%= link_to new_user_registration_path do %><div class="globalMenuList"><p>アカウント作成</p></div><% end %></li>
+          <li><%= link_to new_user_session_path do %><div class="globalMenuList"><p>ログイン</p></div><% end %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<div class="main user-show">
 
   <div class="container profile">
     <div class="profile-area">
@@ -40,6 +80,11 @@
             <div class="rhetoric-index-img" id="result">
               <%= link_to rhetoric do %>
               <div class="rhetoric-container">
+                <% if rhetoric.picture? %>
+                <div class="rhetoric-picture index">
+                  <%= image_tag rhetoric.picture.url %>
+                </div>
+                <% end %>
                 <div class="rhetoric-meigen">
                   <%= rhetoric.meigen %>
                 </div></br>
@@ -53,7 +98,9 @@
             <div class="btn-area-like-index">
               <div class="picks_buttons_index_<%= rhetoric.id %>">
                 <span class="pick">
-
+                  <div class="count-like index">
+                    <%= rhetoric.picks_count %>
+                  </div>
                   <% if rhetoric.pick?(current_user) %>
                     <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
                       <%= button_tag(class: "btn-liked-index") do %>
@@ -85,6 +132,11 @@
               <div class="rhetoric-index-img" id="result">
                 <%= link_to post do %>
                 <div class="rhetoric-container">
+                  <% if post.picture? %>
+                  <div class="rhetoric-picture index">
+                    <%= image_tag post.picture.url %>
+                  </div>
+                  <% end %>
                   <div class="rhetoric-meigen">
                     <%= post.meigen %>
                   </div></br>
@@ -98,7 +150,9 @@
               <div class="btn-area-like-index">
                 <div class="picks_buttons_index_<%= post.id %>">
                   <span class="pick">
-
+                    <div class="count-like index">
+                      <%= post.picks_count %>
+                    </div>
                     <% if post.pick?(current_user) %>
                       <%= form_for(post.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
                         <%= button_tag(class: "btn-liked-index") do %>

@@ -26,65 +26,13 @@
 
 <body>
 
-<header>
-
-  <div class="header">
-    <div class="header-left">
-      <%= link_to root_path do %>
-      <div class="header-logo">
-        <%= image_tag "logo_symbol.png" %>
-      </div>
-      <% end %>
-    </div>
-      <div class="header-search">
-        <div class="search-icon">
-          <i class="fa fa-search fa-lg my-search"></i>
-        </div>
-
-        <div class="search-input" id="#search-form">
-          <%= search_form_for @q, url: rhetorics_path  do |f| %>
-            <%= f.search_field :meigen_or_tags_name_cont, placeholder: '検索' %>
-            <%= f.submit '検索' %>
-            <% end %>
-        </div>
-
-      </div>    
-
-      <li>
-        <div class="navToggle">
-          <span></span><span></span><span></span>
-        </div>
-      </li>
-
-        <nav class="globalMenuSp">
-          <ul>
-            <% if user_signed_in? %>
-              <li><%= link_to about_path do %><div class="globalMenuList"><p>Quoteとは</p></div><% end %></li>
-              <li><%= link_to edit_user_registration_path do %><div class="globalMenuList"><p>アカウント設定</p></div><% end %></li>
-              <li><%= link_to inquiry_path do %><div class="globalMenuList"><p>お問い合わせ</p></div><% end %></li>
-              <li><%= link_to '/terms' do %><div class="globalMenuList"><p>利用規約</p></div><% end %></li>
-              <li><%= link_to '/privacy-policy' do %><div class="globalMenuList"><p>プライバシーポリシー</p></div><% end %></li>
-              <li><%= link_to destroy_user_session_path, method: :delete do %><div class="globalMenuList"><p>ログアウト</p></div><% end %></li>
-            <% else %>
-              <li><%= link_to about_path do %><div class="globalMenuList"><p>Quoteとは</p></div><% end %></li>
-              <li><%= link_to inquiry_path do %><div class="globalMenuList"><p>お問い合わせ</p></div><% end %></li>
-              <li><%= link_to '/terms' do %><div class="globalMenuList"><p>利用規約</p></div><% end %></li>
-              <li><%= link_to '/privacy-policy' do %><div class="globalMenuList"><p>プライバシーポリシー</p></div><% end %></li>
-              <li><%= link_to new_user_registration_path do %><div class="globalMenuList"><p>アカウント作成</p></div><% end %></li>
-              <li><%= link_to new_user_session_path do %><div class="globalMenuList"><p>ログイン</p></div><% end %></li>
-            <% end %>
-          </ul>
-        </nav>
-      </ul>
-
-    </div>
-
-  </nav>
-
-</header>
-
 <sidebar>
   <div class="sidebar">
+    <%= link_to root_path do %>
+      <div class="sidebar-logo">
+        <%= image_tag 'logo_symbol_white.png' %>
+      </div>
+    <% end %>
     <div class="sidebar-contents">
       <%= link_to root_path do %>
         <div class="sidebar-content">
@@ -127,10 +75,7 @@
     <div class="footer-content">
     <%= link_to root_path do %>
       <div class="footer-logo">
-        <i class="fas fa-search fa-2x my-search-footer"></i>
-      </div>
-      <div class="footer-content-name">
-        ジャンル検索
+        <i class="fas fa-search my-search-footer"></i>
       </div>
     <% end %>
     </div>
@@ -141,9 +86,6 @@
         <div class="footer-userProfileImage">
           <%= image_tag current_user.picture.url %>
         </div>
-        <div class="footer-content-name">
-          マイページ
-        </div>
       <% end %>
 
     </div>
@@ -152,9 +94,6 @@
       <%= link_to new_user_session_path do %>
         <div class="footer-userProfileImage">
           <%= image_tag ('default.png') %>
-        </div>
-        <div class="footer-content-name">
-          マイページ
         </div>
       <% end %>
     </div>
@@ -179,7 +118,7 @@
   </div>
 <% end %>
 
-<div id="rhetoric-search-result"></div>
+<div class="search-square"></div>
 
 <%= yield %>
 
