@@ -4,15 +4,15 @@ $(document).on('turbolinks:load', function () {
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                $('#userImgPrev').attr('src', e.target.result);
+                $('#rhetoricImgPrev').attr('src', e.target.result);
             }
             reader.readAsDataURL(input.files[0]);
         }
     }
 
     $("#post_img").change(function(){
-        $('#userImgPrev').removeClass('hidden');
-        $('.userPresentImg').remove();
+        $('#rhetoricImgPrev').removeClass('hidden');
+        $('.rhetoricPresentImg').remove();
         readURL(this);
     });
 })

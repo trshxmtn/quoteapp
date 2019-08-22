@@ -39,60 +39,49 @@
 </header>
 
 <div class="main edit-rhetoric">
-  <div class="container rhetoric-new">
-    <div class="rhetoric-new-grid message">
-        <div class="new-rhetoric-message">
-            <h2>オススメの言葉を投稿する</h2>
-            <h5>ソクラテスの名言、ルフィのあの言葉、昨日職場の先輩の言っていたあの言葉、みんなにオススメの素敵な言葉を投稿しよう</h5>
+  <div class="container rhetorics-new">
+    <%= form_for(@rhetoric) do |f| %>
+    <div class="form-body">
+      <div class="rhetoric-container new">
+        <div class="form-inputs picture">
+          <div onClick="$('#post_img').click()" ><img id="rhetoricImgPrev" src="#" class='hidden' /></div>
+          <div onClick="$('#post_img').click()" ><%= image_tag @rhetoric.picture.url ,class: 'rhetoricPresentImg' %></div>
+          <%= f.file_field :picture, id: 'post_img', style: "display:none;" %>
         </div>
-    </div>
-
-    <div class="rhetoric-new-grid">
-
-      <%= form_for(@rhetoric) do |f| %>
-        <div class="form-body">
-
-          <div class="form-inputs picture">
-            <strong>添付画像</strong>
-            <%= f.file_field :picture%>
+        
+        <div class="form-inputs rhetoric">
+          <div class="textarea-outline new">
+            <%= f.text_area :meigen, class: 'textareaHeight1',placeholder: '例 : 我思う、故に割あり' %>
           </div>
-          
-          <div class="form-inputs rhetoric">
-            <strong>言葉（ここが画像になります）</strong>
-            <div class="textarea-outline">
-              <%= f.text_area :meigen %>
-            </div>
-          </div>
-
-          <div class="form-inputs speaker">
-            <strong>この言葉を言った人の名前</strong>
-            <div class="form-outline">
-              <%= f.text_field :speaker, class: "form-control" %>
-            </div>
-          </div>
-
-          <div class="form-inputs source">
-            <strong>出典などの説明</strong>
-            <div class="textarea-outline">
-              <%= f.text_area :description %>
-            </div>
-          </div>
-
-          <div class="form-inputs tag">
-            <strong>ハッシュタグを追加してください</strong>
-            <div class="form-outline">
-              <%= f.text_field :tag_list , value: @rhetoric.tag_list.join(','),class: "form-control" %>
-            </div>
-          </div>
-
-          <div class="form-actions">
-            <%= f.submit '編集を保存' %>
-          </div>
-
         </div>
-      <% end %>
 
+        <div class="form-inputs speaker">
+          <div class="form-outline new">
+            <%= f.text_field :speaker, placeholder: '例 : デカルト' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="rhetoric-contents new">
+        <div class="form-inputs discription">
+          <div class="textarea-outline discription">
+            <%= f.text_area :description, class: 'textareaHeight2', placeholder: '例 : デカルトが仏語の自著『方法序説』（Discours de la méthode）の中で提唱した有名な命題である。私はこの言葉がとても好きだ。（出典 : デカルト『方法序説』）' %>
+          </div>
+        </div>
+
+        <div class="form-inputs tag">
+          <p>タグを必ず追加してください（複数のタグは「,」カンマで区切ります）</p>
+          <div class="form-outline">
+            <%= f.text_field :tag_list , placeholder: '例 : デカルト,哲学,方法序説', value: @rhetoric.tag_list.join(',') %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit '編集を保存' %>
+      </div>
     </div>
+    <% end %>
   </div>
 </div>
 
