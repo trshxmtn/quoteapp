@@ -16,6 +16,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require masonry/jquery.masonry
+//= require serviceworker-companion
 //= require_tree .
 
 
@@ -58,3 +59,4 @@ $(document).on('turbolinks:load', function() {
 
 
 
+//= require serviceworker-companion
