@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-  var $container = $('#masonry');
+  var $container = $('#masonry-container');
   $container.imagesLoaded(function(){
     if (window.matchMedia( '(max-width: 767px)' ).matches) {
       $('#masonry-container').masonry({
