@@ -51,11 +51,3 @@ $(document).on('turbolinks:load', function() {
     });
 
 });
-
-
-
-
-
-
-
-//= require serviceworker-companion
