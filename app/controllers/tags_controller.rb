@@ -11,36 +11,36 @@ class TagsController < ApplicationController
     end
 
 
-  #
-  #   anime_names = ["ONE PIECE", "宇宙兄弟", "キングダム", "カイジ", "アオアシ", "闇金ウシジマくん", "文豪ストレイドッグス", "王様達のヴァイキング", "アイアムアヒーロー", "ここは今から倫理です。"]
-  #
-  #   @anime_tags = []
-  #
-  #   anime_names.each do |name|
-  #     @anime_tags.push(ActsAsTaggableOn::Tag.find_by(name: name))
-  #   end
-  #
-  #   @anime_hash = Hash.new
-  #
-  #   @anime_tags.each do |tag|
-  #     anime_rhetoric = Rhetoric.tagged_with("#{tag.name}").order("picks_count DESC").first
-  #     @anime_hash.store(tag.name, anime_rhetoric.picture)
-  #   end
-  #
-  #   philosopher_names = ["ソクラテス", "デカルト", "ニーチェ", "カント", "マルクス", "西田幾多郎", "和辻哲郎", "九鬼周造", "フーコー", "サルトル"]
-  #
-  #   @philosopher_tags = []
-  #
-  #   philosopher_names.each do |name|
-  #     @philosopher_tags.push(ActsAsTaggableOn::Tag.find_by(name: name))
-  #   end
-  #
-  #   @philosopher_hash = Hash.new
-  #
-  #   @philosopher_tags.each do |tag|
-  #     philosopher_rhetoric = Rhetoric.tagged_with("#{tag.name}").order("picks_count DESC").first
-  #     @philosopher_hash.store(tag.name, philosopher_rhetoric.picture)
-  #   end
+
+    anime_names = ["ONE PIECE", "宇宙兄弟", "キングダム", "カイジ", "アオアシ", "闇金ウシジマくん", "文豪ストレイドッグス", "王様達のヴァイキング", "アイアムアヒーロー", "ここは今から倫理です。"]
+
+    @anime_tags = []
+
+    anime_names.each do |name|
+      @anime_tags.push(ActsAsTaggableOn::Tag.find_by(name: name))
+    end
+
+    @anime_hash = Hash.new
+
+    @anime_tags.each do |tag|
+      anime_rhetoric = Rhetoric.tagged_with("#{tag.name}").order("picks_count DESC").first
+      @anime_hash.store(tag.name, anime_rhetoric.picture)
+    end
+
+    philosopher_names = ["ソクラテス", "デカルト", "ニーチェ", "カント", "マルクス", "西田幾多郎", "和辻哲郎", "九鬼周造", "フーコー", "サルトル"]
+
+    @philosopher_tags = []
+
+    philosopher_names.each do |name|
+      @philosopher_tags.push(ActsAsTaggableOn::Tag.find_by(name: name))
+    end
+
+    @philosopher_hash = Hash.new
+
+    @philosopher_tags.each do |tag|
+      philosopher_rhetoric = Rhetoric.tagged_with("#{tag.name}").order("picks_count DESC").first
+      @philosopher_hash.store(tag.name, philosopher_rhetoric.picture)
+    end
 
   end
 
