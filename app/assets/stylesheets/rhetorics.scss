@@ -38,7 +38,7 @@
 
 .rhetoric-index-container {
   width: 100%;
-  padding: 0 5% 0 5%;
+  padding: 0 5% 5% 5%;
   border-radius: 2%;
   display: inline-block;
 }
@@ -64,8 +64,14 @@
 }
 
 .rhetoric-speaker {
+  width: calc(100% - 36.688px);
   font-size: 13px;
   font-weight: 600;
+}
+
+.rhetoric-bottom.index {
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 767px) {
@@ -75,6 +81,10 @@
 
   .rhetoric-speaker {
     font-size: 13px;
+  }
+
+  .rhetoric-speaker {
+    width: calc(100% - 46.688px);
   }
 }
   
@@ -91,7 +101,6 @@
 
 .btn-area-like-index {
   float: right;
-  margin: 5px 0 0 0;
 }
 
 .count-like.index {
