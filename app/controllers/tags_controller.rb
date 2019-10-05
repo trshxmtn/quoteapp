@@ -10,7 +10,7 @@ class TagsController < ApplicationController
       @top_hash.store(tag.name, popular_rhetoric.picture)
     end
 
-
+    ############
 
     anime_names = ["ONE PIECE", "宇宙兄弟", "キングダム", "カイジ", "アオアシ", "闇金ウシジマくん", "文豪ストレイドッグス", "王様達のヴァイキング", "アイアムアヒーロー", "ここは今から倫理です。"]
 
@@ -27,6 +27,8 @@ class TagsController < ApplicationController
       @anime_hash.store(tag.name, anime_rhetoric.picture)
     end
 
+    ############
+
     philosopher_names = ["ソクラテス", "デカルト", "ニーチェ", "カント", "マルクス", "西田幾多郎", "和辻哲郎", "九鬼周造", "フーコー", "サルトル"]
 
     @philosopher_tags = []
@@ -41,7 +43,6 @@ class TagsController < ApplicationController
       philosopher_rhetoric = Rhetoric.tagged_with("#{tag.name}").order("picks_count DESC").first
       @philosopher_hash.store(tag.name, philosopher_rhetoric.picture)
     end
-
   end
 
 end
