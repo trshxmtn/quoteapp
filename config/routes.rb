@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get '/' => 'tags#index'
   devise_for :users, controllers: { :registrations => 'users/registrations',
                                     :sessions => 'users/sessions' ,
                                     omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -37,7 +36,5 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about'
   get 'privacy-policy' => 'pages#privacy'
   get 'terms' => 'pages#terms'
-
-  get 'genre' => 'rhetorics#genre_search'
 end
 
