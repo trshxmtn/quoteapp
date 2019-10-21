@@ -16,6 +16,12 @@
   margin-top: 30px;
 }
 
+@media (max-width: 767px) {
+  .main.rhetorics-index {
+    margin-bottom: 96px;
+  }
+}
+
 #masonry-container {
   width: 98%;
   margin: auto;
