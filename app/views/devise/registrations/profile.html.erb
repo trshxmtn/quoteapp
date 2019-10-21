@@ -78,8 +78,8 @@
         <div class="mas-box rheotorics-index-grid">
           <div class="rhetoric-index-container">
             <div class="rhetoric-index-img" id="result">
-              <%= link_to rhetoric do %>
               <div class="rhetoric-container">
+                <%= link_to rhetoric do %>
                 <% if rhetoric.picture? %>
                 <div class="rhetoric-picture index">
                   <%= image_tag rhetoric.picture.url %>
@@ -88,93 +88,96 @@
                 <div class="rhetoric-meigen">
                   <%= rhetoric.meigen %>
                 </div></br>
-                <div class="rhetoric-speaker">
-                  <%= rhetoric.speaker %>
+                <% end %>
+                <div class="rhetoric-bottom index">
+                  <div class="rhetoric-speaker">
+                    <%= rhetoric.speaker %>
+                  </div>
+                  <div class="btn-area-like-index">
+                    <div class="picks_buttons_index_<%= rhetoric.id %>">
+                      <span class="pick">
+                        <div class="count-like index">
+                          <%= rhetoric.picks_count %>
+                        </div>
+                        <% if rhetoric.pick?(current_user) %>
+                          <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+                            <%= button_tag(class: "btn-liked-index") do %>
+                              <%= content_tag :span, "", class: "fas fa-heart my-liked-index fa-lg" %>
+                            <% end %>
+                          <% end %>
+                        <% else %>
+                          <%= form_for(rhetoric.picks.build, remote: true) do |f| %>
+                            <div><%= hidden_field_tag :rhetoric_id, rhetoric.id %></div>
+                            <%= button_tag(class: "btn-like-index") do %>
+                              <%= content_tag :span, "", class: "far fa-heart my-like-index fa-lg modal-show" %>
+                            <% end %>
+                          <% end %>
+                        <% end %>
+
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <% end %>
             </div>
 
-            <div class="btn-area-like-index">
-              <div class="picks_buttons_index_<%= rhetoric.id %>">
-                <span class="pick">
-                  <div class="count-like index">
-                    <%= rhetoric.picks_count %>
-                  </div>
-                  <% if rhetoric.pick?(current_user) %>
-                    <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-                      <%= button_tag(class: "btn-liked-index") do %>
-                        <%= content_tag :span, "", class: "fas fa-heart my-liked-index fa-lg" %>
-                      <% end %>
-                    <% end %>
-                  <% else %>
-                    <%= form_for(rhetoric.picks.build, remote: true) do |f| %>
-                      <div><%= hidden_field_tag :rhetoric_id, rhetoric.id %></div>
-                      <%= button_tag(class: "btn-like-index") do %>
-                        <%= content_tag :span, "", class: "far fa-heart my-like-index fa-lg modal-show" %>
-                      <% end %>
-                    <% end %>
-                  <% end %>
-
-                </span>
-              </div>
-            </div>
+            
           </div>
         </div>
       <% end %>
       </div>
     </div>
     <div class="profile-contents-index" id="post">
-        <div id="masonry-container">
-        <% @user.posts.each do |post| %>
-          <div class="mas-box rheotorics-index-grid">
-            <div class="rhetoric-index-container">
-              <div class="rhetoric-index-img" id="result">
+      <div id="masonry-container">
+      <% @user.posts.each do |post| %>
+        <div class="mas-box rheotorics-index-grid">
+          <div class="rhetoric-index-container">
+            <div class="rhetoric-index-img" id="result">
+              <div class="rhetoric-container">
                 <%= link_to post do %>
-                <div class="rhetoric-container">
-                  <% if post.picture? %>
-                  <div class="rhetoric-picture index">
-                    <%= image_tag post.picture.url %>
-                  </div>
-                  <% end %>
-                  <div class="rhetoric-meigen">
-                    <%= post.meigen %>
-                  </div></br>
+                <% if post.picture? %>
+                <div class="rhetoric-picture index">
+                  <%= image_tag post.picture.url %>
+                </div>
+                <% end %>
+                <div class="rhetoric-meigen">
+                  <%= post.meigen %>
+                </div></br>
+                <% end %>
+                <div class="rhetoric-bottom index">
                   <div class="rhetoric-speaker">
                     <%= post.speaker %>
                   </div>
-                </div>
-                <% end %>
-              </div>
-
-              <div class="btn-area-like-index">
-                <div class="picks_buttons_index_<%= post.id %>">
-                  <span class="pick">
-                    <div class="count-like index">
-                      <%= post.picks_count %>
+                  <div class="btn-area-like-index">
+                    <div class="picks_buttons_index_<%= post.id %>">
+                      <span class="pick">
+                        <div class="count-like index">
+                          <%= post.picks_count %>
+                        </div>
+                        <% if post.pick?(current_user) %>
+                          <%= form_for(post.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+                            <%= button_tag(class: "btn-liked-index") do %>
+                              <%= content_tag :span, "", class: "fas fa-heart my-liked-index fa-lg" %>
+                            <% end %>
+                          <% end %>
+                        <% else %>
+                          <%= form_for(post.picks.build, remote: true) do |f| %>
+                            <div><%= hidden_field_tag :rhetoric_id, post.id %></div>
+                            <%= button_tag(class: "btn-like-index") do %>
+                              <%= content_tag :span, "", class: "far fa-heart my-like-index fa-lg modal-show" %>
+                            <% end %>
+                          <% end %>
+                        <% end %>
+                      </span>
                     </div>
-                    <% if post.pick?(current_user) %>
-                      <%= form_for(post.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-                        <%= button_tag(class: "btn-liked-index") do %>
-                          <%= content_tag :span, "", class: "fas fa-heart my-liked-index fa-lg" %>
-                        <% end %>
-                      <% end %>
-                    <% else %>
-                      <%= form_for(post.picks.build, remote: true) do |f| %>
-                        <div><%= hidden_field_tag :rhetoric_id, post.id %></div>
-                        <%= button_tag(class: "btn-like-index") do %>
-                          <%= content_tag :span, "", class: "far fa-heart my-like-index fa-lg modal-show" %>
-                        <% end %>
-                      <% end %>
-                    <% end %>
-
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        <% end %>
         </div>
+      <% end %>
+      </div>
     </div>
     <div class="profile-contents-index" id="follow">
       <% if @follow_users.any? %>
