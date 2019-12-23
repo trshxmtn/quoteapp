@@ -160,11 +160,17 @@
 
 // rheotorics show
 
+@media (max-width: 767px) {
+  .main.rhetorics-show {
+    top: 0;
+  }
+}
+
 .btn-back {
   position: fixed;
   z-index: 999;
   top: 60px;
-  left: 80px;
+  left: 10px;
   height: 40px;
   width: 40px;
   background-color: #FCFEFF;
@@ -202,7 +208,8 @@
   .container.rhetorics-show {
     max-width: 100%;
     column-count: 1;
-    margin: 50px 5%;
+    padding-top: 50px;
+    margin: 0 0 50px;
   }
 }
 
@@ -423,7 +430,8 @@
 }
 
 .detail p {
-  font-size: 10px;
+  font-size: 12px;
+  line-height: 1.6em;
   font-weight: 300;
   color: #899399;
   margin-bottom: 10px;
@@ -441,10 +449,10 @@
 .tag-body {
   display: inline;
   background-color: #EDF0F2;
-  padding: 4px 8px;
+  padding: 4px 12px;
   margin: 3px;
   border-radius: 10px;
-  font-size: 7px;
+  font-size: 12px;
   color: #899399;
   font-weight: 550;
   vertical-align: baseline;
