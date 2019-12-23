@@ -160,11 +160,17 @@
 
 // rheotorics show
 
+@media (max-width: 767px) {
+  .main.rhetorics-show {
+    top: 0;
+  }
+}
+
 .btn-back {
   position: fixed;
   z-index: 999;
   top: 60px;
-  left: 80px;
+  left: 10px;
   height: 40px;
   width: 40px;
   background-color: #FCFEFF;
@@ -202,7 +208,8 @@
   .container.rhetorics-show {
     max-width: 100%;
     column-count: 1;
-    margin: 50px 5%;
+    padding-top: 50px;
+    margin: 0 0 50px;
   }
 }
 
