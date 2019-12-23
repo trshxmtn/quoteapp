@@ -12,6 +12,57 @@ class TagsController < ApplicationController
 
     ############
 
+    saved_names = ["家族", "先輩", "後輩", "友達", "先生", "恋人"]
+
+    @saved_tags = []
+
+    saved_names.each do |name|
+      @saved_tags.push(ActsAsTaggableOn::Tag.find_by(name: name))
+    end
+
+    @saved_hash = Hash.new
+
+    @saved_tags.each do |tag|
+      saved_rhetoric = Rhetoric.tagged_with("#{tag.name}").order("picks_count DESC").first
+      @saved_hash.store(tag.name, saved_rhetoric.picture)
+    end
+
+    ############
+
+    entrepreneur_names = ["イーロン・マスク", "ピーター・ティール", "スティーブ・ジョブズ", "マーク・ザッカーバーグ", "藤田晋", "孫正義"]
+
+    @entrepreneur_tags = []
+
+    entrepreneur_names.each do |name|
+      @entrepreneur_tags.push(ActsAsTaggableOn::Tag.find_by(name: name))
+    end
+
+    @entrepreneur_hash = Hash.new
+
+    @entrepreneur_tags.each do |tag|
+      entrepreneur_rhetoric = Rhetoric.tagged_with("#{tag.name}").order("picks_count DESC").first
+      @entrepreneur_hash.store(tag.name, entrepreneur_rhetoric.picture)
+    end
+
+    ############
+
+    great_writer_names = ["芥川龍之介", "坂口安吾", "武者小路実篤"]
+
+    @great_writer_tags = []
+
+    great_writer_names.each do |name|
+      @great_writer_tags.push(ActsAsTaggableOn::Tag.find_by(name: name))
+    end
+
+    @great_writer_hash = Hash.new
+
+    @great_writer_tags.each do |tag|
+      great_writer_rhetoric = Rhetoric.tagged_with("#{tag.name}").order("picks_count DESC").first
+      @great_writer_hash.store(tag.name, great_writer_rhetoric.picture)
+    end
+
+    ############
+
     anime_names = ["宇宙兄弟", "キングダム", "カイジ", "アオアシ", "闇金ウシジマくん", "文豪ストレイドッグス", "王様達のヴァイキング", "アイアムアヒーロー", "ここは今から倫理です。"]
 
     @anime_tags = []
