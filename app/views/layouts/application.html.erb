@@ -30,49 +30,6 @@
 
 <body>
 
-<sidebar>
-  <div class="sidebar">
-    <%= link_to root_path do %>
-      <div class="sidebar-logo">
-        <%= image_tag 'logo_symbol_white.png' %>
-      </div>
-    <% end %>
-    <div class="sidebar-contents">
-      <%= link_to root_path do %>
-        <div class="sidebar-content">
-          <i class="fas fa-search fa-lg my-search-sidebar"></i>
-        </div>
-      <% end %>
-      <% if user_signed_in? %>
-        <%= link_to profile_path(current_user) do %>
-          <div class="sidebar-content" id="like-tutorial-side">
-            <div class="sidebarProfileImage">
-              <%= image_tag current_user.picture.url %>
-            </div>
-            <div class="balloon">
-              <div class="likedIcon">
-                <i class="fas fa-heart my-liked-index fa-lg"></i>
-              </div>
-              <div class="balloon-message">
-                いいねした投稿はマイページに登録されます
-                <br>たくさんいいねして自分だけの名言集を作ろう！
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% else %>
-        <%= link_to new_user_session_path do %>
-          <div class="sidebar-content">
-            <div class="sidebarProfileImage">
-              <%= image_tag ('default.png') %>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-</sidebar>
-
 <footer>
   <div class="footer">
 
