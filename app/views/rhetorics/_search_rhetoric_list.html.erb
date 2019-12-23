@@ -22,6 +22,21 @@
     </div>    
 
     <li>
+      <div class="header-profile">
+        <% if user_signed_in? %>
+        <%= link_to profile_path(current_user) do %>
+          <div class="header-profile-img">
+            <%= image_tag current_user.picture.url %>
+          </div>
+        <% end %>
+        <% else %>
+          <%= link_to new_user_session_path do %>
+            <div class="header-profile-img">
+              <%= image_tag ('default.png') %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
       <div class="navToggle">
         <span></span><span></span><span></span>
       </div>
