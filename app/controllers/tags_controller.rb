@@ -12,7 +12,7 @@ class TagsController < ApplicationController
 
     ############
 
-    saved_names = ["家族", "先輩", "後輩", "友達", "先生", "恋人", "知り合い"]
+    saved_names = ["家族", "先輩", "後輩", "友達", "先生", "恋人"]
 
     @saved_tags = []
 
