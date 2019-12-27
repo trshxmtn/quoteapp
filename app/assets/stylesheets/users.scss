@@ -241,9 +241,12 @@
     line-height: 40px;
 }
 
-.rhetoric-index-container.profile {
-    padding: 0 0 5%;
+@media (max-width: 767px) {
+    .rhetoric-index-container.profile {
+        padding: 0 0 5%;
+    }
 }
+
 
 
 
