@@ -91,7 +91,7 @@
       <% @picks.each do |pick| %>
         <% rhetoric = Rhetoric.find_by(id: pick.rhetoric_id) %>
         <div class="mas-box rheotorics-index-grid">
-          <div class="rhetoric-index-container">
+          <div class="rhetoric-index-container profile">
             <div class="rhetoric-index-img" id="result">
               <div class="rhetoric-container">
                 <%= link_to rhetoric do %>
@@ -146,7 +146,7 @@
       <div id="masonry-container">
       <% @user.posts.each do |post| %>
         <div class="mas-box rheotorics-index-grid">
-          <div class="rhetoric-index-container">
+          <div class="rhetoric-index-container profile">
             <div class="rhetoric-index-img" id="result">
               <div class="rhetoric-container">
                 <%= link_to post do %>
