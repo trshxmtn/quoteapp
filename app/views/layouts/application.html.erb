@@ -41,38 +41,6 @@
 
 <body>
 
-<footer>
-  <div class="footer">
-
-    <div class="footer-content">
-    <%= link_to root_path do %>
-      <div class="footer-logo">
-        <%= image_tag ('icon-home.png') %>
-      </div>
-    <% end %>
-    </div>
-    
-    <% if user_signed_in? %>
-    <div class="footer-content">
-      <%= link_to profile_path(current_user) do %>
-        <div class="footer-userProfileImage">
-          <%= image_tag current_user.picture.url %>
-        </div>
-      <% end %>
-
-    </div>
-    <% else %>
-    <div class="footer-content">
-      <%= link_to new_user_session_path do %>
-        <div class="footer-userProfileImage">
-          <%= image_tag ('default.png') %>
-        </div>
-      <% end %>
-    </div>
-    <% end %>
-  </div>
-</footer>
-
 <% if flash[:notice] %>
   <div class="notice-message">
     <%= flash[:notice] %>
