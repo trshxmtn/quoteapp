@@ -19,6 +19,7 @@
 @media (max-width: 767px) {
   .main.rhetorics-index {
     margin-bottom: 96px;
+    margin-top: 16px;
   }
 }
 
@@ -47,6 +48,12 @@
   padding: 0 5% 5% 5%;
   border-radius: 2%;
   display: inline-block;
+}
+
+@media (max-width: 767px) {
+  .rhetoric-index-container {
+    padding: 0 16px 16px;
+  }
 }
 
 .rhetoric-container {
@@ -109,19 +116,6 @@
   float: right;
 }
 
-.count-like.index {
-  font-size: 12px;
-  color: #dd5555;
-  margin-top: 8px;
-  float: left;
-}
-
-@media (max-width: 767px) {
-  .count-like.index {
-    margin-top: 12px;
-  }
-}
-
 .edit_pick, .new_pick {
   float: left;
 }
@@ -130,12 +124,14 @@
   height: 30px;
   width: 30px;
   background-color: transparent;
-  border-radius: 50%;
   border: none;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+
 
 @media (max-width: 767px) {
   .btn-liked-index, .btn-like-index {
@@ -144,15 +140,19 @@
   }
 }
 
-.btn-liked-index:hover, .btn-like-index:hover {
-  background-color: #ddadad;
-}
-
 .my-like-index, .my-liked-index {
   color: #dd5555;
   margin: auto;
 }
 
+.btn-liked-index img, .btn-like-index img {
+  border-radius: 0;
+  width: 24px;
+}
+
+.btn-liked-index img:hover, .btn-like-index img:hover {
+  transform: translate3d(0px 0px 0px);
+}
   
 
 
@@ -225,7 +225,7 @@
 
 @media (max-width: 767px) {
   .rhetorics-show-grid {
-    padding: 7% 7% 0;
+    padding: 16px 16px 0;
   }
 }
 
@@ -266,6 +266,10 @@
   vertical-align: top;
 }
 
+.rhetorics-comments-grid h5 {
+  font-size: 16px;
+}
+
 @media (max-width: 767px) {
   .rhetorics-comments-grid {
     padding: 2% 7% 7%;;
@@ -277,7 +281,7 @@
 }
 
 .share-like-area {
-  height: 120px;
+  height: 80px;
   width: 100%;
 }
 
@@ -323,16 +327,11 @@
   transition-duration: 0.3s;
 }
 
-.btn-like:hover, .btn-liked:hover, .btn-twitter {
-  box-shadow: 0px 5px 10px rgba(61,71,76,0.15);
-}
-
 .btn-liked {
   background-color: #dd5555;
 }
 
 .btn-twitter {
-  margin-top: 21px;
   background-color: #55acee;
   padding-top: 0;
 }
@@ -344,6 +343,10 @@
 .likeBtn, .likedBtn {
   height: 40px;
   margin: 0 26%;
+}
+
+.likeBtn img, .likedBtn img, .btn-twitter img {
+  width: 20px;
 }
 
 .message-liked {
@@ -551,6 +554,7 @@
   border: solid #EDF0F2 1px;
   width: 100%;
   border-radius: 10px;
+  height: 42px;
 }
 
 .form-outline.new input {
@@ -584,11 +588,11 @@
 
 .textarea-outline.discription textarea {
   width: 100%;
-  font-size: inherit;
+  font-size: 16px;
   margin: 0;
   padding: 0;
   display: inline-block;
-  min-height: 80px;
+  min-height: 90px;
 }
 
 .form-actions-rhetoric-new [type="submit"]  {

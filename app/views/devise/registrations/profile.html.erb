@@ -111,9 +111,6 @@
                   <div class="btn-area-like-index">
                     <div class="picks_buttons_index_<%= rhetoric.id %>">
                       <span class="pick">
-                        <div class="count-like index">
-                          <%= rhetoric.picks_count %>
-                        </div>
                         <% if rhetoric.pick?(current_user) %>
                           <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
                             <%= button_tag(class: "btn-liked-index") do %>
@@ -166,9 +163,6 @@
                   <div class="btn-area-like-index">
                     <div class="picks_buttons_index_<%= post.id %>">
                       <span class="pick">
-                        <div class="count-like index">
-                          <%= post.picks_count %>
-                        </div>
                         <% if post.pick?(current_user) %>
                           <%= form_for(post.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
                             <%= button_tag(class: "btn-liked-index") do %>
