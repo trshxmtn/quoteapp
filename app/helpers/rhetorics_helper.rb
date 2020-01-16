@@ -8,10 +8,10 @@ module RhetoricsHelper
   GRAVITY1 = 'north-west'.freeze # 上部に配置
   TEXT_POSITION1 = '0,88'.freeze # 上から88px下げる
   FONT1 = './app/assets/fonts/NotoSansCJKjp-Medium.otf'.freeze
-  FONT_SIZE1 = 44
+  FONT_SIZE1 = 30
   FONT_COLOR1 = "#1A2023"
   # 一行あたりの文字数
-  INDENTION_COUNT1 = 12
+  INDENTION_COUNT1 = 30
   ROW_LIMIT1 = 100
 
   #発言者部分の設定
