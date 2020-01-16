@@ -11,16 +11,16 @@ module RhetoricsHelper
   FONT_SIZE1 = 35
   FONT_COLOR1 = "#1A2023"
   # 一行あたりの文字数
-  INDENTION_COUNT1 = 11
+  INDENTION_COUNT1 = 15
   ROW_LIMIT1 = 100
 
   #発言者部分の設定
   GRAVITY2 = 'south-west'.freeze # 下部に配置
-  TEXT_POSITION2 = '10,88'.freeze # 下から88px上げる
+  TEXT_POSITION2 = '10,100'.freeze # 下から88px上げる
   FONT2 = './app/assets/fonts/NotoSansCJKjp-Medium.otf'.freeze
   FONT_SIZE2 = 22
   FONT_COLOR2 = "#1A2023"
-  INDENTION_COUNT2 = 11
+  INDENTION_COUNT2 = 15
   ROW_LIMIT2 = 100
 
   class << self
