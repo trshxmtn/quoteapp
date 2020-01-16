@@ -80,10 +80,6 @@ p {
 ::placeholder {
   color: #a9b3b9;
 }
-//
-//nav.pagination {
-//  display: none;
-//}
 
 .notice-message, .alert-message {
   width: 100%;
@@ -138,6 +134,17 @@ p {
 
 
 
+// text 
+
+.h1 {
+  font-size: 20px;
+}
+
+.h2 {
+  font-size: 16px;
+}
+
+
 
 
 
@@ -146,6 +153,16 @@ p {
 body{
   background-color: #FCFEFF;
   color: #1A2023;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  padding: 50px 0 70px;
+}
+
+.bg-grey {
+  background-color: #EAEFF2;
 }
 
 .main{
