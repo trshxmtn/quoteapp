@@ -4,12 +4,12 @@ module RhetoricsHelper
   require 'securerandom'
 
   #名言部分の設定
-  BASE_IMAGE_PATH = './app/assets/images/quote_default.png'.freeze
+  BASE_IMAGE_PATH = './app/assets/images/ogp_back.png'.freeze
   GRAVITY1 = 'north'.freeze # 上部に配置
   TEXT_POSITION1 = '0,88'.freeze # 上から88px下げる
   FONT1 = './app/assets/fonts/NotoSansCJKjp-Medium.otf'.freeze
   FONT_SIZE1 = 44
-  FONT_COLOR1 = "white"
+  FONT_COLOR1 = "#1A2023"
   # 一行あたりの文字数
   INDENTION_COUNT1 = 12
   ROW_LIMIT1 = 100
@@ -19,7 +19,7 @@ module RhetoricsHelper
   TEXT_POSITION2 = '0,88'.freeze # 下から88px上げる
   FONT2 = './app/assets/fonts/NotoSansCJKjp-Medium.otf'.freeze
   FONT_SIZE2 = 22
-  FONT_COLOR2 = "white"
+  FONT_COLOR2 = "#1A2023"
   INDENTION_COUNT2 = 24
   ROW_LIMIT2 = 100
 
