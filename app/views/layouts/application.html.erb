@@ -1,65 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script data-ad-client="ca-pub-7298987481869351" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <%= favicon_link_tag('favicon.ico') %>
-  <%= favicon_link_tag('apple-touch-icon-180x180.png',
-                      {:rel => 'apple-touch-icon',
-                        :sizes => '180x180',
-                        :type => 'image/png'}) %>
-  <meta name="theme-color" content="#1a2023">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <%= show_meta_tags %>
+  <head>
+    <script data-ad-client="ca-pub-7298987481869351" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <%= favicon_link_tag('favicon.ico') %>
+    <%= favicon_link_tag('apple-touch-icon-180x180.png',
+                        {:rel => 'apple-touch-icon',
+                          :sizes => '180x180',
+                          :type => 'image/png'}) %>
+    <meta name="theme-color" content="#1a2023">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <%= show_meta_tags %>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
-  <link rel="manifest" href="/manifest.json" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <script data-ad-client="ca-pub-7298987481869351" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script data-ad-client="ca-pub-7298987481869351" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111093279-2"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111093279-2"></script>
+      <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    gtag('config', 'UA-111093279-2');
-  </script>
+      gtag('config', 'UA-111093279-2');
+    </script>
 
-</head>
+  </head>
 
-<body>
+  <body>
 
-<% if flash[:notice] %>
-  <div class="notice-message">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
-<% if flash[:alert] %>
-  <div class="alert-message">
-    <%= flash[:alert] %>
-  </div>
-<% end %>
+    <% if flash[:notice] %>
+      <div class="notice-message">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert-message">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
 
-<% if !user_signed_in? %>
-  <div class="require-login">
-    <p>ログイン・ユーザー登録をすれば言葉にいいねやコメントをすることができます！</p>
-  </div>
-<% end %>
+    <% if !user_signed_in? %>
+      <div class="require-login">
+        <p>ログイン・ユーザー登録をすれば言葉にいいねやコメントをすることができます！</p>
+      </div>
+    <% end %>
 
-<div class="search-square"></div>
+    <div class="search-square"></div>
 
-<%= yield %>
+    <%= yield %>
 
-</body>
+  </body>
 </html>

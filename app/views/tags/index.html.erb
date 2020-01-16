@@ -72,142 +72,135 @@
   </div>
 <% end %>
   
-<div class="main genre-search">
-  <div class="container genre-search">
-    <div class="fv-bg">
-      <%= image_tag ('quote-fv-pc.png'), class: "fv-bg-pc" %>
-      <%= image_tag ('quote-fv-sp.png'), class: "fv-bg-sp" %>
-        <div class="fv-top">
-          <%= image_tag ('logo_side_white.png'), class: 'fv-logo' %><br>
-          <h3>世界中のステキな言葉が集まる<br class="br-sp">名言共有サイト</h3>      
-        </div>
-    </div>
-    <div class="genre-title">
-      <h3>今人気のタグ</h3>
-    </div>
-    <ul class="genre-list">
-      <% @top_hash.each do |tag, picture| %>
-        <%= link_to rhetorics_path(tag_name: tag) do %>
-        <li class="genre-container">
-          <div class="genre-image">
-            <%= image_tag picture.url %>
-          </div>
-          <div class="genre-name">
-            <%= "#{tag}" %>
-          </div>
-          <div class="genre-count">
-            <p></p>
-          </div>
-        </li>
-        <% end %>
-      <% end %>
-    </ul>
+<div class="background bg-grey">
+  <section class="top-fv">
+    <%= image_tag ('quote-fv-pc.png'), class: "fv-bg-pc" %>
+    <%= image_tag ('quote-fv-sp.png'), class: "fv-bg-sp" %>
+      <div class="top-fv-copy">
+        <%= image_tag ('logo_side_white.png'), class: 'fv-logo' %><br>
+        <h3>世界中のステキな言葉が集まる<br class="br-sp">名言共有サイト</h3>      
+      </div>
+  </section>
 
-    <div class="genre-title">
-      <h3>みんなが救われた言葉</h3>
-    </div>
-    <ul class="genre-list">
-      <% @saved_hash.each do |tag, picture| %>
-        <%= link_to rhetorics_path(tag_name: tag) do %>
-          <li class="genre-container">
-            <div class="genre-image">
+  <section class="genre">
+    <div class="genre-container">
+      <h2 class="genre-title">
+        今人気のタグ
+      </h2>
+      <ul class="genre-list">
+        <% @top_hash.each do |tag, picture| %>
+          <%= link_to rhetorics_path(tag_name: tag) do %>
+          <li class="genre-item">
+            <div class="genre-item-image">
               <%= image_tag picture.url %>
             </div>
-            <div class="genre-name">
+            <div class="genre-item-name">
               <%= "#{tag}" %>
             </div>
-            <div class="genre-count">
-              <p></p>
-            </div>
           </li>
+          <% end %>
         <% end %>
-      <% end %>
-    </ul>
-
-    <div class="genre-title">
-      <h3>起業・ビジネスの言葉</h3>
+      </ul>
     </div>
-    <ul class="genre-list">
-      <% @entrepreneur_hash.each do |tag, picture| %>
-        <%= link_to rhetorics_path(tag_name: tag) do %>
-          <li class="genre-container">
-            <div class="genre-image">
+
+    <div class="genre-container">
+      <h2 class="genre-title">
+        みんなが救われた言葉
+      </h2>
+      <ul class="genre-list">
+        <% @saved_hash.each do |tag, picture| %>
+          <%= link_to rhetorics_path(tag_name: tag) do %>
+            <li class="genre-item">
+              <div class="genre-item-image">
+                <%= image_tag picture.url %>
+              </div>
+              <div class="genre-item-name">
+                <%= "#{tag}" %>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="genre-container">
+      <h2 class="genre-title">
+        起業・ビジネスの言葉
+      </h2>
+      <ul class="genre-list">
+        <% @entrepreneur_hash.each do |tag, picture| %>
+          <%= link_to rhetorics_path(tag_name: tag) do %>
+            <li class="genre-item">
+              <div class="genre-item-image">
+                <%= image_tag picture.url %>
+              </div>
+              <div class="genre-item-name">
+                <%= "#{tag}" %>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="genre-container">
+      <h2 class="genre-title">
+        漫画・アニメの名言
+      </h2>
+      <ul class="genre-list">
+        <% @anime_hash.each do |tag, picture| %>
+          <%= link_to rhetorics_path(tag_name: tag) do %>
+          <li class="genre-item">
+            <div class="genre-item-image">
               <%= image_tag picture.url %>
             </div>
-            <div class="genre-name">
+            <div class="genre-item-name">
               <%= "#{tag}" %>
             </div>
-            <div class="genre-count">
-              <p></p>
-            </div>
           </li>
+          <% end %>
         <% end %>
-      <% end %>
-    </ul>
-
-    <div class="genre-title">
-      <h3>漫画・アニメの名言</h3>
+      </ul>
     </div>
-    <ul class="genre-list">
-      <% @anime_hash.each do |tag, picture| %>
-        <%= link_to rhetorics_path(tag_name: tag) do %>
-        <li class="genre-container">
-          <div class="genre-image">
-            <%= image_tag picture.url %>
-          </div>
-          <div class="genre-name">
-            <%= "#{tag}" %>
-          </div>
-          <div class="genre-count">
-            <p></p>
-          </div>
-        </li>
-        <% end %>
-      <% end %>
-    </ul>
 
-    <div class="genre-title">
-      <h3>哲学者の名言</h3>
-    </div>
-    <ul class="genre-list">
-      <% @philosopher_hash.each do |tag, picture| %>
-        <%= link_to rhetorics_path(tag_name: tag) do %>
-        <li class="genre-container">
-          <div class="genre-image">
-            <%= image_tag picture.url %>
-          </div>
-          <div class="genre-name">
-            <%= "#{tag}" %>
-          </div>
-          <div class="genre-count">
-            <p></p>
-          </div>
-        </li>
-        <% end %>
-      <% end %>
-    </ul>
-
-    <div class="genre-title">
-      <h3>小説・文豪の名言</h3>
-    </div>
-    <ul class="genre-list">
-      <% @great_writer_hash.each do |tag, picture| %>
-        <%= link_to rhetorics_path(tag_name: tag) do %>
-          <li class="genre-container">
-            <div class="genre-image">
+    <div class="genre-container">
+      <h2 class="genre-title">
+        哲学者の名言
+      </h2>
+      <ul class="genre-list">
+        <% @philosopher_hash.each do |tag, picture| %>
+          <%= link_to rhetorics_path(tag_name: tag) do %>
+          <li class="genre-item">
+            <div class="genre-item-image">
               <%= image_tag picture.url %>
             </div>
-            <div class="genre-name">
+            <div class="genre-item-name">
               <%= "#{tag}" %>
             </div>
-            <div class="genre-count">
-              <p></p>
-            </div>
           </li>
+          <% end %>
         <% end %>
-      <% end %>
-    </ul>
+      </ul>
+    </div>
 
-
-  </div>
+    <div class="genre-container">
+      <h2 class="genre-title">
+        小説・文豪の名言
+      </h2>
+      <ul class="genre-list">
+        <% @great_writer_hash.each do |tag, picture| %>
+          <%= link_to rhetorics_path(tag_name: tag) do %>
+            <li class="genre-item">
+              <div class="genre-item-image">
+                <%= image_tag picture.url %>
+              </div>
+              <div class="genre-item-name">
+                <%= "#{tag}" %>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </section>
 </div>
