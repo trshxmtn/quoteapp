@@ -323,10 +323,14 @@ body{
   display: none;
 }
 
+.search-square > .tag-body {
+  background-color: #ffffff;
+}
+
 @media (max-width: 767px) {
   .search-square {
-    width: 62%;
-    left: 5%;
+    width: 100%;
+    left: 0;
   }
 }
 
