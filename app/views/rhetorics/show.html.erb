@@ -70,147 +70,135 @@
 </header>
                     
 
-<div class="main rhetorics-show">
-
-  <div class="container rhetorics-show">
-    <div class="rhetorics-show-grid">
-      <div class="rhetoric-container show">
-
-        <% if @rhetoric.picture? %>
-        <div class="rhetoric-picture">
-          <%= image_tag @rhetoric.picture.url %>
-        </div>
-        <% end %>
-
-        <div class="rhetoric-meigen show">
-          <%= @rhetoric.meigen %>
-        </div></br>
-        <div class="rhetoric-speaker show">
-          <%= @rhetoric.speaker %>
+<div class="background bg-grey">
+  <section class="show-quote">
+    <div class="show-quote-container">
+      <div class="show-quote-container-grid">
+        <div class="quote-container">
+          <% if @rhetoric.picture? %>
+          <div class="quote-container-picture">
+            <%= image_tag @rhetoric.picture.url %>
+          </div>
+          <% end %>
+          <div class="quote-container-meigen">
+            <%= @rhetoric.meigen %>
+          </div>
+          <div class="quote-container-bottom">
+            <div class="quote-container-speaker">
+              <%= @rhetoric.speaker %>
+            </div>
+            <div class="picks_buttons_<%= @rhetoric.id %>">
+              <%= render "picks/pick", rhetoric: @rhetoric %>
+            </div>
+          </div>
         </div>
       </div>
-    
-      <div class="rhetoric-contents">
-        <div class="share-like-area">
-          <div class="btn-area">
-            
-            <div class="btn-area-share">
-              <div class="count-share">
+
+      <div class="show-quote-item-grid">
+        <div class="show-quote-item rhetoric-contents">
+          <div class="show-quote-item">
+            <div class="show-quote-item-discription">
+              <p><%= @rhetoric.description %></p>
+            </div>
+            <div class="show-quote-item-tag-container">
+              <td><%= render 'rhetorics/tag_list', tag_list: @rhetoric.tag_list %></td>
+            </div>
+            <%= link_to profile_path(@rhetoric.user.id) do %>
+            <div class="show-quote-item-user">
+              <div class="show-quote-item-user-image">
+                <%= image_tag @rhetoric.user.picture.url %>
               </div>
-              <%= link_to "https://twitter.com/share?url=https://quote-by.me/rhetorics/#{@rhetoric.id}&text=Quote｜みんなの名言集" do %>
-                <div class="btn-twitter">
-                  <%= image_tag "twitter.png" %>
-                </div>
+              <div class="show-quote-item-user-name">
+                <%= @rhetoric.user.username %>
+              </div>
+              <% if @rhetoric.user == current_user %>
+              <div class="edit-and-delete-quote">
+                <%= link_to "編集する", edit_rhetoric_path %>
+                <%= link_to "削除する", rhetoric_path, method: :delete, data: {confirm: "Are you sure??"} %>
+              </div>
               <% end %>
             </div>
-            <div class="btn-area-like">
-              <div class="picks_buttons_<%= @rhetoric.id %>">
-                <%= render "picks/pick", rhetoric: @rhetoric %>
+            <% end %>
+          </div>
+          <div class="show-quote-item-cv">
+          </div>
+          <div class="show-quote-item-cv-share">
+            <%= link_to "https://twitter.com/share?url=https://quote-by.me/rhetorics/#{@rhetoric.id}&text=Quote｜みんなの名言集" do %>
+              <div class="btn-share">
+                <div class="btn-share-img">
+                  <%= image_tag "twitter.png" %>
+                </div>
+                <div class="btn-share-text">
+                  <h6>ツイートする</h6>
+                </div>
               </div>
-            </div>
+            <% end %>
           </div>
-        </div>
-
-        <div class="detail">
-          <%= link_to profile_path(@rhetoric.user.id) do %>
-          <div class="post-user">
-            <div class="post-user-image">
-              <%= image_tag @rhetoric.user.picture.url %>
-            </div>
-            <div class="post-user-name">
-              <%= @rhetoric.user.username %>
-            </div>
-          </div>
-          <% end %>
-          <div class="rhetoric-discription">
-            <p><%= @rhetoric.description %></p>
-          </div>
-          <div class="rhetoric-tag">
-            <td><%= render 'rhetorics/tag_list', tag_list: @rhetoric.tag_list %></td>
-          </div>
-          <% if @rhetoric.user == current_user %>
-          <div class="edit-and-delete-rhetoric">
-            <%= link_to "編集する", edit_rhetoric_path %>
-            <%= link_to "削除する", rhetoric_path, method: :delete, data: {confirm: "Are you sure??"} %>
-          </div>
-          <% end %>
         </div>
       </div>
+
     </div>
+  </section>
+  
+  <section class="index-quote">
+    <h2 class="related-title">
+      関連する言葉
+    </h2>
 
-    <div class="rhetorics-comments-grid">
-      <h5>コメント</h5>
-      <div class="comments">
-        <div id="comments_area"><!-- #① -->
-          <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-          <%= render partial: 'comments/index', locals: { comments: @comments } %>
-        </div>
-          <div class="comment-input">
-          <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
-          <%= render partial: 'comments/form', locals: { comment: @comment, rhetoric: @rhetoric } %>
-          </div>
-      </div>
-    </div>
+    <div class="container-related-index">
+      <div id="masonry-container">
+        <% @related_rhetorics.each do |rhetoric| %>
+          <div class="mas-box rheotorics-grid">
+            <div class="rhetoric-index-container">
+              <div class="rhetoric-index-img" id="result">
+                  <div class="rhetoric-container index">
+                    <%= link_to rhetoric do %>
+                    <% if rhetoric.picture? %>
+                      <%= image_tag rhetoric.picture.url %>
+                    <% end %>
 
-  </div>
+                    <div class="rhetoric-meigen index">
+                      <%= rhetoric.meigen %>
+                    </div></br>
+                    <% end %>
 
-  <div class="related-index-message">
-    <h4>関連する言葉</h4>
-  </div>
-
-  <div class="container-related-index">
-    <div id="masonry-container">
-      <% @related_rhetorics.each do |rhetoric| %>
-        <div class="mas-box rheotorics-grid">
-          <div class="rhetoric-index-container">
-            <div class="rhetoric-index-img" id="result">
-                <div class="rhetoric-container index">
-                  <%= link_to rhetoric do %>
-                  <% if rhetoric.picture? %>
-                    <%= image_tag rhetoric.picture.url %>
-                  <% end %>
-
-                  <div class="rhetoric-meigen index">
-                    <%= rhetoric.meigen %>
-                  </div></br>
-                  <% end %>
-
-                  <div class="rhetoric-bottom index">
-                    <div class="rhetoric-speaker index">
-                      <%= rhetoric.speaker %>
-                    </div>
-                    <div class="btn-area-like-index">
-                      <div class="picks_buttons_index_<%= rhetoric.id %> indexPick">
-                        <span class="pick">
-                          
-                          <% if rhetoric.pick?(current_user) %>
-                            <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-                              <%= button_tag(class: "btn-liked-index") do %>
-                                <%= content_tag :span, "", class: "fas fa-heart my-liked-index fa-lg" %>
+                    <div class="rhetoric-bottom index">
+                      <div class="rhetoric-speaker index">
+                        <%= rhetoric.speaker %>
+                      </div>
+                      <div class="btn-area-like-index">
+                        <div class="picks_buttons_index_<%= rhetoric.id %> indexPick">
+                          <span class="pick">
+                            
+                            <% if rhetoric.pick?(current_user) %>
+                              <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+                                <%= button_tag(class: "btn-liked-index") do %>
+                                  <%= image_tag "liked.png" %>
+                                <% end %>
+                              <% end %>
+                            <% else %>
+                              <%= form_for(rhetoric.picks.build, remote: true) do |f| %>
+                                <div><%= hidden_field_tag :rhetoric_id, rhetoric.id %></div>
+                                <%= button_tag(class: "btn-like-index") do %>
+                                  <%= image_tag "like.png" %>
+                                <% end %> 
                               <% end %>
                             <% end %>
-                          <% else %>
-                            <%= form_for(rhetoric.picks.build, remote: true) do |f| %>
-                              <div><%= hidden_field_tag :rhetoric_id, rhetoric.id %></div>
-                              <%= button_tag(class: "btn-like-index") do %>
-                                <%= content_tag :span, "", class: "far fa-heart my-like-index fa-lg" %>
-                              <% end %>
-                            <% end %>
-                          <% end %>
-                        </span>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                
+              </div>
+
               
             </div>
-
-            
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
+  </section>
     
 </div>
 
