@@ -73,7 +73,6 @@ module RhetoricsHelper
         # 文字描写
         config.draw "text #{TEXT_POSITION1} '#{text}'"
         config.kerning '4'
-        config.
       end
     end
 
