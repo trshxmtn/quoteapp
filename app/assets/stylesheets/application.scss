@@ -51,6 +51,10 @@ a, a:hover, a:visited, a:focus {
   text-decoration: none;
 }
 
+input {
+  font-size: 16px;
+}
+
 .btn:hover {
   background-color: #3D474C;
   color: #FCFEFF;
@@ -70,11 +74,11 @@ p {
 }
 
 .form-control::placeholder {
-  color: #899399;
+  color: #a9b3b9;
 }
 
 ::placeholder {
-  color: #899399;
+  color: #a9b3b9;
 }
 //
 //nav.pagination {
@@ -283,7 +287,7 @@ body{
   background-color: transparent;
   border: 0px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   padding: 0;
 }
 
@@ -340,8 +344,7 @@ nav.globalMenuSp {
 
 @media (max-width: 767px) {
   nav.globalMenuSp {
-    left: 0;
-    width: 90%;
+    right: 5px;
   }
 }
 
@@ -446,7 +449,6 @@ nav.globalMenuSp.active {
 .header-userName {
   float: left;
   height: 50px;
-  margin-left: 20px;
   line-height: 50px;
 }
 
