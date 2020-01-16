@@ -114,14 +114,14 @@
                         <% if rhetoric.pick?(current_user) %>
                           <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
                             <%= button_tag(class: "btn-liked-index") do %>
-                              <%= content_tag :span, "", class: "fas fa-heart my-liked-index fa-lg" %>
+                              <%= image_tag "liked.png" %>
                             <% end %>
                           <% end %>
                         <% else %>
                           <%= form_for(rhetoric.picks.build, remote: true) do |f| %>
                             <div><%= hidden_field_tag :rhetoric_id, rhetoric.id %></div>
                             <%= button_tag(class: "btn-like-index") do %>
-                              <%= content_tag :span, "", class: "far fa-heart my-like-index fa-lg modal-show" %>
+                              <%= image_tag "like.png" %>
                             <% end %>
                           <% end %>
                         <% end %>
@@ -166,14 +166,14 @@
                         <% if post.pick?(current_user) %>
                           <%= form_for(post.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
                             <%= button_tag(class: "btn-liked-index") do %>
-                              <%= content_tag :span, "", class: "fas fa-heart my-liked-index fa-lg" %>
+                              <%= image_tag "liked.png" %>
                             <% end %>
                           <% end %>
                         <% else %>
                           <%= form_for(post.picks.build, remote: true) do |f| %>
                             <div><%= hidden_field_tag :rhetoric_id, post.id %></div>
                             <%= button_tag(class: "btn-like-index") do %>
-                              <%= content_tag :span, "", class: "far fa-heart my-like-index fa-lg modal-show" %>
+                              <%= image_tag "like.png" %>
                             <% end %>
                           <% end %>
                         <% end %>
@@ -188,35 +188,5 @@
       <% end %>
       </div>
     </div>
-    <div class="profile-contents-index" id="follow">
-      <% if @follow_users.any? %>
-        <% @follow_users.each do |user| %>
-          <%= link_to profile_path(user) do %>
-          <div class="follow-user">
-            <div class="follow-user-left">
-              <div class="follow-user-image">
-                <%= image_tag current_user.picture.url %>
-              </div>
-            </div>
-            <div class="follow-user-right">
-              <div class="follow-user-name">
-                <%= user.username %>
-              </div>
-            </div>
-          </div>
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
-    <div class="profile-contents-index" id="follower">
-      <%= render 'show_follower' %>
-  </div>
 
-</div>
-          <div class="tab-follow">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 </div>
