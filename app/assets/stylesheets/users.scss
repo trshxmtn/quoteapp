@@ -16,7 +16,7 @@
 @media (max-width: 767px) {
     .container.profile {
       width: 100%;
-      padding: 0 5%;
+      padding: 0 16px;
       margin: 20px 0;
       box-sizing: border-box;
     }
@@ -193,7 +193,7 @@
 
 @media (max-width: 767px) {
     .container.profile-contents {
-        padding: 5%;
+        padding: 16px;
         margin-top: 5px;
         min-width: 100%;
         display: inline-block;

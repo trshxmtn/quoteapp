@@ -12,7 +12,7 @@
 
     <div class="header-search">
       <div class="search-icon">
-        <i class="fa fa-search fa-lg my-search"></i>
+        <%= image_tag "search.png" %>
       </div>
 
       <div class="search-input" id="#search-form">
@@ -94,20 +94,17 @@
                 <div class="btn-area-like-index">
                   <div class="picks_buttons_index_<%= rhetoric.id %> indexPick">
                     <span class="pick">
-                      <div class="count-like index">
-                        <%= rhetoric.picks_count %>
-                      </div>
                       <% if rhetoric.pick?(current_user) %>
                         <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
                           <%= button_tag(class: "btn-liked-index") do %>
-                            <%= content_tag :span, "", class: "fas fa-heart my-liked-index fa-lg" %>
+                            <%= image_tag "liked.png" %>
                           <% end %>
                         <% end %>
                       <% else %>
                       <%= form_for(rhetoric.picks.build, remote: true) do |f| %>
                         <div><%= hidden_field_tag :rhetoric_id, rhetoric.id %></div>
                           <%= button_tag(class: "btn-like-index") do %>
-                            <%= content_tag :span, "", class: "far fa-heart my-like-index fa-lg modal-show show-balloon" %>
+                            <%= image_tag "like.png" %>
                           <% end %>
                         <% end %>
                       <% end %>
