@@ -5,7 +5,7 @@ module RhetoricsHelper
 
   #名言部分の設定
   BASE_IMAGE_PATH = './app/assets/images/ogp_back.png'.freeze
-  GRAVITY1 = 'north'.freeze # 上部に配置
+  GRAVITY1 = 'north-west'.freeze # 上部に配置
   TEXT_POSITION1 = '0,88'.freeze # 上から88px下げる
   FONT1 = './app/assets/fonts/NotoSansCJKjp-Medium.otf'.freeze
   FONT_SIZE1 = 44
@@ -15,7 +15,7 @@ module RhetoricsHelper
   ROW_LIMIT1 = 100
 
   #発言者部分の設定
-  GRAVITY2 = 'south'.freeze # 下部に配置
+  GRAVITY2 = 'south-west'.freeze # 下部に配置
   TEXT_POSITION2 = '0,88'.freeze # 下から88px上げる
   FONT2 = './app/assets/fonts/NotoSansCJKjp-Medium.otf'.freeze
   FONT_SIZE2 = 22
