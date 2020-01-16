@@ -15,7 +15,7 @@
 
     <div class="header-search">
       <div class="search-icon">
-        <i class="fa fa-search fa-lg my-search"></i>
+        <%= image_tag "search.png" %>
       </div>
 
       <div class="search-input" id="#search-form">
@@ -104,12 +104,9 @@
               </div>
               <%= link_to "https://twitter.com/share?url=https://quote-by.me/rhetorics/#{@rhetoric.id}&text=Quote｜みんなの名言集" do %>
                 <div class="btn-twitter">
-                  <i class="fab fa-twitter my-twitter fa-lg"></i>
+                  <%= image_tag "twitter.png" %>
                 </div>
               <% end %>
-              <div class="message-share">
-                <h6>共有する</h6>
-              </div>
             </div>
             <div class="btn-area-like">
               <div class="picks_buttons_<%= @rhetoric.id %>">
@@ -190,9 +187,6 @@
                     <div class="btn-area-like-index">
                       <div class="picks_buttons_index_<%= rhetoric.id %> indexPick">
                         <span class="pick">
-                          <div class="count-like index">
-                            <%= rhetoric.picks_count %>
-                          </div>
                           
                           <% if rhetoric.pick?(current_user) %>
                             <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>

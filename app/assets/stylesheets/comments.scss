@@ -78,7 +78,7 @@
 }
 
 .comment-textarea textarea{
-    height: 34px;
+    height: 36px;
     width: 100%;
     background-color: #EDF0F2;
     border-radius: 20px;
@@ -86,6 +86,7 @@
     margin-top: 10px;
     color: #1A2023;
     font-size: 16px;
+    line-height: 28px;
     border: none;
     outline: none;
     resize: none;
@@ -99,10 +100,9 @@
 .comment-submit input {
     background-color: #1A2023;
     height: 30px;
-    width: 90px;
     float: right;
     margin: 0;
     color: #FCFEFF;
-    font-size: 10px;
+    font-size: 12px;
     border-radius: 15px;
 }
