@@ -1,18 +1,18 @@
 <span class="pick">
 
   <% if rhetoric.pick?(current_user) %>
-    <div class="likedBtn">
+    <div class="quote-container-liked">
     <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-      <%= button_tag(class: "btn-liked") do %>
-      <%= image_tag "liked_white.png" %>
+      <%= button_tag(class: "quote-container-liked-btn") do %>
+      <%= image_tag "liked.png" %>
       <% end %>
     <% end %>
     </div>
   <% else %>
-    <div class="likeBtn">
+    <div class="quote-container-like">
     <%= form_for(rhetoric.picks.build, remote: true) do |f| %>
       <div><%= hidden_field_tag :rhetoric_id, rhetoric.id %></div>
-        <%= button_tag(class: "btn-like") do %>
+        <%= button_tag(class: "quote-container-like-btn") do %>
         <%= image_tag "like.png" %>
       <% end %>
     <% end %>

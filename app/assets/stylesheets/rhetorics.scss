@@ -60,6 +60,7 @@
   width: 100%;
   padding: 25px;
   border-radius: 8px;
+  background-color: #FCFEFF;
   box-shadow: 0px 5px 30px rgba(61,71,76,0.1);
   transition-duration: 0.3s;
 }
@@ -160,60 +161,22 @@
 
 // rheotorics show
 
-@media (max-width: 767px) {
-  .main.rhetorics-show {
-    top: 0;
-  }
+.show-quote {
+  width: 100%;
+  margin-bottom: 36px;
 }
 
-.btn-back {
-  position: fixed;
-  z-index: 999;
-  top: 60px;
-  left: 10px;
-  height: 40px;
-  width: 40px;
-  background-color: #FCFEFF;
-  border-radius: 20px;
-  box-shadow: 0px 5px 10px rgba(61,71,76,0.05);
-  text-align: center;
-}
-
-@media (max-width: 767px) {
-  .btn-back {
-    display: none;
-  }
-}
-
-.btn-back:hover {
-  background-color: #EDF0F2;
-}
-
-.my-back {
-  color: #1A2023;
-  margin-top: 13.5px;
-}
-
-.container.rhetorics-show {
-  min-width: 80%;
-  padding: 0%;
-  margin: 50px 10%;
+.show-quote-container {
+  padding: 0 10%;
+  margin-bottom: 30px;
   column-count: 2;
   column-gap: 0;
-  border-radius: 15px;
+  border-radius: 0 0 16px 16px;
+  background-color: #FCFEFF;
   box-shadow: 0px 5px 40px rgba(61,71,76,0.1);
 }
 
-@media (max-width: 767px) {
-  .container.rhetorics-show {
-    max-width: 100%;
-    column-count: 1;
-    padding-top: 50px;
-    margin: 0 0 50px;
-  }
-}
-
-.rhetorics-show-grid {
+.show-quote-container-grid {
   width: 100%;
   padding: 40px 15% 40px;
   margin: 0;
@@ -223,40 +186,65 @@
   vertical-align: top;
 }
 
-@media (max-width: 767px) {
-  .rhetorics-show-grid {
-    padding: 16px 16px 0;
-  }
-}
-
-.rhetoric-container.show {
+.quote-container {
+  width: 100%;
+  padding: 24px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 20px rgba(61, 71, 76, 0.2);
+  transition-duration: 0.3s;
   text-align: left;
 }
 
-.rhetoric-container.show:hover {
-  transform: none;
-  box-shadow: 0px 5px 30px rgba(61,71,76,0.1);
-}
-
-.rhetoric-picture {
+.quote-container-picture {
   width: 100%;
   display: block;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
-.rhetoric-picture img {
+.quote-container-picture img {
   width: 100%;
+  border-radius: 8px;
 }
 
-.rhetoric-meigen.show {
+.quote-container-meigen {
   font-size: 20px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.07em;
 }
 
-.rhetoric-speaker.show {
-  font-size: 13px;
+.quote-container-bottom {
+  display: flex;
+  align-items: center;
 }
 
-.rhetorics-comments-grid {
+.quote-container-speaker {
+  width: calc(100% - 36.688px);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.quote-container-liked, .quote-container-like {
+
+}
+
+.quote-container-liked img, .quote-container-like img {
+  width: 20px;
+}
+
+.quote-container-liked-btn, .quote-container-like-btn {
+  display: flex;
+  height: 40px;
+  width: 40px;
+  margin: auto;
+  border: none;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.show-quote-item-grid {
   width: 100%;
   padding: 40px 15% 40px 10%;
   margin: 0;
@@ -266,164 +254,44 @@
   vertical-align: top;
 }
 
-.rhetorics-comments-grid h5 {
-  font-size: 16px;
+.show-quote-item {
+  padding: 8px 0;
 }
 
-@media (max-width: 767px) {
-  .rhetorics-comments-grid {
-    padding: 2% 7% 7%;;
-  }
-}
-
-.rhetoric-contents {
-  width: 100%;
-}
-
-.share-like-area {
-  height: 80px;
-  width: 100%;
-}
-
-.btn-area {
-  height: 120px;
-  width: 160px;
-  margin: auto;
-  text-align: center;
-}
-
-.btn-area-share, .btn-area-like {
-  float: left;
-  width: 80px;
-  margin-top: 20px;
-}
-
-.btn-share {
-  height: 40px;
-  width: 40px;
-  margin: auto;
-  border: none;
-  border-radius: 20px;
-  box-shadow: 0px 5px 20px rgba(61,71,76,0.1);
-  padding-top: 10px;
-  transition-duration: 0.3s;
-}
-
-.btn-share:hover {
-  box-shadow: 0px 5px 10px rgba(61,71,76,0.15);
-}
-
-.btn-like, .btn-liked, .btn-twitter {
-  height: 40px;
-  width: 40px;
-  margin: auto;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  box-shadow: 0px 5px 20px rgba(61,71,76,0.1);
-  padding-top: 6px;
-  transition-duration: 0.3s;
-}
-
-.btn-liked {
-  background-color: #dd5555;
-}
-
-.btn-twitter {
-  background-color: #55acee;
-  padding-top: 0;
-}
-
-.my-twitter {
-  color: white;
-}
-
-.likeBtn, .likedBtn {
-  height: 40px;
-  margin: 0 26%;
-}
-
-.likeBtn img, .likedBtn img, .btn-twitter img {
-  width: 20px;
-}
-
-.message-liked {
-  color: #dd5555;
-  width: 100%;
-}
-
-.message-like, .message-share {
-  color: #899399;
-  width: 100%;
-}
-
-.message-share h6, .message-like h6, .message-liked h6 {
-  font-size: 10px;
-  font-weight: 500;
-}
-
-.my-share {
-  color: #1A2023;
-}
-
-.my-like {
-  color: #dd5555;
-}
-
-.my-liked {
-  color: #FCFEFF;
-}
-
-.count-like {
+.show-quote-item-discription {
+  padding: 0 4px;
+  margin-bottom: 20px;
   font-size: 12px;
-  color: #dd5555;
-  margin-bottom: 4px;
+  line-height: 2em;
+  font-weight: 300;
 }
 
-.like-btn {
-  float: left;
-  height: 40px;
-  width: 40px;
-  margin: 20px 10px 0px 10px;
-  border-radius: 20px;
-  box-shadow: 0px 5px 10px rgba(61,71,76,0.2);
+.show-quote-item-tag-container {
+  border-bottom: solid 1px #EDF0F2;
+  padding: 5px 0 16px;
 }
 
-.detail {
-  margin-bottom: 40px;
-}
-
-.post-user {
+.show-quote-item-user {
   height: 40px;
   width: 100%;
-  border-top: solid 1px #EDF0F2;
-  border-bottom: solid 1px #EDF0F2;
   padding: 5px 5px 5px;
-  margin: 0 0 10px 0;
+  margin-bottom: 24px;
 }
 
-@media (max-width: 767px) {
-  .post-user-image {
-    width: 10%;
-  }
-}
-
-.post-user-image {
+.show-quote-item-user-image {
   float: left;
   height: 30px;
   width: 30px;
 }
 
-.post-user-image img {
+.show-quote-item-user-image img {
   width: 25px;
   height: 25px;
   margin: 2.5px;
   border-radius: 12.5px;
 }
 
-.post-user-name {
+.show-quote-item-user-name {
   float: left;
   height: 25px;
   padding-left: 10px;
@@ -432,65 +300,93 @@
   font-size: 12px;
 }
 
-.detail p {
-  font-size: 12px;
-  line-height: 1.6em;
-  font-weight: 300;
-  color: #899399;
-  margin-bottom: 10px;
-}
-
-.rhetoric-discription {
-  padding: 0 5px;
-}
-
-.rhetoric-tag {
-  border-bottom: solid 1px #EDF0F2;
-  padding: 5px 0 10px;
-}
-
-.tag-body {
-  display: inline;
-  background-color: #EDF0F2;
-  padding: 4px 12px;
-  margin: 3px;
-  border-radius: 10px;
-  font-size: 12px;
-  color: #899399;
-  font-weight: 550;
-  vertical-align: baseline;
-  white-space: nowrap;
-  text-align: center;
-}
-
-.tag-body:hover {
-  background-color: #dddddd;
-}
-
-.edit-and-delete-rhetoric {
+.edit-and-delete-quote {
   float: right;
   padding: 10px;
+  margin-bottom: 16px;
   font-size: 10px;
 }
 
-.edit-and-delete-rhetoric a {
+.edit-and-delete-quote a {
   color: #899399;
 }
 
-.related-index-message h4{
-  font-weight: 700;
-  margin: 30px 0 10px 20px;
+.show-quote-item-cv-share {
+  width: 100%;
 }
 
-.rhetorics-comments-grid h5 {
-  font-weight: 800;
-  margin-top: 0;
+.btn-share {
+  display: flex;
+  height: 40px;
+  width: 100%;
+  padding: 0 24px;
+  border: none;
+  border-radius: 20px;
+  background-color: #55acee;
+}
+
+.btn-share-img {
+  display: flex;
+  align-items: center;
+}
+
+.btn-share-img img {
+  height: 20px;
+  width: 24px;
+}
+
+.btn-share-text {
+  height: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-share-text h6 {
+  font-size: 16px;
+  color: #FCFEFF;
+}
+
+.related-title {
+  display: none;
 }
 
 .container-related-index {
   width: 100%;
   margin-bottom: 80px;
 }
+
+@media (max-width: 767px) {
+  .show-quote-container {
+    max-width: 100%;
+    column-count: 1;
+    padding: 0;
+  }
+
+  .show-quote-container-grid {
+    padding: 16px 16px 0;
+  }
+
+  .quote-container-speaker {
+    width: calc(100% - 46.688px);
+  }
+
+  .show-quote-item-grid {
+    padding: 2% 16px 7%;;
+  }
+
+  .show-quote-item-user-image {
+    width: 10%;
+  }
+
+  .related-title {
+    display: inline-block;
+    margin: 16px 20px;
+    font-size: 24px;
+    font-weight: 600;
+  }
+}
+
+
 
 
 

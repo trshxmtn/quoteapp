@@ -158,7 +158,12 @@ body{
 .background {
   position: absolute;
   width: 100%;
+  top: 50px;
   padding: 0 0 70px;
+}
+
+.bg-top {
+  top: 0px;
 }
 
 .bg-grey {
