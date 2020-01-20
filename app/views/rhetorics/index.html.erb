@@ -66,29 +66,27 @@
   </div>
 </header>
 
-<div class="main rhetorics-index">
-  <div id="masonry-container">
-
-    <% @rhetorics.each do |rhetoric| %>
-      <div class="mas-box rheotorics-index-grid">
-        <div class="rhetoric-index-container">
-
-          <div class="rhetoric-index-img" id="result">
-            <div class="rhetoric-container index">
+<div class="background bg-grey">
+  <section class="index-quote">
+    <div id="masonry-container">
+      <% @rhetorics.each do |rhetoric| %>
+        <div class="masonry-item">
+          <div class="index-quote-container">
+            <div class="quote-container" id="result">
               <%= link_to rhetoric do %>
-              <% if rhetoric.picture? %>
-              <div class="rhetoric-picture index">
-                <%= image_tag rhetoric.picture.url %>
-              </div>
+                <% if rhetoric.picture? %>
+                <div class="quote-container-picture">
+                  <%= image_tag rhetoric.picture.url %>
+                </div>
+                <% end %>
+
+                <div class="quote-container-meigen">
+                  <%= rhetoric.meigen %>
+                </div>
               <% end %>
 
-              <div class="rhetoric-meigen index">
-                <%= rhetoric.meigen %>
-              </div><br>
-              <% end %>
-
-              <div class="rhetoric-bottom index">
-                <div class="rhetoric-speaker index">
+              <div class="quote-container-bottom">
+                <div class="quote-container-speaker">
                   <%= rhetoric.speaker %>
                 </div>
                 <div class="btn-area-like-index">
@@ -112,16 +110,12 @@
                   </div>
                 </div>
               </div>
-              
             </div>
           </div>
-
-          
         </div>
-      </div>
-    <% end %>
-
-  </div>
+      <% end %>
+    </div>
+  </section>
   <div class="page-load-status">
     <p class="infinite-scroll-request">
       <i class="fa fa-spinner fa-spin"></i>Loading...
@@ -131,8 +125,6 @@
     <p class="infinite-scroll-last">End of content</p>
     <p class="infinite-scroll-error">No more pages to load</p>
   </div>
-
-
 </div>
 
 <%= link_to new_rhetoric_path do %>
