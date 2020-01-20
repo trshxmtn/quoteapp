@@ -145,54 +145,50 @@
       関連する言葉
     </h2>
 
-    <div class="container-related-index">
+    <div class="related-quote-index">
       <div id="masonry-container">
         <% @related_rhetorics.each do |rhetoric| %>
-          <div class="mas-box rheotorics-grid">
-            <div class="rhetoric-index-container">
-              <div class="rhetoric-index-img" id="result">
-                  <div class="rhetoric-container index">
-                    <%= link_to rhetoric do %>
-                    <% if rhetoric.picture? %>
-                      <%= image_tag rhetoric.picture.url %>
-                    <% end %>
+          <div class="masonry-item">
+            <div class="index-quote-container">
+              <div class="quote-container" id="result">
+                <%= link_to rhetoric do %>
+                  <% if rhetoric.picture? %>
+                  <div class="quote-container-picture">
+                    <%= image_tag rhetoric.picture.url %>
+                  </div>
+                  <% end %>
 
-                    <div class="rhetoric-meigen index">
-                      <%= rhetoric.meigen %>
-                    </div></br>
-                    <% end %>
+                  <div class="quote-container-meigen">
+                    <%= rhetoric.meigen %>
+                  </div>
+                <% end %>
 
-                    <div class="rhetoric-bottom index">
-                      <div class="rhetoric-speaker index">
-                        <%= rhetoric.speaker %>
-                      </div>
-                      <div class="btn-area-like-index">
-                        <div class="picks_buttons_index_<%= rhetoric.id %> indexPick">
-                          <span class="pick">
-                            
-                            <% if rhetoric.pick?(current_user) %>
-                              <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-                                <%= button_tag(class: "btn-liked-index") do %>
-                                  <%= image_tag "liked.png" %>
-                                <% end %>
-                              <% end %>
-                            <% else %>
-                              <%= form_for(rhetoric.picks.build, remote: true) do |f| %>
-                                <div><%= hidden_field_tag :rhetoric_id, rhetoric.id %></div>
-                                <%= button_tag(class: "btn-like-index") do %>
-                                  <%= image_tag "like.png" %>
-                                <% end %> 
-                              <% end %>
+                <div class="quote-container-bottom">
+                  <div class="quote-container-speaker">
+                    <%= rhetoric.speaker %>
+                  </div>
+                  <div class="btn-area-like-index">
+                    <div class="picks_buttons_index_<%= rhetoric.id %> indexPick">
+                      <span class="pick">
+                        <% if rhetoric.pick?(current_user) %>
+                          <%= form_for(rhetoric.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+                            <%= button_tag(class: "btn-liked-index") do %>
+                              <%= image_tag "liked.png" %>
                             <% end %>
-                          </span>
-                        </div>
-                      </div>
+                          <% end %>
+                        <% else %>
+                          <%= form_for(rhetoric.picks.build, remote: true) do |f| %>
+                            <div><%= hidden_field_tag :rhetoric_id, rhetoric.id %></div>
+                            <%= button_tag(class: "btn-like-index") do %>
+                              <%= image_tag "like.png" %>
+                            <% end %> 
+                          <% end %>
+                        <% end %>
+                      </span>
                     </div>
                   </div>
-                
+                </div>
               </div>
-
-              
             </div>
           </div>
         <% end %>

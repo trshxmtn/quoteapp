@@ -1,10 +1,10 @@
 $(document).on('turbolinks:load', function() {
-    $('.profile-contents > div').hide();
+    $('.profile-tab-contents > div').hide();
 
-    $('.tab').click(function () {
-        $('.profile-contents > div').hide().filter(this.hash).fadeIn();
+    $('.profile-tab').click(function () {
+        $('.profile-tab-contents > div').hide().filter(this.hash).fadeIn();
  
-        $('.tab').removeClass('active');
+        $('.profile-tab').removeClass('active');
         $(this).addClass('active');
  
         return false;

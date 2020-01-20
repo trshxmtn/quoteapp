@@ -60,52 +60,91 @@
 </header>
 
 
-<div class="main user-show">
-
-  <div class="container profile">
-    <div class="profile-area">
-      <div class="profile-image">
+<div class="background bg-grey">
+  <section class="user-profile">
+    <div class="user-profile-container">
+      <div class="user-profile-image">
         <%= image_tag @user.picture.url %>
       </div>
-      <div class="profile-name">
+      <div class="user-profile-name">
         <p><%= @user.username %></p>
       </div>
+      <div class="profile-tab-container">
+        <%= link_to "#post", class: "profile-tab post" do %><div class="profile-tab-item">投稿</div><% end %>
+        <%= link_to "#liked", class: "profile-tab liked" do %><div class="profile-tab-item">いいね</div><% end %>
+      </div>
     </div>
-    <div class="profile-followbtn">
-      <%= render 'devise/shared/follow_form' if user_signed_in? %>
-    </div>
+  </section>
 
-  </div>
-
-
-  <div class="container-tabs">
-    <%= link_to "#liked", class: "tab liked" do %><div class="profile-tab">いいねした言葉</div><% end %>
-    <%= link_to "#post", class: "tab post" do %><div class="profile-tab">投稿した言葉</div><% end %>
-    <%= link_to "#follow" , class: "tab follow" do%><div class="profile-tab" id="follow_count">フォロー&emsp;<%= @user.following.count %></div><% end %>
-    <%= link_to "#follower", class: "tab follower" do %><div class="profile-tab" id="follower_count">フォロワー&emsp;<%= @user.followers.count %></div><% end %>
-  </div>
-
-  <div class="container profile-contents">
-    <div class="profile-contents-index" id="liked">
-      <div id="masonry-container">
-      <% @picks.each do |pick| %>
-        <% rhetoric = Rhetoric.find_by(id: pick.rhetoric_id) %>
-        <div class="mas-box rheotorics-index-grid">
-          <div class="rhetoric-index-container profile">
-            <div class="rhetoric-index-img" id="result">
-              <div class="rhetoric-container">
-                <%= link_to rhetoric do %>
-                <% if rhetoric.picture? %>
-                <div class="rhetoric-picture index">
-                  <%= image_tag rhetoric.picture.url %>
+  <section class="user-contents">
+    <div class="profile-tab-contents">
+      <div class="profile-contents-index" id="post">
+        <div id="masonry-container">
+          <% @user.posts.each do |post| %>
+            <div class="masonry-item">
+              <div class="index-quote-container">
+                <div class="quote-container" id="result">
+                  <%= link_to post do %>
+                    <% if post.picture? %>
+                    <div class="quote-container-picture">
+                      <%= image_tag post.picture.url %>
+                    </div>
+                    <% end %>
+                    <div class="quote-container-meigen">
+                      <%= post.meigen %>
+                    </div>
+                  <% end %>
+                  
+                  <div class="quote-container-bottom">
+                    <div class="quote-container-speaker">
+                      <%= post.speaker %>
+                    </div>
+                    <div class="btn-area-like-index">
+                      <div class="picks_buttons_index_<%= post.id %>">
+                        <span class="pick">
+                          <% if post.pick?(current_user) %>
+                            <%= form_for(post.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+                              <%= button_tag(class: "btn-liked-index") do %>
+                                <%= image_tag "liked.png" %>
+                              <% end %>
+                            <% end %>
+                          <% else %>
+                            <%= form_for(post.picks.build, remote: true) do |f| %>
+                              <div><%= hidden_field_tag :rhetoric_id, post.id %></div>
+                              <%= button_tag(class: "btn-like-index") do %>
+                                <%= image_tag "like.png" %>
+                              <% end %>
+                            <% end %>
+                          <% end %>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="profile-contents-index" id="liked">
+        <div id="masonry-container">
+        <% @picks.each do |pick| %>
+          <% rhetoric = Rhetoric.find_by(id: pick.rhetoric_id) %>
+          <div class="masonry-item">
+            <div class="index-quote-container">
+              <div class="quote-container" id="result">
+                <%= link_to rhetoric do %>
+                  <% if rhetoric.picture? %>
+                  <div class="quote-container-picture">
+                    <%= image_tag rhetoric.picture.url %>
+                  </div>
+                  <% end %>
+                  <div class="quote-container-meigen">
+                    <%= rhetoric.meigen %>
+                  </div>
                 <% end %>
-                <div class="rhetoric-meigen">
-                  <%= rhetoric.meigen %>
-                </div></br>
-                <% end %>
-                <div class="rhetoric-bottom index">
-                  <div class="rhetoric-speaker">
+                <div class="quote-container-bottom">
+                  <div class="quote-container-speaker">
                     <%= rhetoric.speaker %>
                   </div>
                   <div class="btn-area-like-index">
@@ -132,61 +171,10 @@
                 </div>
               </div>
             </div>
-
-            
           </div>
+        <% end %>
         </div>
-      <% end %>
       </div>
     </div>
-    <div class="profile-contents-index" id="post">
-      <div id="masonry-container">
-      <% @user.posts.each do |post| %>
-        <div class="mas-box rheotorics-index-grid">
-          <div class="rhetoric-index-container profile">
-            <div class="rhetoric-index-img" id="result">
-              <div class="rhetoric-container">
-                <%= link_to post do %>
-                <% if post.picture? %>
-                <div class="rhetoric-picture index">
-                  <%= image_tag post.picture.url %>
-                </div>
-                <% end %>
-                <div class="rhetoric-meigen">
-                  <%= post.meigen %>
-                </div></br>
-                <% end %>
-                <div class="rhetoric-bottom index">
-                  <div class="rhetoric-speaker">
-                    <%= post.speaker %>
-                  </div>
-                  <div class="btn-area-like-index">
-                    <div class="picks_buttons_index_<%= post.id %>">
-                      <span class="pick">
-                        <% if post.pick?(current_user) %>
-                          <%= form_for(post.picks.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-                            <%= button_tag(class: "btn-liked-index") do %>
-                              <%= image_tag "liked.png" %>
-                            <% end %>
-                          <% end %>
-                        <% else %>
-                          <%= form_for(post.picks.build, remote: true) do |f| %>
-                            <div><%= hidden_field_tag :rhetoric_id, post.id %></div>
-                            <%= button_tag(class: "btn-like-index") do %>
-                              <%= image_tag "like.png" %>
-                            <% end %>
-                          <% end %>
-                        <% end %>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-      </div>
-    </div>
-
+  </section>
 </div>
