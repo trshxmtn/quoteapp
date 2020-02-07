@@ -94,4 +94,7 @@ Rails.application.configure do
 
   # Force all access to the app over SSL
   config.force_ssl = true
+  config.slack_user_regist_ch_url = ENV['SLACK_USER_REGIST_CH']
+  config.slack_quote_post_ch_url = ENV['SLACK_QUOTE_POST_CH']
+
 end

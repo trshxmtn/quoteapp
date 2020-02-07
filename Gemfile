@@ -29,6 +29,7 @@ gem 'meta-tags' #ページごとのタイトルの設定やOGP
 gem 'masonry-rails' #Pinterest風レイアウト
 gem "twitter"
 gem 'rack-rewrite' #wwwありをなしにリダイレクト
+gem 'slack-notifier' #Slack通知
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
