@@ -106,7 +106,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       notifier = Slack::Notifier.new(Rails.application.config.slack_user_regist_ch_url)
       attachments = {
           author_name: "#{resource.username}さんがQuoteに登録しました！",
-          color: "good"
+          text: "https://quote-by.me/profile/#{resource.id}",
+          color: "good",
+          footer: "世界中のステキな言葉が集まる名言共有サイト"
       }
       notifier.post attachments: [attachments]
     else
