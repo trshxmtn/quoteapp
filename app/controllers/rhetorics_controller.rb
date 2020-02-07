@@ -79,7 +79,7 @@ class RhetoricsController < ApplicationController
     notifier = Slack::Notifier.new(Rails.application.config.slack_quote_post_ch_url)
     user = User.find_by(id: rhetoric.user_id)
     attachments = {
-        author_name: "#{user.name}さんの投稿",
+        author_name: "#{user.username}さんの投稿",
         text: "https://quote-by.me/rhetorics/#{rhetoric.id}",
         color: "good",
         footer: rhetoric.meigen
