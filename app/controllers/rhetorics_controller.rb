@@ -32,6 +32,7 @@ class RhetoricsController < ApplicationController
     # Helperで生成した画像をimageカラムに
     @rhetoric.image = RhetoricsHelper.build(@rhetoric.meigen, @rhetoric.speaker)
     if @rhetoric.save # ここでuploaderが走る
+      slack_notif(@rhetoric)
       flash[:success] = "rhetoricが作成されました！"
       redirect_to @rhetoric
     else
@@ -73,5 +74,18 @@ class RhetoricsController < ApplicationController
     @rhetoric = Rhetoric.find(params[:id])
   end
 
-
+  def slack_notif(rhetoric)
+    if Rails.env.production?
+    notifier = Slack::Notifier.new(Rails.application.config.slack_quote_post_ch_url)
+    attachments = {
+        author_name: "新規投稿！",
+        text: rhetoric.meigen,
+        color: "good",
+        footer: "https://quote-by.me/rhetorics/#{rhetoric.id}"
+    }
+    notifier.post attachments: [attachments]
+    else
+      return
+    end
+   end
 end
