@@ -38,6 +38,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if resource.persisted?
       if resource.active_for_authentication?
         slack_notif(resource)
+        byebug
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
         respond_with resource, location: after_sign_up_path_for(resource)
@@ -105,7 +106,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       notifier = Slack::Notifier.new(Rails.application.config.slack_user_regist_ch_url)
       attachments = {
           author_name: "#{resource.username}さんがQuoteに登録しました！",
-          text: "https://quote-by.me/rhetorics/#{resource.username}",
           color: "good"
       }
       notifier.post attachments: [attachments]
