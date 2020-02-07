@@ -77,11 +77,12 @@ class RhetoricsController < ApplicationController
   def slack_notif(rhetoric)
     if Rails.env.production?
     notifier = Slack::Notifier.new(Rails.application.config.slack_quote_post_ch_url)
+    user = User.find_by(id: rhetoric.user_id)
     attachments = {
-        author_name: "新規投稿！",
-        text: rhetoric.meigen,
+        author_name: "#{user.name}さんの投稿",
+        text: "https://quote-by.me/rhetorics/#{rhetoric.id}",
         color: "good",
-        footer: "https://quote-by.me/rhetorics/#{rhetoric.id}"
+        footer: rhetoric.meigen
     }
     notifier.post attachments: [attachments]
     else
